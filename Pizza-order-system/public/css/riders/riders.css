@@ -1,0 +1,86 @@
+.rider-card-header {
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: #3535ee;
+    border-radius: 5px;
+}
+
+.rider-header {
+    float: left;
+    padding-top: 5px;
+    color: #fff;
+    font-size: 24px;
+}
+
+.rider-header span {
+    font-weight: 600;
+}
+
+.add-rider {
+    float: right;
+}
+
+.rider-func {
+    margin-bottom: 15px;
+    padding: 10px 0;
+}
+
+.l-rider-func {
+    float: left;
+}
+
+.l-rider-func #riders {
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    box-shadow: rgba(198, 198, 211, 0.2) 0px 7px 29px 0px;
+    background-color: #f9fbfd;
+    outline: none;
+    border-radius: 5px;
+}
+
+.r-rider-func {
+    float: right;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 8px;
+    border: 1px solid #dbdbdb;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #d6e4f0;
+}
+
+.text-white {
+    color: #fff;
+}
+
+button .text-white {
+    display: inline-block;
+}
+
+.alert-success {
+    width: 800px;
+    margin: 0 auto 20px;
+    padding: 25px;
+    background-color: #5fa06d;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.alert-text {
+    color: #fff;
+    font-size: 20px;
+}
+
+.w-20 {
+    width: 20%;
+}

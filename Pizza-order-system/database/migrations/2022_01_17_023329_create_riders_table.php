@@ -19,6 +19,7 @@ class CreateRidersTable extends Migration
             $table->string('phone', 50);
             $table->string('email', 100);
             $table->string('address');
+            $table->string('status', 100);
             $table->timestamps();
         });
     }

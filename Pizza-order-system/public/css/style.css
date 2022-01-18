@@ -1,19 +1,19 @@
 @font-face {
     font-family: Roboto-regular;
     src: url("../font/Roboto-Regular.ttf");
-  }
+}
 
-  @font-face {
+@font-face {
     font-family: Roboto-bold;
     src: url("../font/Roboto-Bold.ttf");
-  }
+}
 
-  body {
+body {
     line-height: 1;
     background-color: #EAF4F4;
     font-family: Roboto-regular;
     font-size: 14px;
-  }
+}
 
 
 .nav {
@@ -33,7 +33,7 @@ a {
     font-size: 24px;
 }
 
-.card-title{
+.card-title {
     font-size: 18px;
 }
 
@@ -53,7 +53,7 @@ a {
 .content {
     float: right;
     width: 80%;
-    padding:50px;
+    padding: 50px;
 }
 
 ul li {
@@ -76,33 +76,88 @@ a.nav-active:hover {
     color: #464646;
 }
 
-ul a{
+ul a {
     display: block;
     border-bottom-right-radius: 100px;
     border-top-right-radius: 100px;
     border-bottom: 1px solid #696969;
 }
 
-ul a:hover{
-    background-color: #989898/*  */;
+ul a:hover {
+    background-color: #989898
+        /*  */
+    ;
     color: #000;
 }
 
-.btn{
+.btn {
     display: inline-block;
-    padding:10px;
-    border-radius:5px;
-    color:#fff;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
 }
 
-.add-btn{
+.add-btn {
     background-color: #52B8F2;
 }
 
-.edit-btn{
+.edit-btn {
     background-color: #006400;
 }
 
-.delete-btn{
+.delete-btn {
     background-color: #8B0000;
+}
+
+button {
+    border: 0;
+}
+
+.card {
+    width: 80%;
+    margin: auto;
+    padding: 20px 50px;
+    box-shadow: 4px 4px 4px #989898;
+    background-color: #EAF4F4;
+    border-radius: 10px;
+}
+
+.card-title {
+    margin: 10px;
+    text-align: center;
+}
+
+
+.card input[type=text],
+.card select,
+.card textarea {
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid #686868;
+    border-radius: 5px;
+}
+
+.card input[type=radio],
+.card input[type=file] {
+    margin-top: 5px;
+}
+
+.card input[type=radio] {
+    margin-right: 5px;
+}
+
+.card .btn {
+    margin-top: 20px;
+}
+
+.input-group {
+    margin-top: 20px;
+}
+
+textarea {
+    resize: none;
+}
+
+.error {
+    color: #ff0000;
 }
