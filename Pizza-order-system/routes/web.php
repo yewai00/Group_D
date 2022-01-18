@@ -3,6 +3,8 @@
 use App\Models\Pizza;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PizzaController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,6 @@ use App\Http\Controllers\PizzaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/admin/categories', function () {
-    return view('Admin.layouts.app');
-});
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/pizzas/list', [PizzaController::class, 'pizzaList'])->name('admin.pizza.list');
@@ -37,4 +35,21 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/pizzas/delete/{id}', [PizzaController::class, 'deletePizza'])->name('pizza.delete.post');
 
     Route::post('/pizzas/search',[PizzaController::class,'searchPizza'])->name('pizza.search');
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+
+    Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
+
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('category.create');
+
+    Route::post('/categories/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+
+    Route::get('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
+
+    Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+
+    Route::post('/categories/search', [CategoryController::class, 'search'])->name('category.search');
 });

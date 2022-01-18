@@ -28,7 +28,7 @@
             My Profile
           </li>
         </a>
-        <a href="#" id="category">
+        <a href="{{ route('category.index') }}" id="category">
           <li>
             <i class="far fa-list-alt"></i>
             Categories

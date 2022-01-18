@@ -17,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Dao\PizzaDaoInterface', 'App\Dao\PizzaDao');
 
         $this->app->bind('App\Contracts\Services\PizzaServicesInterface', 'App\Services\PizzaServices');
+
+        $this->app->bind('App\Contracts\Dao\CategoryDaoInterface', 'App\Dao\CategoryDao');
+
+        $this->app->bind('App\Contracts\Services\CategoryServiceInterface', 'App\Services\CategoryService');
     }
 
     /**
