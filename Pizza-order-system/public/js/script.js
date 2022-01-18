@@ -3,6 +3,10 @@ $(document).ready(function(){
         $(".menu > a").removeClass("nav-active");
         $(this).addClass("nav-active");
     });
+
+    $(".close-btn").click(function () {
+        $(".alert").remove();
+    });
   });
 
 $(function () {
