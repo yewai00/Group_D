@@ -59,7 +59,7 @@
             Sale Graph
           </li>
         </a>
-        <a href="#">
+        <a href="{{ route('logout') }}">
           <li>
             <i class="fas fa-sign-out-alt"></i>
             Logout

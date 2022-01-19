@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Rider\RiderController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\Customer\CustController;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,22 @@ Route::get('/admin/categories', function () {
     return view('Admin.layouts.app');
 });
 
+
+
+Route::get('/register',[UserController::class,'showRegisterForm'])->name('register.get');
+
+Route::post('/register',[UserController::class,'submitRegisterForm'])->name('register.post');
+
+Route::get('/login',[UserController::class,'showLoginForm'])->name('login.get');
+
+Route::post('/login',[UserController::class,'submitLoginForm'])->name('login.post');
+
+Route::get('/logout',[UserController::class,'logout'])->name('logout');
+
+
+
+
+
 //rider crud route
 Route::prefix('admin/riders')->name('riders.')->group(function () {
     Route::get('/', [RiderController::class, 'index'])->name('index');
@@ -35,7 +51,7 @@ Route::prefix('admin/riders')->name('riders.')->group(function () {
     Route::delete('/{id}', [RiderController::class, 'destroy'])->name('destroy');
 
     Route::get('/{id}/edit', [RiderController::class, 'edit'])->name('edit');
-    
+
     Route::get('/search', [RiderController::class, 'search'])->name('search');
 });
 
@@ -59,5 +75,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/pizzas/search',[PizzaController::class,'searchPizza'])->name('pizza.search');
 });
 
-//user 
+//user
     Route::get('/', [CustController::class, 'index'])->name('cust');
