@@ -19,9 +19,6 @@
     <h1>
       <a href="#"> Pizza Order System </a>
     </h1>
-    <div class="right">
-        {{ Auth::user()->name }}
-    </div>
   </div>
   <div class="container clearfix">
     <div class="aside">
