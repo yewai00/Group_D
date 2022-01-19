@@ -1,0 +1,121 @@
+@font-face {
+    font-family: Roboto-regular;
+    src: url("../font/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: Roboto-bold;
+    src: url("../font/Roboto-Bold.ttf");
+}
+
+body {
+    line-height: 1;
+    font-family: Roboto-regular;
+    font-size: 14px;
+}
+
+label{
+    font-family: Roboto-bold;
+}
+
+button {
+    border: 0;
+}
+
+.card {
+    width: 50%;
+    margin: auto;
+    padding: 20px 50px;
+    background-color: #EAF4F4;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left:1px solid #989898 ;
+    border-right: 1px solid #989898;
+    border-bottom: 1px solid #989898;
+    margin-bottom: 50px;
+}
+
+.card-title {
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border:1px solid #989898;
+    background-color: #EAF4F4;
+    font-size: 24px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+.card input {
+    width: 100%;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    border: 1px solid #686868;
+    border-radius: 5px;
+}
+
+.card .btn {
+    margin-top: 20px;
+}
+
+.card-footer{
+    text-align: center;
+}
+
+.card-footer .btn{
+    margin:20px 30px;
+}
+
+.input-group {
+    margin-top: 20px;
+}
+
+.error{
+    color:#ff0000;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.add-btn {
+    background-color: #52B8F2;
+}
+
+.clear-btn{
+    background-color: #787878;
+}
+
+
+.error-alert{
+    padding: 15px 50px;
+    background-color: #f3c590;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.error-alert span{
+    display: inline-block;
+    padding: 5px;
+}
+
+.error-alert i{
+    float:right;
+    font-size: 24px;
+    line-height: 1;
+}
+
+
+.clearfix::before,
+.clearfix::after{
+    content: '';
+    display: table;
+    clear: both;
+}

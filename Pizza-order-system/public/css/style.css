@@ -14,9 +14,10 @@ body {
     font-size: 14px;
 }
 
-label{
+label {
     font-family: Roboto-bold;
 }
+
 .nav {
     display: block;
     line-height: 1;
@@ -133,9 +134,10 @@ button {
     background-color: #EAF4F4;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 20px 50px;/*
+    padding: 20px 50px;
+    /*
     box-shadow: 4px 4px 4px #989898;*/
-    border-left:1px solid #989898 ;
+    border-left: 1px solid #989898;
     border-right: 1px solid #989898;
     border-bottom: 1px solid #989898;
 }
@@ -149,11 +151,12 @@ button {
     text-align: center;
     background-color: #EAF4F4;
     padding: 20px;
-    border:1px solid #989898;
+    border: 1px solid #989898;
 }
 
 
 .card input[type=text],
+.card input[type=password],
 .card select,
 .card textarea {
     width: 100%;
@@ -164,11 +167,11 @@ button {
 }
 
 .card input[type=radio],
-.card input[type=file]{
+.card input[type=file] {
     margin-top: 5px;
 }
 
-.card input[type=radio]{
+.card input[type=radio] {
     margin-right: 5px;
 }
 
@@ -176,97 +179,110 @@ button {
     margin-top: 20px;
 }
 
-.card-footer{
+.card-footer {
     text-align: center;
 }
 
-.card-footer .btn{
-    margin:20px 30px;
+.card-footer .btn {
+    margin: 20px 30px;
 }
 
 .input-group {
     margin-top: 20px;
 }
 
-textarea{
+textarea {
     resize: none;
 }
 
-.error{
-    color:#ff0000;
+.error {
+    color: #ff0000;
 }
 
-.list img{
+.list img {
     width: 100px;
     height: 100px;
 }
 
 
-.list{
+.list {
     margin-top: 50px;
     width: 100%;
     text-align: center;
     border-collapse: collapse;
 }
 
-.list td{
+.list td {
     vertical-align: middle;
-    padding:20px 0px;
+    padding: 20px 0px;
 }
 
-.list thead tr{
+.list thead tr {
     border-bottom: 1px solid #000;
 }
 
-.list tbody tr{
+.list tbody tr {
     border-bottom: 1px solid #595959;
 }
 
-.alert{
+.alert {
     padding: 20px 50px;
     background-color: #52f2b5;
     border-radius: 5px;
     margin-bottom: 30px;
 }
 
-.alert span{
+.error-alert {
+    background-color: #f8c296;
+}
+
+.alert span {
     display: inline-block;
     padding: 5px;
 }
 
-.alert i{
-    float:right;
+.alert i {
+    float: right;
     font-size: 24px;
     line-height: 1;
 }
 
-.td-col1{
-    width:30%;
-    padding:20px;
+.td-col1 {
+    width: 30%;
+    padding: 20px;
     font-family: Roboto-bold;
     border-collapse: collapse;
 }
-.td-col2{
-    width:70%;
-    padding:20px;
+
+.td-col2 {
+    width: 70%;
+    padding: 20px;
 }
 
-.pizza-detail{
+.pizza-detail {
     width: 80%;
     margin: auto;
     margin-top: 30px;
 }
 
-.pizza-detail tr{
+.pizza-detail tr {
     border-bottom: 1px solid #595959;
 }
 
-.detail-img{
+.detail-img {
     width: 70%;
     height: 300px;
-    margin:10px auto;
+    margin: 10px auto;
 }
-.detail-img img{
+
+.detail-img img {
     width: 100%;
 }
 
+/*-------------------start admin profile-------------*/
+.link {
+    text-decoration: underline;
+    color: #0000ff;
+}
+
+/*-------------------end admin profile-------------*/
