@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Contracts\Dao\UserDaoInterface;
 use App\Contracts\Services\UserServicesInterface;
@@ -49,5 +50,29 @@ class UserServices implements UserServicesInterface
         } else {
             return false;
         }
+    }
+
+    /**
+     * to update user info
+     * @param Request $request, $id
+     * @return true
+     */
+    public function updateUserInfo(Request $request, $id)
+    {
+        return $this->userDao->updateUserInfo($request, $id);
+    }
+
+    /**
+     * To update user password
+     * @param Request $request,id
+     * @return message success or not
+     */
+    public function updateUserPassword(Request $request)
+    {
+        if (Hash::check($request->old_password, Auth::user()->password)) {
+            $this->userDao->updateUserPassword($request);
+            return true;
+        }
+        return false;
     }
 }

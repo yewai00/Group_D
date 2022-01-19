@@ -24,15 +24,15 @@ Route::get('/admin/categories', function () {
 
 
 
-Route::get('/register',[UserController::class,'showRegisterForm'])->name('register.get');
+Route::get('/register', [UserController::class, 'showRegisterForm'])->name('register.get');
 
-Route::post('/register',[UserController::class,'submitRegisterForm'])->name('register.post');
+Route::post('/register', [UserController::class, 'submitRegisterForm'])->name('register.post');
 
-Route::get('/login',[UserController::class,'showLoginForm'])->name('login.get');
+Route::get('/login', [UserController::class, 'showLoginForm'])->name('login.get');
 
-Route::post('/login',[UserController::class,'submitLoginForm'])->name('login.post');
+Route::post('/login', [UserController::class, 'submitLoginForm'])->name('login.post');
 
-Route::get('/logout',[UserController::class,'logout'])->name('logout');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 
 
@@ -72,8 +72,16 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/pizzas/delete/{id}', [PizzaController::class, 'deletePizza'])->name('pizza.delete.post');
 
-    Route::post('/pizzas/search',[PizzaController::class,'searchPizza'])->name('pizza.search');
+    Route::post('/pizzas/search', [PizzaController::class, 'searchPizza'])->name('pizza.search');
+
+    Route::get('/profile', [UserController::class, 'showAdminProfile'])->name('admin.profile');
+
+    Route::post('/profile/{id}', [UserController::class, 'submitAdminProfile'])->name('admin.profile.post');
+
+    Route::get('/profile/password', [UserController::class, 'showAdminChangePasswordForm'])->name('admin.password.get');
+
+    Route::post('/profile/password/{id}', [UserController::class, 'submitChangePasswordForm'])->name('admin.password.post');
 });
 
 //user
-    Route::get('/', [CustController::class, 'index'])->name('cust');
+Route::get('/', [CustController::class, 'index'])->name('cust');

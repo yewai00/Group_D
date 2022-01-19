@@ -95,4 +95,55 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('login.get');
     }
+
+    /**
+     * to redirect admin profile
+     * @param
+     * @return
+     */
+    public function showAdminProfile()
+    {
+        return view('Admin.Profile.profile');
+    }
+
+    /**
+     * to update admin profile
+     * @param Request $request ,$id
+     * @return view
+     */
+    public function submitAdminProfile(Request $request, $id)
+    {
+        $this->userInterface->updateUserInfo($request, $id);
+        return back()->with(['message' => 'Your profile is successfully updated!']);
+    }
+
+    /**
+     * To redirect admin change password page
+     * @param
+     * @return
+     */
+    public function showAdminChangePasswordForm()
+    {
+        return view('Admin.Profile.changePassword');
+    }
+
+    /**
+     * to change user password
+     * @param Request $request
+     * @return message success or not
+     */
+    public function submitChangePasswordForm(Request $request, $id)
+    {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|min:8|same:confirm_password',
+            'confirm_password' => 'required',
+        ]);
+
+        $status = $this->userInterface->updateUserPassword($request);
+        if ($status) {
+            return redirect()->route('admin.profile')->with(['message' => "The password is successfully updated!"]);
+        }
+        return back()->with(['error' => 'The old password is invalid!']);
+    }
 }
