@@ -23,7 +23,7 @@
   <div class="container clearfix">
     <div class="aside">
       <ul class="menu">
-        <a href="#" id="profile" class="nav-active">
+        <a href="{{ route('admin.profile') }}" id="profile" class="nav-active">
           <li>
             <i class="far fa-user-circle"></i>
             My Profile
