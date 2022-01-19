@@ -35,7 +35,7 @@
             Categories
           </li>
         </a>
-        <a href="#" id="pizza">
+        <a href="{{ route('admin.pizza.list') }}" id="pizza">
           <li>
             <i class="fas fa-pizza-slice"></i>
             Pizzas
