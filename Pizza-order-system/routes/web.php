@@ -3,6 +3,7 @@
 use App\Models\Pizza;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PizzaController;
+use App\Http\Controllers\Customer\CustController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,6 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::post('/pizzas/search',[PizzaController::class,'searchPizza'])->name('pizza.search');
 });
+
+//user 
+    Route::get('/', [CustController::class, 'index'])->name('cust');
