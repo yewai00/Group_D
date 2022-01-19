@@ -1,0 +1,35 @@
+/* header */
+
+.humburger {
+    display: none;
+}
+
+.logo {
+    float: left;
+}
+
+.nav {
+    float: right;
+    padding: 5px 0;
+}
+
+.nav-list {
+    float: left;
+}
+
+.nav-list a {
+    font-size: 16px;
+}
+
+.nav-list a:hover {
+    color: #2e1e18;
+}
+
+.nav-list:not(:last-child) {
+    margin-right: 45px;
+}
+
+header {
+    padding: 30px 0;
+    background-color: #f89269;
+}
