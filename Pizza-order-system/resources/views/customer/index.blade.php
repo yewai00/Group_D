@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/cust/common.css') }}">
   <link rel="stylesheet" href="{{ asset('css/cust/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/user_auth.css') }}">
   <script src="{{ asset('js/libraries/jquery-3.5.1.min.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>
 </head>
@@ -35,5 +36,8 @@
     <!-- ./container -->
   </header>
   <!-- header -->
+  <div class="content">
+        @yield('content')
+    </div>
 </body>
 </html>
