@@ -135,8 +135,6 @@ button {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 20px 50px;
-    /*
-    box-shadow: 4px 4px 4px #989898;*/
     border-left: 1px solid #989898;
     border-right: 1px solid #989898;
     border-bottom: 1px solid #989898;
@@ -161,6 +159,7 @@ button {
 .card textarea {
     width: 100%;
     margin-top: 5px;
+    padding-top: 5px;
     padding-left: 10px;
     border-radius: 5px;
     border: 1px solid #686868;
@@ -205,7 +204,26 @@ textarea {
 }
 
 
-.list {
+table {
+    margin-top: 50px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    border: 1px solid #dbdbdb;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+tr:nth-child(even) {
+    background-color: #d6e4f0;
+}
+
+
+/*.list {
     margin-top: 50px;
     width: 100%;
     text-align: center;
@@ -223,7 +241,7 @@ textarea {
 
 .list tbody tr {
     border-bottom: 1px solid #595959;
-}
+}*/
 
 .alert {
     padding: 20px 50px;

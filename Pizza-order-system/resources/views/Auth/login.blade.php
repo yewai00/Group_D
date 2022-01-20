@@ -31,7 +31,7 @@
         @endif
       </div>
       <div class="input-group">
-        <a href="#">
+        <a href="#" class="link">
           forget password?
         </a>
       </div>

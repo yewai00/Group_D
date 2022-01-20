@@ -29,7 +29,7 @@ class PizzaController extends Controller
     public function pizzaList()
     {
         $pizzas = $this->pizzaInterface->getAllPizzasInfo();
-        return view('Admin.pizzaList')->with(['pizzas' => $pizzas]);
+        return view('Admin.Pizza.pizzaList')->with(['pizzas' => $pizzas]);
     }
 
     /**
@@ -40,7 +40,7 @@ class PizzaController extends Controller
     public function showNewPizzaForm()
     {
         $categories = $this->pizzaInterface->getAllCategories();
-        return view('Admin.newPizza')->with(['categories' => $categories]);
+        return view('Admin.Pizza.newPizza')->with(['categories' => $categories]);
     }
 
     /**
@@ -71,7 +71,7 @@ class PizzaController extends Controller
     public function pizzaDetails($id)
     {
         $pizza = $this->pizzaInterface->getPizzaById($id);
-        return view('Admin.pizzaDetail')->with(['pizza' => $pizza]);
+        return view('Admin.Pizza.pizzaDetail')->with(['pizza' => $pizza]);
     }
 
     /**
@@ -83,7 +83,7 @@ class PizzaController extends Controller
     {
         $pizza = $this->pizzaInterface->getPizzaById($id);
         $categories = $this->pizzaInterface->getAllCategories();
-        return view('Admin.editPizza')->with(['pizza' => $pizza, 'categories' => $categories]);
+        return view('Admin.Pizza.editPizza')->with(['pizza' => $pizza, 'categories' => $categories]);
     }
 
     /**
@@ -112,7 +112,7 @@ class PizzaController extends Controller
      */
     public function showDeletePizzaConfirm($id){
         $pizza = $this->pizzaInterface->getPizzaById($id);
-        return view('Admin.deletePizza')->with(['pizza' => $pizza]);
+        return view('Admin.Pizza.deletePizza')->with(['pizza' => $pizza]);
     }
 
     /**
@@ -133,7 +133,7 @@ class PizzaController extends Controller
     public function searchPizza(Request $request)
     {
         $pizzas = $this->pizzaInterface->searchPizza($request);
-        return view('Admin.pizzaList')->with(['pizzas' => $pizzas]);
+        return view('Admin.Pizza.pizzaList')->with(['pizzas' => $pizzas]);
     }
 
 }
