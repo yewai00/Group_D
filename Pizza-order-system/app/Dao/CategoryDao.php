@@ -81,4 +81,13 @@ class CategoryDao implements CategoryDaoInterface
         $categories = DB::table('categories')->where('name', 'LIKE', '%' . $keyword . '%');
         return $categories->get();
     }
+
+    /**
+     * To export all categories information
+     * @param
+     * @return list of categories
+     */
+    public function export(){
+        return Category::all();
+    }
 }

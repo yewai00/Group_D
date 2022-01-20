@@ -105,6 +105,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 
     Route::post('/categories/search', [CategoryController::class, 'search'])->name('category.search');
+
+    Route::get('/categories/export',[CategoryController::class,'export'])->name('category.export');
+
+    Route::get('/categories/upload',[CategoryController::class,'showUploadForm'])->name('category.upload.get');
+
+    Route::post('/categories/upload',[CategoryController::class,'upload'])->name('category.upload');
 });
 
 Route::get('/', [CustController::class, 'index'])->name('cust');

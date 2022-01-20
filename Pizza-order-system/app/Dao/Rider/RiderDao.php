@@ -21,7 +21,7 @@ class RiderDao implements RiderDaoInterface {
     /**
      * store rider
      * @param Request $request
-     * 
+     *
      */
     public function store(Request $request) {
        $riders = DB::transaction(function () use ($request) {
@@ -37,10 +37,10 @@ class RiderDao implements RiderDaoInterface {
     }
 
     /**
-     * update rider 
+     * update rider
      * @param Request $request
      * @param $id
-     * 
+     *
      */
     public function update(Request $request, $id) {
         DB::transaction(function () use ($request, $id){
@@ -67,7 +67,7 @@ class RiderDao implements RiderDaoInterface {
     /**
      * delete rider
      * @param $id
-     * 
+     *
      */
     public function destroy($id) {
         DB::transaction(function () use ($id) {
@@ -87,4 +87,3 @@ class RiderDao implements RiderDaoInterface {
         return $riders->get();
     }
 }
-?>

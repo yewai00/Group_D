@@ -304,3 +304,20 @@ tr:nth-child(even) {
 }
 
 /*-------------------end admin profile-------------*/
+.center{
+    text-align:center;
+}
+
+input[type=file]::file-selector-button {
+    background-color: #81ecec;
+    border: 2px solid #00cec9;
+    padding: .2em .4em;
+    border-radius: .2em;
+    transition: 1s;
+  }
+
+  input[type=file]::file-selector-button:hover {
+    border: 2px solid #6c5ce7;
+    background-color: #a29bfe;
+  }
+
