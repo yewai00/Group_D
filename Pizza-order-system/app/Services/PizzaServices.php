@@ -113,4 +113,13 @@ class PizzaServices implements PizzaServicesInterface
         return $this->pizzaDao->searchPizza($request);
     }
 
+    /**
+     * to export all pizzas data
+     * @param
+     * @return list of pizza with category name
+     */
+    public function export(){
+        return $this->pizzaDao->export();
+    }
+
 }

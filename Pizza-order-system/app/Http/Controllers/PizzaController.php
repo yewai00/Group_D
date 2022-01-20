@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exports\PizzasExport;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Contracts\Services\PizzaServicesInterface;
 use App\Contracts\Services\CategoryServicesInterface;
 
@@ -110,7 +112,8 @@ class PizzaController extends Controller
      * @param $id
      * @return
      */
-    public function showDeletePizzaConfirm($id){
+    public function showDeletePizzaConfirm($id)
+    {
         $pizza = $this->pizzaInterface->getPizzaById($id);
         return view('Admin.Pizza.deletePizza')->with(['pizza' => $pizza]);
     }
@@ -120,9 +123,10 @@ class PizzaController extends Controller
      * @param $id
      * @return message success or not
      */
-    public function deletePizza($id){
+    public function deletePizza($id)
+    {
         $this->pizzaInterface->deletePizzaById($id);
-        return redirect()->route('admin.pizza.list')->with(['message'=>'The pizza is deleted successfully!']);
+        return redirect()->route('admin.pizza.list')->with(['message' => 'The pizza is deleted successfully!']);
     }
 
     /**
@@ -136,4 +140,13 @@ class PizzaController extends Controller
         return view('Admin.Pizza.pizzaList')->with(['pizzas' => $pizzas]);
     }
 
+    /**
+     * To export all pizzas data
+     * @param
+     * @return pizzas.xlsx
+     */
+    public function export()
+    {
+        return Excel::download(new PizzasExport($this->pizzaInterface), 'pizzas.csv');
+    }
 }
