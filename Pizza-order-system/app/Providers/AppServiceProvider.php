@@ -22,7 +22,14 @@ class AppServiceProvider extends ServiceProvider
         // Business logic registration
         $this->app->bind('App\Contracts\Services\Rider\RiderServiceInterface', 'App\Services\Rider\RiderService');
         $this->app->bind('App\Contracts\Services\PizzaServicesInterface', 'App\Services\PizzaServices');
+
+
+        $this->app->bind('App\Contracts\Dao\CategoryDaoInterface', 'App\Dao\CategoryDao');
+
+        $this->app->bind('App\Contracts\Services\CategoryServiceInterface', 'App\Services\CategoryService');
+
         $this->app->bind('App\Contracts\Services\UserServicesInterface', 'App\Services\UserServices');
+
     }
 
     /**

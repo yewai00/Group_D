@@ -4,8 +4,12 @@ use App\Models\Pizza;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Rider\RiderController;
 use App\Http\Controllers\PizzaController;
+use App\Http\Controllers\CategoryController;
+
+
 use App\Http\Controllers\Customer\CustController;
 use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +21,7 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/admin/categories', function () {
     return view('Admin.layouts.app');
@@ -83,5 +88,22 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/profile/password/{id}', [UserController::class, 'submitChangePasswordForm'])->name('admin.password.post');
 });
 
-//user
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+
+    Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
+
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('category.create');
+
+    Route::post('/categories/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+
+    Route::get('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
+
+    Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+
+    Route::post('/categories/search', [CategoryController::class, 'search'])->name('category.search');
+});
+
 Route::get('/', [CustController::class, 'index'])->name('cust');
+
