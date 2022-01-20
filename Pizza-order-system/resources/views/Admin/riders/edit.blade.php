@@ -2,11 +2,10 @@
 
 @section('content')
 
-  <section class="rider-section">
-    <div class="rider-card-header clearfix">
-      <h4 class="rider-header">Edit <span>Riders</span></h4>
-      <a href="{{ route('riders.index') }}" class="btn edit-btn add-rider">Back</a>
-    </div><!-- ./rider-card-header -->
+<a href="{{ route('riders.index') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+    <div class="card-title">
+        Update Rider Information
+    </div>
     <div class="card">
       <div class="card-body">
         <form action="{{ url('admin/riders/'.$rider->id) }}" method="POST" class="rider-form">
@@ -21,10 +20,10 @@
           </div>
           <div class="input-group">
             <label for="phone">Phone</label>
-            <input type="text" name="phone" id="phone" value="{{ $rider->phone ?? old('phone')}}"> 
+            <input type="text" name="phone" id="phone" value="{{ $rider->phone ?? old('phone')}}">
             @error('phone')
               <div class="error">{{ $message }}</div>
-            @enderror         
+            @enderror
           </div>
           <div class="input-group">
             <label for="email">Email</label>
@@ -46,16 +45,16 @@
               @if($rider->status == "avaliable")
                 <option value="avaliable" selected>avaliable</option>
                 <option value="not avaliable">not avaliable</option>
-              @else 
+              @else
                 <option value="avaliable">avaliable</option>
                 <option value="not avaliable" selected>not avaliable</option>
               @endif
           </select>
           </div>
-          <input type="submit" value="Update" class="btn edit-btn">
+         <div class="card-footer">
+             <button type="submit" class="btn edit-btn">Update</button>
+         </div>
         </form>
       </div><!-- ./card-body -->
     </div>
-  </section>
-  
 @endsection
