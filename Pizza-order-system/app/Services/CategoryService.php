@@ -92,6 +92,5 @@ class CategoryService implements CategoryServiceInterface {
      */
     public function upload(Request $request){
         return Excel::import(new CategoriesImport, $request->file('file'));
-
     }
 }

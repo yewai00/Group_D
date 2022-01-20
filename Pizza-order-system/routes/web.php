@@ -58,6 +58,12 @@ Route::prefix('admin/riders')->name('riders.')->group(function () {
     Route::get('/{id}/edit', [RiderController::class, 'edit'])->name('edit');
 
     Route::get('/search', [RiderController::class, 'search'])->name('search');
+
+    Route::get('/export',[RiderController::class,'export'])->name('export');
+
+    Route::get('/upload',[RiderController::class,'showUploadForm'])->name('upload.get');
+
+    Route::post('/upload',[RiderController::class,'upload'])->name('upload');
 });
 
 Route::group(['prefix' => 'admin'], function () {

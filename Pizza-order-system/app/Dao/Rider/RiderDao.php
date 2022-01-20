@@ -86,4 +86,13 @@ class RiderDao implements RiderDaoInterface {
                             ->orwhere('riders.email', 'LIKE', '%' . $keyword . '%');
         return $riders->get();
     }
+
+    /**
+     * To export all rider data
+     * @param
+     * @return
+     */
+    public function export(){
+        return Rider::select('id', 'name','email','phone','address','created_at','updated_at')->get();
+    }
 }
