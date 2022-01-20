@@ -32,7 +32,7 @@ interface PizzaServicesInterface
      */
     public function getPizzaById($id);
 
-     /**
+    /**
      * To get all categories
      * @param
      * @return list of Categories
@@ -44,7 +44,7 @@ interface PizzaServicesInterface
      * @param Request $request, $id
      * @return
      */
-    public function editPizza(Request $request,$id);
+    public function editPizza(Request $request, $id);
 
     /**
      * To delete pizza by id
@@ -60,5 +60,10 @@ interface PizzaServicesInterface
      */
     public function searchPizza(Request $request);
 
-
+    /**
+     * to export all pizzas data
+     * @param
+     * @return list of pizza with category name
+     */
+    public function export();
 }

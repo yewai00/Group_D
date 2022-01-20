@@ -9,7 +9,7 @@ use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\Customer\CustController;
 use App\Http\Controllers\UserController;
-
+use App\Services\PizzaServices;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +79,8 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::post('/pizzas/search', [PizzaController::class, 'searchPizza'])->name('pizza.search');
 
+    Route::get('/pizzas/export', [PizzaController::class, 'export'])->name('pizza.export');
+
     Route::get('/profile', [UserController::class, 'showAdminProfile'])->name('admin.profile');
 
     Route::post('/profile/{id}', [UserController::class, 'submitAdminProfile'])->name('admin.profile.post');
@@ -106,4 +108,3 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/', [CustController::class, 'index'])->name('cust');
-

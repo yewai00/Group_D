@@ -15,7 +15,8 @@ class PizzaDao  implements PizzaDaoInterface
      * @param
      * @return Pizza Object array
      */
-    public function getAllPizzasInfo(){
+    public function getAllPizzasInfo()
+    {
         return Pizza::all();
     }
 
@@ -42,7 +43,8 @@ class PizzaDao  implements PizzaDaoInterface
      * @param $id
      * @return pizza object $pizza
      */
-    public function getPizzaById($id){
+    public function getPizzaById($id)
+    {
         return Pizza::find($id);
     }
 
@@ -51,7 +53,8 @@ class PizzaDao  implements PizzaDaoInterface
      * @param
      * @return list of Categories
      */
-    public function getAllCategories(){
+    public function getAllCategories()
+    {
         return Category::all();
     }
 
@@ -60,14 +63,15 @@ class PizzaDao  implements PizzaDaoInterface
      * @param Request $request, $id, $fileName
      * @return
      */
-    public function editPizza(Request $request,$id,$fileName){
-        $pizza=Pizza::find($id);
-        $pizza->name=$request->name;
-        $pizza->category_id=$request->category_id;
+    public function editPizza(Request $request, $id, $fileName)
+    {
+        $pizza = Pizza::find($id);
+        $pizza->name = $request->name;
+        $pizza->category_id = $request->category_id;
         $pizza->buy_one_get_one = $request->buy_one_get_one;
         $pizza->description = $request->description;
-        if($fileName !=null){
-            $pizza->image=$fileName;
+        if ($fileName != null) {
+            $pizza->image = $fileName;
         }
         $pizza->save();
         return true;
@@ -78,19 +82,43 @@ class PizzaDao  implements PizzaDaoInterface
      * @param $id
      * @return
      */
-    public function deletePizzaById($id){
+    public function deletePizzaById($id)
+    {
         return Pizza::find($id)->delete();
     }
 
-     /**
+    /**
      * To search pizza by keyword
      * @param Request $request
      * @return list of pizza
      */
-    public function searchPizza(Request $request){
-        $pizzas=Pizza::orwhere('name', 'like','%'.$request->search.'%')
-                        ->orwhere('description', 'like','%'.$request->search.'%')
-                        ->get();
+    public function searchPizza(Request $request)
+    {
+        $pizzas = Pizza::orwhere('name', 'like', '%' . $request->search . '%')
+            ->orwhere('description', 'like', '%' . $request->search . '%')
+            ->get();
+        return $pizzas;
+    }
+
+    /**
+     * to export all pizzas data
+     * @param
+     * @return list of pizza with category name
+     */
+    public function export()
+    {
+        $pizzas = Pizza::join('categories', 'pizzas.category_id', 'categories.id')
+            ->select(
+                'pizzas.id',
+                'pizzas.name',
+                'pizzas.image',
+                'categories.name as category',
+                'pizzas.buy_one_get_one',
+                'pizzas.price',
+                'pizzas.description',
+                'pizzas.created_at',
+                'pizzas.updated_at'
+            )->get();
         return $pizzas;
     }
 }
