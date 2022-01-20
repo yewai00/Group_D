@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Contracts\Dao\CategoryDaoInterface;
 
-class CategoryDao implements CategoryDaoInterface 
+class CategoryDao implements CategoryDaoInterface
 {
 
     /**
@@ -22,7 +22,7 @@ class CategoryDao implements CategoryDaoInterface
     /**
      * store category
      * @param Request $request
-     * 
+     *
      */
     public function store(Request $request) {
        $categories = DB::transaction(function () use ($request) {
@@ -34,10 +34,10 @@ class CategoryDao implements CategoryDaoInterface
     }
 
     /**
-     * update category 
+     * update category
      * @param Request $request
      * @param $id
-     * 
+     *
      */
     public function update(Request $request, $id) {
         DB::transaction(function () use ($request, $id){
@@ -60,7 +60,7 @@ class CategoryDao implements CategoryDaoInterface
     /**
      * delete category
      * @param $id
-     * 
+     *
      */
     public function destroy($id) {
         DB::transaction(function () use ($id) {
@@ -79,4 +79,3 @@ class CategoryDao implements CategoryDaoInterface
         return $categories->get();
     }
 }
-?>

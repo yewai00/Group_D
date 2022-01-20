@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace App\Contracts\Dao;
 use Illuminate\Http\Request;
 
 
-interface CategoryDaoInterface 
+interface CategoryDaoInterface
 {
     /**
      * get category list
@@ -42,4 +42,3 @@ interface CategoryDaoInterface
      */
     public function search(Request $request);
 }
-?>

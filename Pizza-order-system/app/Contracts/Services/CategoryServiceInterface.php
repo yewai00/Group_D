@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace App\Contracts\Services;
 use Illuminate\Http\Request;
 
 
-interface CategoryServiceInterface 
+interface CategoryServiceInterface
 {
     /**
      * get category list
@@ -42,4 +42,3 @@ interface CategoryServiceInterface
      */
     public function search(Request $request);
 }
-?>
