@@ -58,6 +58,12 @@ Route::prefix('admin/riders')->name('riders.')->group(function () {
     Route::get('/{id}/edit', [RiderController::class, 'edit'])->name('edit');
 
     Route::get('/search', [RiderController::class, 'search'])->name('search');
+
+    Route::get('/export',[RiderController::class,'export'])->name('export');
+
+    Route::get('/upload',[RiderController::class,'showUploadForm'])->name('upload.get');
+
+    Route::post('/upload',[RiderController::class,'upload'])->name('upload');
 });
 
 Route::group(['prefix' => 'admin'], function () {
@@ -105,6 +111,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 
     Route::post('/categories/search', [CategoryController::class, 'search'])->name('category.search');
+
+    Route::get('/categories/export',[CategoryController::class,'export'])->name('category.export');
+
+    Route::get('/categories/upload',[CategoryController::class,'showUploadForm'])->name('category.upload.get');
+
+    Route::post('/categories/upload',[CategoryController::class,'upload'])->name('category.upload');
 });
 
 Route::get('/', [CustController::class, 'index'])->name('cust');

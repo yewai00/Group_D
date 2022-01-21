@@ -3,8 +3,11 @@
 namespace App\Services\Rider;
 
 use Illuminate\Http\Request;
-use App\Contracts\Services\Rider\RiderServiceInterface;
+use App\Exports\RidersExport;
+use App\Imports\RidersImport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Contracts\Dao\Rider\RiderDaoInterface;
+use App\Contracts\Services\Rider\RiderServiceInterface;
 
 class RiderService implements RiderServiceInterface {
 
@@ -47,7 +50,7 @@ class RiderService implements RiderServiceInterface {
     }
 
     /**
-     * find edit id 
+     * find edit id
      * @param $id
      */
     public function edit($id) {
@@ -69,5 +72,23 @@ class RiderService implements RiderServiceInterface {
      */
     public function search(Request $request) {
         return $this->riderDao->search($request);
+    }
+
+    /**
+     * To export all riders info into csv
+     * @param
+     * @return
+     */
+    public function export(){
+        return Excel::download(new RidersExport($this->riderDao), 'riders.csv');
+    }
+
+    /**
+     * to upload csv file into riders table
+     * @param Request $request
+     * @return message success or not
+     */
+    public function upload(Request $request){
+        return Excel::import(new RidersImport, $request->file('file'));
     }
 }

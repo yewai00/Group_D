@@ -21,7 +21,7 @@ class RiderDao implements RiderDaoInterface {
     /**
      * store rider
      * @param Request $request
-     * 
+     *
      */
     public function store(Request $request) {
        $riders = DB::transaction(function () use ($request) {
@@ -37,10 +37,10 @@ class RiderDao implements RiderDaoInterface {
     }
 
     /**
-     * update rider 
+     * update rider
      * @param Request $request
      * @param $id
-     * 
+     *
      */
     public function update(Request $request, $id) {
         DB::transaction(function () use ($request, $id){
@@ -67,7 +67,7 @@ class RiderDao implements RiderDaoInterface {
     /**
      * delete rider
      * @param $id
-     * 
+     *
      */
     public function destroy($id) {
         DB::transaction(function () use ($id) {
@@ -86,5 +86,13 @@ class RiderDao implements RiderDaoInterface {
                             ->orwhere('riders.email', 'LIKE', '%' . $keyword . '%');
         return $riders->get();
     }
+
+    /**
+     * To export all rider data
+     * @param
+     * @return
+     */
+    public function export(){
+        return Rider::select('id', 'name','email','phone','address','created_at','updated_at')->get();
+    }
 }
-?>

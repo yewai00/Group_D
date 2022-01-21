@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace App\Contracts\Dao\Rider;
 use Illuminate\Http\Request;
 
 
-interface RiderDaoInterface 
+interface RiderDaoInterface
 {
     /**
      * get rider list
@@ -41,5 +41,12 @@ interface RiderDaoInterface
      * @param Request $request
      */
     public function search(Request $request);
+
+    /**
+     * To export all rider data
+     * @param
+     * @return
+     */
+    public function export();
 }
-?>
+
