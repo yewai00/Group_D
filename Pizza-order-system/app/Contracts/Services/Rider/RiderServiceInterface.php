@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace App\Contracts\Services\Rider;
 use Illuminate\Http\Request;
 
 
-interface RiderServiceInterface 
+interface RiderServiceInterface
 {
     /**
      * get rider list
@@ -41,5 +41,19 @@ interface RiderServiceInterface
      * @param Request $request
      */
     public function search(Request $request);
+
+    /**
+     * To export all riders info into csv
+     * @param
+     * @return
+     */
+    public function export();
+
+     /**
+     * to upload csv file into riders table
+     * @param Request $request
+     * @return message success or not
+     */
+    public function upload(Request $request);
 }
-?>
+

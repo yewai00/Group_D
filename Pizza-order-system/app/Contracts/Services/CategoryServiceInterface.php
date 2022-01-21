@@ -41,4 +41,18 @@ interface CategoryServiceInterface
      * @param Request $request
      */
     public function search(Request $request);
+
+    /**
+     * To export all categories information
+     * @param
+     * @return list of categories
+     */
+    public function export();
+
+    /**
+     * to upload csv file into categories table
+     * @param Request $request
+     * @return message success or not
+     */
+    public function upload(Request $request);
 }

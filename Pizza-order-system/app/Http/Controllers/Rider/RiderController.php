@@ -27,8 +27,8 @@ class RiderController extends Controller
     }
 
     /**
-     * show riders list 
-     * 
+     * show riders list
+     *
      * @return view to index with $riders list
      */
     public function index(){
@@ -38,8 +38,8 @@ class RiderController extends Controller
     }
 
     /**
-     * create rider 
-     * 
+     * create rider
+     *
      * @return redirect to index with message
      */
     public function store(StoreRiderRequest $request) {
@@ -50,27 +50,27 @@ class RiderController extends Controller
 
     /**
      * show create page
-     * 
+     *
      */
     public function create() {
         return view('Admin.riders.create');
     }
 
     /**
-     * update rider 
+     * update rider
      * @param UpdateRiderRequest $request
      * @param $id
      * @returb redirect to index with message
      */
     public function update(UpdateRiderRequest $request, $id) {
-        $this->riderInterface->update($request, $id); 
+        $this->riderInterface->update($request, $id);
         return redirect()->route('riders.index')
-                ->with('success', 'rider updated successfully.'); 
+                ->with('success', 'rider updated successfully.');
     }
 
     /**
      * show edit page
-     * 
+     *
      * @param $id
      * @return view to edit page
      */
@@ -82,7 +82,7 @@ class RiderController extends Controller
 
     /**
      * delete rider
-     * 
+     *
      * @param $id
      * @return redirect to index page with message
      */
@@ -96,11 +96,44 @@ class RiderController extends Controller
      * search name and email
      * @param Request $request
      * return view to index page with search result
-     * 
+     *
      */
     public function search(Request $request) {
         $riders = $this->riderInterface->search($request);
         return view('Admin.riders.index')
                     ->with('riders', $riders);
+    }
+
+    /**
+     * To export all riders info to csv file
+     * @param
+     * @return
+     */
+    public function export(){
+        return $this->riderInterface->export();
+    }
+
+    /**
+     * To redirect rider upload form
+     * @param
+     * @return view
+     */
+    public function showUploadForm()
+    {
+        return view('Admin.riders.upload');
+    }
+
+    /**
+     * To upload csv file into riders table
+     * @param csv file
+     * @return message success or not
+     */
+    public function upload(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:csv'
+        ]);
+        $this->riderInterface->upload($request);
+        return redirect()->route('riders.index')->with(['success'=>'The choose file is successfully uploaded!']);
     }
 }

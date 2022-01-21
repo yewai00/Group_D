@@ -16,8 +16,8 @@
             <input type="text" name="riders" id="riders" placeholder="Search">
             <button type="submit" class="btn edit-btn">Search</button>
         </form>
-        <a href="" class="btn add-btn">Download</a>
-        <a href="" class="btn add-btn">Upload</a>
+        <a href="{{ route('riders.export') }}" class="btn add-btn">Download</a>
+        <a href="{{ route('riders.upload.get') }}" class="btn add-btn">Upload</a>
     </div>
 </div>
 <table class="list">

@@ -41,4 +41,11 @@ interface CategoryDaoInterface
      * @param Request $request
      */
     public function search(Request $request);
+
+    /**
+     * To export all categories information
+     * @param
+     * @return list of categories
+     */
+    public function export();
 }

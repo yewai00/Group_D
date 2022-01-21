@@ -18,8 +18,11 @@
             <input type="text" name="search" value="{{ old('search') }}" placeholder="search">
             <button type="submit" class="btn add-btn">Search</button>
         </form>
-        <a href="#" class="btn edit-btn">
+        <a href="{{ route('category.export') }}" class="btn edit-btn">
             Download
+        </a>
+        <a href="{{ route('category.upload.get') }}" class="btn edit-btn">
+            Upload
         </a>
     </div>
 </div>
