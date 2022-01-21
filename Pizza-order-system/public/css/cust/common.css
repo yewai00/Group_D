@@ -8,10 +8,19 @@
     src: url("../../font/Roboto-Bold.ttf");
 }
 
+@font-face {
+    font-family: Lucky;
+    src: url("../../font/LuckiestGuy-Regular.ttf");
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    line-height: 1.4;
+    line-height: 1.5;
     font-family: Roboto-regular;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .clearfix::before,
