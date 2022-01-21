@@ -22,28 +22,28 @@
             Download
         </a>
     </div>
-    <table class="list">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Count</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($categories as $item)
-            <tr>
-                <td>{{ $item->id }}</td>
-                <td>{{ $item->name }}</td>
-                <td>{{ $item->count }}</td>
-                <td>
-                    <a href="{{ route('category.edit',$item->id) }}" class="btn edit-btn"><i class="fas fa-edit"></i></a>
-                    <a href="{{ route('category.delete',$item->id) }}" class="btn delete-btn"><i class="fas fa-trash-alt"></i></a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
 </div>
+<table class="list">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Count</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($categories as $item)
+        <tr>
+            <td>{{ $item->id }}</td>
+            <td>{{ $item->name }}</td>
+            <td>{{ $item->count }}</td>
+            <td>
+                <a href="{{ route('category.edit',$item->id) }}" class="btn edit-btn"><i class="fas fa-edit"></i></a>
+                <a href="{{ route('category.delete',$item->id) }}" class="btn delete-btn"><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 @endsection

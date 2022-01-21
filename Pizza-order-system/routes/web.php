@@ -88,6 +88,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/profile/password', [UserController::class, 'showAdminChangePasswordForm'])->name('admin.password.get');
 
     Route::post('/profile/password/{id}', [UserController::class, 'submitChangePasswordForm'])->name('admin.password.post');
+
+    Route::get('/users/list/{role}',[UserController::class,'getAllUsersList'])->name('users.list');
+
+    Route::post('/users/search/{role}',[UserController::class,'search'])->name('user.search');
+
+    Route::get('/users/download/{role}',[UserController::class,'export'])->name('user.download');
 });
 
 
