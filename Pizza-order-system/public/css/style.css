@@ -65,7 +65,12 @@ ul li {
 }
 
 li i {
-    padding-right: 30px;
+    display: inline-block;
+    width: 25%;
+    text-align: right;
+}
+li span{
+    padding-left: 30px;
 }
 
 a.nav-active {

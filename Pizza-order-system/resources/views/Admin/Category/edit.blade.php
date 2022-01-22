@@ -18,11 +18,12 @@
               <div class="error">{{ $message }}</div>
             @enderror
           </div>
-          
-          <input type="submit" value="Update" class="btn edit-btn">
+          <div class="card-footer">
+              <button type="submit" class="btn edit-btn">Update</button>
+          </div>
         </form>
       </div><!-- ./card-body -->
-      
+
     </div>
-  
+
 @endsection
