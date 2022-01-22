@@ -93,7 +93,7 @@ class UserController extends Controller
     {
         Session::flush();
         Auth::logout();
-        return redirect()->route('login.get');
+        return redirect()->route('cust');
     }
 
     /**
