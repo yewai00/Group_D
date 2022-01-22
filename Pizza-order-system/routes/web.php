@@ -94,6 +94,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/profile/password', [UserController::class, 'showAdminChangePasswordForm'])->name('admin.password.get');
 
     Route::post('/profile/password/{id}', [UserController::class, 'submitChangePasswordForm'])->name('admin.password.post');
+
+    Route::get('/graph',[PizzaController::class,'graph'])->name('graph');
 });
 
 

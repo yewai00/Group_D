@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pizza;
 use Illuminate\Http\Request;
 use App\Exports\PizzasExport;
 use App\Http\Controllers\Controller;
@@ -148,5 +149,19 @@ class PizzaController extends Controller
     public function export()
     {
         return Excel::download(new PizzasExport($this->pizzaInterface), 'pizzas.csv');
+    }
+
+    public function graph()
+    {
+        $pizza = Pizza::all();
+        $data = [];
+
+        foreach ($pizza as $row) {
+            $data['label'][] = $row->name;
+            $data['data'][] = $row->price;
+        }
+
+        $data['chart_data'] = json_encode($data);
+        return view('Admin.graph', $data);
     }
 }

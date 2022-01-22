@@ -55,7 +55,7 @@
                         Riders
                     </li>
                 </a>
-                <a href="{{ route('graph') }}" id="graph">
+                <a href="#" id="graph">
                     <li>
                         <i class="fas fa-chart-bar"></i>
                         Sale Graph
@@ -70,9 +70,13 @@
             </ul>
         </div>
         <div class="content">
-            @yield('content')
+        <canvas id="graphCanvas"></canvas>
         </div>
     </div>
+    <script>
+            var cData = JSON.parse(`<?php echo $chart_data; ?>`);
+
+    </script>
 </body>
 
 </html>
