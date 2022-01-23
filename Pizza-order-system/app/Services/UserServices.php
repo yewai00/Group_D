@@ -46,8 +46,9 @@ class UserServices implements UserServicesInterface
      */
     public function login(Request $request)
     {
+        $remember_me = $request->has('remember_me') ? true : false;
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials,$remember_me)) {
             return true;
         } else {
             return false;

@@ -18,8 +18,9 @@
              <div class="error">{{ $message }}</div>
            @enderror
          </div>
-         
-         <input type="submit" value="Create" class="btn edit-btn">
+         <div class="card-footer">
+             <button type="submit" class="btn edit-btn">Create</button>
+         </div>
        </form>
       </div><!-- ./card-body -->
     </div>

@@ -64,8 +64,13 @@ a {
     padding: 15px 50px;
 }
 
-.menu i {
-    padding-right: 30px;
+.menu li i {
+    display: inline-block;
+    width: 25%;
+    text-align: right;
+}
+.menu li span{
+    padding-left: 30px;
 }
 
 a.nav-active {

@@ -26,31 +26,31 @@
         <a href="{{ route('admin.profile') }}" id="profile" class="nav-active">
           <li>
             <i class="far fa-user-circle"></i>
-            My Profile
+           <span> My Profile</span>
           </li>
         </a>
         <a href="{{ route('category.index') }}" id="category">
           <li>
             <i class="far fa-list-alt"></i>
-            Categories
+            <span>Categories</span>
           </li>
         </a>
         <a href="{{ route('admin.pizza.list') }}" id="pizza">
           <li>
             <i class="fas fa-pizza-slice"></i>
-            Pizzas
+            <span>Pizzas</span>
           </li>
         </a>
         <a href="#" id="order">
           <li>
             <i class="fas fa-receipt"></i>
-            Orders
+            <span>Orders</span>
           </li>
         </a>
         <a href="{{ route('riders.index') }}" id="rider">
           <li>
             <i class="fas fa-bicycle"></i>
-            Riders
+            <span>Riders</span>
           </li>
         </a>
         <a href="{{ route('users.list','0') }}" id="user">
@@ -62,13 +62,13 @@
         <a href="#" id="graph">
           <li>
             <i class="fas fa-chart-bar"></i>
-            Sale Graph
+            <span>Sale Graph</span>
           </li>
         </a>
         <a href="{{ route('logout') }}">
           <li>
             <i class="fas fa-sign-out-alt"></i>
-            Logout
+            <span>Logout</span>
           </li>
         </a>
       </ul>
