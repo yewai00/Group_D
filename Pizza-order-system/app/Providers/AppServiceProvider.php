@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Dao\Rider\RiderDaoInterface', 'App\Dao\Rider\RiderDao');
         $this->app->bind('App\Contracts\Dao\PizzaDaoInterface', 'App\Dao\PizzaDao');
         $this->app->bind('App\Contracts\Dao\UserDaoInterface', 'App\Dao\UserDao');
+        $this->app->bind('App\Contracts\Dao\CustDaoInterface', 'App\Dao\CustDao');
 
         // Business logic registration
         $this->app->bind('App\Contracts\Services\Rider\RiderServiceInterface', 'App\Services\Rider\RiderService');
@@ -29,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Services\CategoryServiceInterface', 'App\Services\CategoryService');
 
         $this->app->bind('App\Contracts\Services\UserServicesInterface', 'App\Services\UserServices');
+        $this->app->bind('App\Contracts\Services\CustServiceInterface', 'App\Services\CustService');
 
     }
 

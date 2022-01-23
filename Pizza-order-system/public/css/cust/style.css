@@ -204,7 +204,7 @@ header {
     font-size: 18px;
 }
 
-.list-box p .price {
+p .price {
     color: #f25212;
 }
 
@@ -213,13 +213,24 @@ header {
 }
 
 .list-box .pizza-img-wrap {
+    position: relative;
     width: 90%;
+    height: 285px;
     overflow: hidden;
     margin: 0 auto 30px;
     border-radius: 10px;
 }
 
-.list-box img {
+.buy-one {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    width: 70px;
+}
+
+.show-pizza {
+    width: 100%;
     transition: transform 0.2s ease-in-out;
 }
 
@@ -239,6 +250,25 @@ header {
 
 .detail:hover {
     background-color: #63c40f;
+}
+
+.pagination .page-item {
+    display: inline;
+}
+
+.page-item span,
+.page-item a {
+    margin-right: 10px;
+    padding: 15px 20px;
+    background-color: #63c40f;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.list .paginate {
+    display: block;
+    padding: 30px;
 }
 
 /* contact us */
@@ -373,4 +403,75 @@ footer {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     content: "\f818";
+}
+
+/* pizza-detail */
+
+.pizza-detail {
+    margin: 60px auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 15px;
+}
+
+.pizza-detail-inner {
+    padding: 60px;
+}
+
+.img-wrap {
+    position: relative;
+    width: 600px;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.promo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+}
+
+.left-detail {
+    float: left;
+    width: 50%;
+}
+
+.right-detail {
+    float: right;
+    width: 50%;
+    padding: 80px;
+    text-align: center;
+}
+
+.right-detail h5 {
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+.right-detail p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.btn-atc {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 10px 20px;
+    background-color: #6eb431;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 8px;
+}
+
+.btn-atc::before {
+    margin-right: 10px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f07a";
+}
+
+.btn-atc:hover {
+    opacity: 0.9;
 }
