@@ -14,7 +14,7 @@ body {
     font-size: 14px;
 }
 
-label{
+label {
     font-family: Roboto-bold;
 }
 
@@ -29,7 +29,7 @@ button {
     background-color: #EAF4F4;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border-left:1px solid #989898 ;
+    border-left: 1px solid #989898;
     border-right: 1px solid #989898;
     border-bottom: 1px solid #989898;
     margin-bottom: 50px;
@@ -40,7 +40,7 @@ button {
     margin: auto;
     margin-top: 50px;
     padding: 20px;
-    border:1px solid #989898;
+    border: 1px solid #989898;
     background-color: #EAF4F4;
     font-size: 24px;
     text-align: center;
@@ -49,7 +49,9 @@ button {
 }
 
 
-.card input {
+.card input[type=text],
+.card input[type=email],
+.card input[type=password] {
     width: 100%;
     margin-top: 5px;
     padding-top: 5px;
@@ -62,20 +64,20 @@ button {
     margin-top: 20px;
 }
 
-.card-footer{
+.card-footer {
     text-align: center;
 }
 
-.card-footer .btn{
-    margin:20px 30px;
+.card-footer .btn {
+    margin: 20px 30px;
 }
 
 .input-group {
     margin-top: 20px;
 }
 
-.error{
-    color:#ff0000;
+.error {
+    color: #ff0000;
 }
 
 .btn {
@@ -89,32 +91,32 @@ button {
     background-color: #52B8F2;
 }
 
-.clear-btn{
+.clear-btn {
     background-color: #787878;
 }
 
 
-.error-alert{
+.error-alert {
     padding: 15px 50px;
     background-color: #f3c590;
     border-radius: 5px;
     margin-bottom: 30px;
 }
 
-.error-alert span{
+.error-alert span {
     display: inline-block;
     padding: 5px;
 }
 
-.error-alert i{
-    float:right;
+.error-alert i {
+    float: right;
     font-size: 24px;
     line-height: 1;
 }
 
 
 .clearfix::before,
-.clearfix::after{
+.clearfix::after {
     content: '';
     display: table;
     clear: both;

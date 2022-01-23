@@ -23,60 +23,58 @@
         </h1>
     </div>
     <div class="container clearfix">
-        <div class="aside">
-            <ul class="menu">
-                <a href="{{ route('admin.profile') }}" id="profile" class="nav-active">
-                    <li>
-                        <i class="far fa-user-circle"></i>
-                        My Profile
-                    </li>
-                </a>
-                <a href="{{ route('category.index') }}" id="category">
-                    <li>
-                        <i class="far fa-list-alt"></i>
-                        Categories
-                    </li>
-                </a>
-                <a href="{{ route('admin.pizza.list') }}" id="pizza">
-                    <li>
-                        <i class="fas fa-pizza-slice"></i>
-                        Pizzas
-                    </li>
-                </a>
-                <a href="#" id="order">
-                    <li>
-                        <i class="fas fa-receipt"></i>
-                        Orders
-                    </li>
-                </a>
-                <a href="{{ route('riders.index') }}" id="rider">
-                    <li>
-                        <i class="fas fa-bicycle"></i>
-                        Riders
-                    </li>
-                </a>
-                <a href="#" id="graph">
-                    <li>
-                        <i class="fas fa-chart-bar"></i>
-                        Sale Graph
-                    </li>
-                </a>
-                <a href="{{ route('logout') }}">
-                    <li>
-                        <i class="fas fa-sign-out-alt"></i>
-                        Logout
-                    </li>
-                </a>
-            </ul>
-        </div>
+    <div class="aside">
+      <ul class="menu">
+        <a href="{{ route('admin.profile') }}" id="profile" class="nav-active">
+          <li>
+            <i class="far fa-user-circle"></i>
+            <span> My Profile</span>
+          </li>
+        </a>
+        <a href="{{ route('category.index') }}" id="category">
+          <li>
+            <i class="far fa-list-alt"></i>
+            <span>Categories</span>
+          </li>
+        </a>
+        <a href="{{ route('admin.pizza.list') }}" id="pizza">
+          <li>
+            <i class="fas fa-pizza-slice"></i>
+            <span>Pizzas</span>
+          </li>
+        </a>
+        <a href="#" id="order">
+          <li>
+            <i class="fas fa-receipt"></i>
+            <span>Orders</span>
+          </li>
+        </a>
+        <a href="{{ route('riders.index') }}" id="rider">
+          <li>
+            <i class="fas fa-bicycle"></i>
+            <span>Riders</span>
+          </li>
+        </a>
+        <a href="{{ route('graph') }}" id="graph">
+          <li>
+            <i class="fas fa-chart-bar"></i>
+            <span>Sale Graph</span>
+          </li>
+        </a>
+        <a href="{{ route('logout') }}">
+          <li>
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </li>
+        </a>
+      </ul>
+    </div>
         <div class="content">
         <canvas id="graphCanvas"></canvas>
         </div>
     </div>
     <script>
-            var cData = JSON.parse(`<?php echo $chart_data; ?>`);
-
+        var cData = JSON.parse(`<?php echo $chart_data; ?>`);
     </script>
 </body>
-
 </html>

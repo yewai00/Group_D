@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 use App\Exports\PizzasExport;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Contracts\Services\PizzaServicesInterface;
@@ -153,12 +154,15 @@ class PizzaController extends Controller
 
     public function graph()
     {
-        $pizza = Pizza::all();
+        $pizza = Pizza::join('order_pizzas','pizzas.id','order_pizzas.pizza_id')
+                    ->select(DB::raw('count(*) as count, pizzas.name'))
+                    ->groupBy('order_pizzas.pizza_id')
+                    ->get();
         $data = [];
 
         foreach ($pizza as $row) {
             $data['label'][] = $row->name;
-            $data['data'][] = $row->price;
+            $data['data'][] = $row->count;
         }
 
         $data['chart_data'] = json_encode($data);

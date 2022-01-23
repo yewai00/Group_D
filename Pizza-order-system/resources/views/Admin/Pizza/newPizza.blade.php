@@ -56,7 +56,9 @@
                 <small class="error">{{ $errors->first('description') }}</small>
                 @endif
             </div>
+            <div class="card-footer">
             <button type="submit" class="btn add-btn">Save</button>
+            </div>
         </form>
     </div>
 </div>
