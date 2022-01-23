@@ -58,13 +58,13 @@ a {
     padding: 50px;
 }
 
-ul li {
+.menu li {
     display: block;
     list-style: none;
     padding: 15px 50px;
 }
 
-li i {
+.menu i {
     padding-right: 30px;
 }
 
@@ -78,14 +78,14 @@ a.nav-active:hover {
     color: #464646;
 }
 
-ul a {
+.menu a {
     display: block;
     border-bottom-right-radius: 100px;
     border-top-right-radius: 100px;
     border-bottom: 1px solid #696969;
 }
 
-ul a:hover {
+.menu a:hover {
     background-color: #989898
         /*  */
     ;
@@ -331,9 +331,25 @@ tr:nth-child(even) {
     background-color: #045e5e;
 }
 
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination .page-item {
+    display: inline-block;
+    padding: 8px 10px;
+    background-color: #87c5c5;
+    border: 1px solid #048f8c;
+}
+
+.pagination .active {
+    border: 1px solid #6c5ce7;
+    background-color: #a29bfe;
+}
+
 /*-----------------end user crud----------*/
-.center{
-    text-align:center;
+.center {
+    text-align: center;
 }
 
 input[type=file]::file-selector-button {
@@ -342,10 +358,9 @@ input[type=file]::file-selector-button {
     padding: .2em .4em;
     border-radius: .2em;
     transition: 1s;
-  }
+}
 
-  input[type=file]::file-selector-button:hover {
+input[type=file]::file-selector-button:hover {
     border: 2px solid #6c5ce7;
     background-color: #a29bfe;
-  }
-
+}

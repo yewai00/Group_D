@@ -64,7 +64,7 @@ class UserDao  implements UserDaoInterface
     public function getAllUsers($role)
     {
         return User::select('id', 'name', 'email', 'phone', 'address', 'created_at', 'updated_at')
-            ->where('role', $role)->get();
+            ->where('role', $role)->paginate(8);
     }
 
     /**

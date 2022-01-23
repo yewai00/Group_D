@@ -53,7 +53,7 @@
             Riders
           </li>
         </a>
-        <a href="{{ route('users.list','user') }}" id="user">
+        <a href="{{ route('users.list','0') }}" id="user">
           <li>
           <i class="fas fa-users"></i>
             Users

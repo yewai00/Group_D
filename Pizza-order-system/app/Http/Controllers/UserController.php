@@ -153,8 +153,9 @@ class UserController extends Controller
      * @param $role
      * @return customers list
      */
-    public function getAllUsersList($role)
+    public function getAllUsersList($role_id)
     {
+        $role=$role_id==1?'admin':'user';
         $users = $this->userInterface->getAllUsers($role);
         if ($role == 'user') {
             return view('Admin.Users.userList')->with(['users' => $users]);
@@ -169,8 +170,10 @@ class UserController extends Controller
      * @param $request, $role
      * @return lists of arrays
      */
-    public function search(Request $request, $role)
+    public function search(Request $request, $role_id)
     {
+        $role=$role_id==1?'admin':'user';
+        dd($role);
         $users = $this->userInterface->search($request, $role);
         if ($role == 'user') {
             return view('Admin.Users.userList')->with(['users' => $users]);
