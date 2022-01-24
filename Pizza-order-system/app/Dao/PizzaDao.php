@@ -131,4 +131,17 @@ class PizzaDao  implements PizzaDaoInterface
             )->get();
         return $pizzas;
     }
+
+    /**
+     * To show pizza sales graph
+     * @param
+     * @return view with data
+     */
+    public function graph()
+    {
+        return  Pizza::join('order_pizzas', 'pizzas.id', 'order_pizzas.pizza_id')
+            ->select(DB::raw('count(*) as count, pizzas.name'))
+            ->groupBy('pizzas.id')
+            ->get();
+    }
 }

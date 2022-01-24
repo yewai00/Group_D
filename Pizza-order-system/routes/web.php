@@ -1,16 +1,17 @@
 <?php
 
 use App\Models\Pizza;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Rider\RiderController;
-use App\Http\Controllers\PizzaController;
-use App\Http\Controllers\CategoryController;
-
-
-use App\Http\Controllers\Customer\CustController;
-use App\Http\Controllers\UserController;
 use App\Services\PizzaServices;
 use PhpParser\Node\Expr\FuncCall;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
+
+use App\Http\Controllers\GraphController;
+use App\Http\Controllers\PizzaController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Rider\RiderController;
+use App\Http\Controllers\Customer\CustController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,6 +105,8 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::post('/profile/password/{id}', [UserController::class, 'submitChangePasswordForm'])->name('admin.password.post');
 
+    Route::get('/graph', [GraphController::class, 'graph'])->name('graph');
+
     Route::get('/users/list/{role_id}', [UserController::class, 'getAllUsersList'])->name('users.list');
 
     Route::post('/users/search/{role}', [UserController::class, 'search'])->name('user.search');
@@ -136,4 +139,4 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/', [CustController::class, 'index'])->name('cust');
 Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
-Route::get('/cart', [CustController::class , 'cart'])->name('cart');
+Route::get('/cart', [CustController::class, 'cart'])->name('cart');

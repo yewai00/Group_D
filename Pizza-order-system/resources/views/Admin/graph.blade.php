@@ -9,15 +9,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  <!--
-  <link rel="stylesheet" href="{{ asset('css/riders/riders.css') }}">-->
   <script src="{{ asset('js/libraries/chart.min.js') }}"></script>
   <script src="{{ asset('js/libraries/jquery-3.5.1.min.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>
 </head>
 
 <body>
-
   <div class="nav clearfix">
     <h1>
       <a href="#"> Pizza Order System </a>
@@ -56,12 +53,6 @@
             <span>Riders</span>
           </li>
         </a>
-        <a href="{{ route('users.list','0') }}" id="user">
-          <li>
-          <i class="fas fa-users"></i>
-            <span>Users</span>
-          </li>
-        </a>
         <a href="{{ route('graph') }}" id="graph">
           <li>
             <i class="fas fa-chart-bar"></i>
@@ -77,9 +68,15 @@
       </ul>
     </div>
     <div class="content">
-        @yield('content')
+      <div class="graph-title">
+        <h2>Pizza Sales Graph</h2>
+      </div>
+      <canvas id="graphCanvas"></canvas>
     </div>
   </div>
+  <script>
+    var cData = JSON.parse(`<?php echo $chart_data; ?>`);
+  </script>
 </body>
 
 </html>
