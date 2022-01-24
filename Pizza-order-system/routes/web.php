@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Customer\CustController;
 use App\Http\Controllers\UserController;
 use App\Services\PizzaServices;
+use PhpParser\Node\Expr\FuncCall;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,3 +127,5 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/', [CustController::class, 'index'])->name('cust');
+Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
+Route::get('/cart', [CustController::class , 'cart'])->name('cart');
