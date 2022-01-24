@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Customer\CustController;
 use App\Http\Controllers\UserController;
 use App\Services\PizzaServices;
+use PhpParser\Node\Expr\FuncCall;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,11 +60,11 @@ Route::prefix('admin/riders')->name('riders.')->group(function () {
 
     Route::get('/search', [RiderController::class, 'search'])->name('search');
 
-    Route::get('/export',[RiderController::class,'export'])->name('export');
+    Route::get('/export', [RiderController::class, 'export'])->name('export');
 
-    Route::get('/upload',[RiderController::class,'showUploadForm'])->name('upload.get');
+    Route::get('/upload', [RiderController::class, 'showUploadForm'])->name('upload.get');
 
-    Route::post('/upload',[RiderController::class,'upload'])->name('upload');
+    Route::post('/upload', [RiderController::class, 'upload'])->name('upload');
 });
 
 Route::group(['prefix' => 'admin'], function () {
@@ -94,6 +95,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/profile/password', [UserController::class, 'showAdminChangePasswordForm'])->name('admin.password.get');
 
     Route::post('/profile/password/{id}', [UserController::class, 'submitChangePasswordForm'])->name('admin.password.post');
+
+    Route::get('/users/list/{role_id}', [UserController::class, 'getAllUsersList'])->name('users.list');
+
+    Route::post('/users/search/{role}', [UserController::class, 'search'])->name('user.search');
+
+    Route::get('/users/download/{role}', [UserController::class, 'export'])->name('user.download');
 });
 
 
@@ -112,11 +119,13 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::post('/categories/search', [CategoryController::class, 'search'])->name('category.search');
 
-    Route::get('/categories/export',[CategoryController::class,'export'])->name('category.export');
+    Route::get('/categories/export', [CategoryController::class, 'export'])->name('category.export');
 
-    Route::get('/categories/upload',[CategoryController::class,'showUploadForm'])->name('category.upload.get');
+    Route::get('/categories/upload', [CategoryController::class, 'showUploadForm'])->name('category.upload.get');
 
-    Route::post('/categories/upload',[CategoryController::class,'upload'])->name('category.upload');
+    Route::post('/categories/upload', [CategoryController::class, 'upload'])->name('category.upload');
 });
 
 Route::get('/', [CustController::class, 'index'])->name('cust');
+Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
+Route::get('/cart', [CustController::class , 'cart'])->name('cart');

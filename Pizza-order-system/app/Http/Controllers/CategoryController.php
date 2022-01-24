@@ -139,6 +139,6 @@ class CategoryController extends Controller
             'file' => 'required|mimes:csv'
         ]);
         $this->categoryInterface->upload($request);
-        return redirect()->route('category.index')->with(['message'=>'The choose file is successfully uploaded!']);
+        return redirect()->route('category.index')->with(['message' => 'The choose file is successfully uploaded!']);
     }
 }

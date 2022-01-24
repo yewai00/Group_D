@@ -31,11 +31,10 @@
             <div class="filter-left">
               <label for="select-box">Choose Category:</label>
               <select name="select-box" id="select-box" class="select-style">
-                <option value="s">Pepperoni</option>
-                <option value="">Pepperoni</option>
-                <option value="">Pepperoni</option>
-                <option value="">Pepperoni</option>
-                <option value="">Pepperoni</option>
+                <option value="none">Choose Category</option>
+                @foreach($categories as $c)
+                  <option value="{{ $c->name }}">{{ $c->name }}</option>
+                @endforeach
               </select>
             </div>
             <div class="filter-right">
@@ -52,73 +51,24 @@
         </form>
         <div class="list">
           <div class="list-inner clearfix">
+            @foreach($pizzas as $pizza)
             <div class="list-box">
               <div class="list-box-inner">
                 <div class="pizza-img-wrap">
-                  <img src="img/Pepperoni.jpg" alt="">
+                @if($pizza->buy_one_get_one)
+                  <img src="{{ asset('img/buy1.png') }}" alt="buy-one-get-one" class="buy-one">
+                @endif
+                  <img src="{{ asset('img/'.$pizza->image) }}" alt="" class="show-pizza">
                 </div>
-                <h5>Pepperoni</h5>
-                <p>Price: <span class="price"><b>10000</b> MMK</span></p>
-                <a href="" class="detail">View</a>
+                <h5>{{ $pizza->name }}</h5>
+                <p>Price: <span class="price"><b>{{ $pizza->price }}</b> MMK</span></p>
+                <a href="{{ url('pizza-detail/'.$pizza->id) }}" class="detail">View</a>
               </div>
             </div>
             <!-- ./list-box -->
-            <div class="list-box">
-              <div class="list-box-inner">
-                <div class="pizza-img-wrap">
-                  <img src="img/korea_surf_turf.jpg" alt="">
-                </div>
-                <h5>Pepperoni</h5>
-                <p>Price: <span class="price"><b>10000</b> MMK</span></p>
-                <a href="" class="detail">View</a>
-              </div>
-            </div>
-            <!-- ./list-box -->
-            <div class="list-box">
-              <div class="list-box-inner">
-                <div class="pizza-img-wrap">
-                  <img src="img/Bulgogi-pizza-2.jpg" alt="">
-                </div>
-                <h5>Pepperoni</h5>
-                <p>Price: <span class="price"><b>10000</b> MMK</span></p>
-                <a href="" class="detail">View</a>
-              </div>
-            </div>
-            <!-- ./list-box -->
-            <div class="list-box">
-              <div class="list-box-inner">
-                <div class="pizza-img-wrap">
-                  <img src="img/mango_pizza.jpg" alt="">
-                </div>
-                <h5>Pepperoni</h5>
-                <p>Price: <span class="price"><b>10000</b> MMK</span></p>
-                <a href="" class="detail">View</a>
-              </div>
-            </div>
-            <!-- ./list-box -->
-            <div class="list-box">
-              <div class="list-box-inner">
-                <div class="pizza-img-wrap">
-                  <img src="img/Pepperoni.jpg" alt="">
-                </div>
-                <h5>Pepperoni</h5>
-                <p>Price: <span class="price"><b>10000</b> MMK</span></p>
-                <a href="" class="detail">View</a>
-              </div>
-            </div>
-            <!-- ./list-box -->
-            <div class="list-box">
-              <div class="list-box-inner">
-                <div class="pizza-img-wrap">
-                  <img src="img/korea_surf_turf.jpg" alt="">
-                </div>
-                <h5>Pepperoni</h5>
-                <p>Price: <span class="price"><b>10000</b> MMK</span></p>
-                <a href="" class="detail">View</a>
-              </div>
-            </div>
-            <!-- ./list-box -->
+            @endforeach
           </div>
+          <span class="paginate"> {{ $pizzas->links() }} </span>
         </div>
         <!-- ./list -->
       </div>

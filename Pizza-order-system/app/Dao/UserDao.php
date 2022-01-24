@@ -55,4 +55,32 @@ class UserDao  implements UserDaoInterface
         $user->save();
         return true;
     }
+
+    /**
+     * to get all customers list
+     * @param
+     * @return customers list
+     */
+    public function getAllUsers($role)
+    {
+        return User::select('id', 'name', 'email', 'phone', 'address', 'created_at', 'updated_at')
+            ->where('role', $role)->paginate(8);
+    }
+
+    /**
+     * to search user
+     * @param $request, $role
+     * @return lists of arrays
+     */
+    public function search(Request $request, $role)
+    {
+        $key = $request->search;
+        return User::where('role', $role)
+            ->where(function ($query) use ($key) {
+                $query->orwhere('name', 'like', '%' . $key . '%')
+                    ->orwhere('email', 'like', '%' . $key . '%')
+                    ->orwhere('address', 'like', '%' . $key . '%');
+            })
+            ->get();
+    }
 }

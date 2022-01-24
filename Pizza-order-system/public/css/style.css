@@ -100,8 +100,8 @@ a.nav-active:hover {
 .btn {
     display: inline-block;
     padding: 10px;
-    border-radius: 5px;
     color: #fff;
+    border-radius: 5px;
 }
 
 .add-btn {
@@ -125,38 +125,43 @@ a.nav-active:hover {
 }
 
 .search-form input {
-    border-radius: 10px;
-    padding-left: 10px;
     padding-top: 3px;
-    border: 1px solid #696969
+    padding-left: 10px;
+    border: 1px solid #696969;
+    border-radius: 10px;
 }
 
 button {
     border: 0;
 }
 
+.header {
+    margin-bottom: 30px;
+    ;
+}
+
 .card {
     width: 80%;
     margin: auto;
+    padding: 20px 50px;
     background-color: #EAF4F4;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding: 20px 50px;
     border-left: 1px solid #989898;
     border-right: 1px solid #989898;
     border-bottom: 1px solid #989898;
 }
 
 .card-title {
-    font-size: 24px;
     width: 80%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     margin: auto;
-    text-align: center;
-    background-color: #EAF4F4;
     padding: 20px;
     border: 1px solid #989898;
+    background-color: #EAF4F4;
+    font-size: 24px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 
@@ -168,8 +173,8 @@ button {
     margin-top: 5px;
     padding-top: 5px;
     padding-left: 10px;
-    border-radius: 5px;
     border: 1px solid #686868;
+    border-radius: 5px;
 }
 
 .card input[type=radio],
@@ -212,15 +217,14 @@ textarea {
 
 
 table {
-    margin-top: 50px;
     width: 100%;
     border-collapse: collapse;
 }
 
 td,
 th {
-    border: 1px solid #dbdbdb;
     padding: 10px;
+    border: 1px solid #dbdbdb;
     text-align: center;
     vertical-align: middle;
 }
@@ -251,10 +255,10 @@ tr:nth-child(even) {
 }*/
 
 .alert {
+    margin-bottom: 30px;
     padding: 20px 50px;
     background-color: #52f2b5;
     border-radius: 5px;
-    margin-bottom: 30px;
 }
 
 .error-alert {
@@ -268,8 +272,8 @@ tr:nth-child(even) {
 
 .alert i {
     float: right;
-    font-size: 24px;
     line-height: 1;
+    font-size: 24px;
 }
 
 .td-col1 {
@@ -306,8 +310,8 @@ tr:nth-child(even) {
 
 /*-------------------start admin profile-------------*/
 .link {
-    text-decoration: underline;
     color: #0000ff;
+    text-decoration: underline;
 }
 
 /*-------------------end admin profile-------------*/
@@ -315,15 +319,15 @@ tr:nth-child(even) {
 /*-----------------start user crud----------*/
 .user-title {
     margin-bottom: 10px;
+    padding: 15px;
     background-color: #52B8F2;
     vertical-align: middle;
-    padding: 15px;
 }
 
 .user-title h2 {
-    font-size: 20px;
     display: inline-block;
     line-height: 25px;
+    font-size: 20px;
 }
 
 .user-btn {
@@ -341,8 +345,8 @@ tr:nth-child(even) {
 .pagination .page-item {
     display: inline-block;
     padding: 8px 10px;
-    background-color: #87c5c5;
     border: 1px solid #048f8c;
+    background-color: #87c5c5;
 }
 
 .pagination .active {
@@ -352,20 +356,19 @@ tr:nth-child(even) {
 
 /*-----------------end user crud----------*/
 
-.center{
-    text-align:center;
+.center {
+    text-align: center;
 }
 
 input[type=file]::file-selector-button {
-    background-color: #81ecec;
-    border: 2px solid #00cec9;
     padding: .2em .4em;
-    border-radius: .2em;
+    border: 2px solid #00cec9;
+    background-color: #81ecec;
     transition: 1s;
-  }
+    border-radius: .2em;
+}
 
-  input[type=file]::file-selector-button:hover {
+input[type=file]::file-selector-button:hover {
     border: 2px solid #6c5ce7;
     background-color: #a29bfe;
-  }
-
+}
