@@ -17,7 +17,7 @@ class PizzaDao  implements PizzaDaoInterface
      */
     public function getAllPizzasInfo()
     {
-        return Pizza::all();
+        return Pizza::paginate(5);
     }
 
     /**

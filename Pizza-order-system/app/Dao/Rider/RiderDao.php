@@ -14,7 +14,7 @@ class RiderDao implements RiderDaoInterface {
      * @return object $rider
      */
     public function getRidersList(){
-       $riders = Rider::all();
+       $riders = Rider::paginate(8);
        return $riders;
     }
 

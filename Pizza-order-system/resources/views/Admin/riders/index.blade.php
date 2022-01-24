@@ -28,7 +28,6 @@
             <th>Phone</th>
             <th>Email</th>
             <th class="w-20">Address</th>
-            <th>Status</th>
             <th>Created At</th>
             <th>Actions</th>
         </tr>
@@ -41,7 +40,6 @@
             <td>{{ $rider->phone }}</td>
             <td>{{ $rider->email }}</td>
             <td>{{ $rider->address }}</td>
-            <td>{{ $rider->status }}</td>
             <td>{{ \Carbon\Carbon::parse($rider->created_at)->format('Y-m-d') }}</td>
             <td>
                 <a href="{{ url('admin/riders/'.$rider->id.'/edit') }}" class="btn edit-btn"><i class="fas fa-edit"></i></a>
@@ -55,4 +53,5 @@
         @endforeach
     </tbody>
 </table>
+{{ $riders->links() }}
 @endsection

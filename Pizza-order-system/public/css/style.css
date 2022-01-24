@@ -58,18 +58,18 @@ a {
     padding: 50px;
 }
 
-ul li {
+.menu li {
     display: block;
     list-style: none;
     padding: 15px 50px;
 }
 
-li i {
+.menu li i {
     display: inline-block;
     width: 25%;
     text-align: right;
 }
-li span{
+.menu li span{
     padding-left: 30px;
 }
 
@@ -83,14 +83,14 @@ a.nav-active:hover {
     color: #464646;
 }
 
-ul a {
+.menu a {
     display: block;
     border-bottom-right-radius: 100px;
     border-top-right-radius: 100px;
     border-bottom: 1px solid #696969;
 }
 
-ul a:hover {
+.menu a:hover {
     background-color: #989898
         /*  */
     ;
@@ -126,6 +126,8 @@ ul a:hover {
 
 .search-form input {
     border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 3px;
     border: 1px solid #696969
 }
 
@@ -309,6 +311,47 @@ tr:nth-child(even) {
 }
 
 /*-------------------end admin profile-------------*/
+
+/*-----------------start user crud----------*/
+.user-title {
+    margin-bottom: 10px;
+    background-color: #52B8F2;
+    vertical-align: middle;
+    padding: 15px;
+}
+
+.user-title h2 {
+    font-size: 20px;
+    display: inline-block;
+    line-height: 25px;
+}
+
+.user-btn {
+    background-color: #595959;
+}
+
+.search-btn {
+    background-color: #045e5e;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination .page-item {
+    display: inline-block;
+    padding: 8px 10px;
+    background-color: #87c5c5;
+    border: 1px solid #048f8c;
+}
+
+.pagination .active {
+    border: 1px solid #6c5ce7;
+    background-color: #a29bfe;
+}
+
+/*-----------------end user crud----------*/
+
 .center{
     text-align:center;
 }

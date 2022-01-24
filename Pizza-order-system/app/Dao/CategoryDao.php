@@ -18,7 +18,7 @@ class CategoryDao implements CategoryDaoInterface
         $categories = Category::leftjoin('pizzas','categories.id','pizzas.category_id')
         ->select('categories.*',DB::raw('count(pizzas.id) as count'))
         ->groupBy('categories.id')
-        ->get();
+        ->paginate(8);
        return $categories;
     }
 
