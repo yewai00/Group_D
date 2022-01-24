@@ -1,4 +1,4 @@
-@extends('customer.index')
+@extends('customer.layouts.app')
 @section('content')
 
 <div class="card-title">

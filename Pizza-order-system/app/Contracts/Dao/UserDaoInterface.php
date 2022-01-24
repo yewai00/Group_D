@@ -31,4 +31,18 @@ interface UserDaoInterface
      * @return message success or not
      */
     public function updateUserPassword(Request $request);
+
+    /**
+     * to get all customers list
+     * @param
+     * @return customers list
+     */
+    public function getAllUsers($role);
+
+    /**
+     * to search user
+     * @param $request, $role
+     * @return lists of arrays
+     */
+    public function search(Request $request, $role);
 }
