@@ -12,6 +12,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use SebastianBergmann\Environment\Console;
+
 
 class UserController extends Controller
 {
@@ -232,5 +234,50 @@ class UserController extends Controller
             return redirect()->route('admin.profile')->with(['message' => "The password is successfully updated!"]);
         }
         return back()->with(['error' => 'The old password is invalid!']);
+    }
+
+    /**
+     * to get all customers list
+     * @param $role
+     * @return customers list
+     */
+    public function getAllUsersList($role_id)
+    {
+        $role=$role_id==1?'admin':'user';
+        $users = $this->userInterface->getAllUsers($role);
+        if ($role == 'user') {
+            return view('Admin.Users.userList')->with(['users' => $users]);
+        }
+        if ($role == 'admin') {
+            return view('Admin.Users.adminList')->with(['users' => $users]);
+        }
+    }
+
+    /**
+     * to search user
+     * @param $request, $role
+     * @return lists of arrays
+     */
+    public function search(Request $request, $role_id)
+    {
+        $role=$role_id==1?'admin':'user';
+        dd($role);
+        $users = $this->userInterface->search($request, $role);
+        if ($role == 'user') {
+            return view('Admin.Users.userList')->with(['users' => $users]);
+        }
+        if ($role == 'admin') {
+            return view('Admin.Users.adminList')->with(['users' => $users]);
+        }
+    }
+
+    /**
+     * to export user list
+     * @param $role
+     * @return list of user
+     */
+    public function export($role)
+    {
+        return $this->userInterface->export($role);
     }
 }

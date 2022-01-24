@@ -22,6 +22,7 @@
       Download
     </a>
   </div>
+</div>
   <table class="list">
     <thead>
       <tr>
@@ -58,5 +59,4 @@
       @endforeach
     </tbody>
   </table>
-</div>
 @endsection

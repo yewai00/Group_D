@@ -72,4 +72,24 @@ interface UserServicesInterface
      * @return bool
      */
     public function deletePasswordTableData($email);
+    
+    /** to get all customers list
+     * @param
+     * @return customers list
+     */
+    public function getAllUsers($role);
+
+    /**
+     * to search user
+     * @param $request, $role
+     * @return lists of arrays
+     */
+    public function search(Request $request, $role);
+
+    /**
+     * to export user list
+     * @param $role
+     * @return list of user
+     */
+    public function export($role);
 }
