@@ -3,9 +3,10 @@
 namespace App\Dao;
 
 use App\Models\Pizza;
-use Illuminate\Http\Request;
-use App\Contracts\Dao\PizzaDaoInterface;
 use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Contracts\Dao\PizzaDaoInterface;
 
 class PizzaDao  implements PizzaDaoInterface
 {
@@ -17,7 +18,7 @@ class PizzaDao  implements PizzaDaoInterface
      */
     public function getAllPizzasInfo()
     {
-        return Pizza::all();
+        return Pizza::paginate(5);
     }
 
     /**
@@ -28,13 +29,16 @@ class PizzaDao  implements PizzaDaoInterface
     public function savePizza(Request $request, $fileName)
     {
         $pizza = new Pizza;
-        $pizza->name = $request->name;
-        $pizza->image = $fileName;
-        $pizza->category_id = $request->category_id;
-        $pizza->price = $request->price;
-        $pizza->buy_one_get_one = $request->buy_one_get_one;
-        $pizza->description = $request->description;
-        $pizza->save();
+        DB::transaction(function () use ($pizza, $request, $fileName) {
+            $pizza->name = $request->name;
+            $pizza->image = $fileName;
+            $pizza->category_id = $request->category_id;
+            $pizza->price = $request->price;
+            $pizza->buy_one_get_one = $request->buy_one_get_one;
+            $pizza->description = $request->description;
+            $pizza->save();
+        });
+
         return true;
     }
 
@@ -66,14 +70,17 @@ class PizzaDao  implements PizzaDaoInterface
     public function editPizza(Request $request, $id, $fileName)
     {
         $pizza = Pizza::find($id);
-        $pizza->name = $request->name;
-        $pizza->category_id = $request->category_id;
-        $pizza->buy_one_get_one = $request->buy_one_get_one;
-        $pizza->description = $request->description;
-        if ($fileName != null) {
-            $pizza->image = $fileName;
-        }
-        $pizza->save();
+        DB::transaction(function () use ($pizza, $request, $fileName) {
+            $pizza->name = $request->name;
+            $pizza->category_id = $request->category_id;
+            $pizza->buy_one_get_one = $request->buy_one_get_one;
+            $pizza->description = $request->description;
+            if ($fileName != null) {
+                $pizza->image = $fileName;
+            }
+            $pizza->save();
+        });
+
         return true;
     }
 
@@ -84,7 +91,10 @@ class PizzaDao  implements PizzaDaoInterface
      */
     public function deletePizzaById($id)
     {
-        return Pizza::find($id)->delete();
+        DB::transaction(function () use ($id) {
+            Pizza::find($id)->delete();
+        });
+        return true;
     }
 
     /**
@@ -96,7 +106,7 @@ class PizzaDao  implements PizzaDaoInterface
     {
         $pizzas = Pizza::orwhere('name', 'like', '%' . $request->search . '%')
             ->orwhere('description', 'like', '%' . $request->search . '%')
-            ->get();
+            ->paginate(5);
         return $pizzas;
     }
 

@@ -31,7 +31,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = $this->categoryInterface->getCategoriesList();
-        return view('Admin.category.index')
+        return view('Admin.Category.index')
             ->with('categories', $categories);
     }
 
@@ -53,7 +53,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('Admin.category.create');
+        return view('Admin.Category.create');
     }
 
     /**
@@ -78,7 +78,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = $this->categoryInterface->edit($id);
-        return view('Admin.category.edit')
+        return view('Admin.Category.edit')
             ->with('category', $category);
     }
 
@@ -104,7 +104,7 @@ class CategoryController extends Controller
     public function search(Request $request)
     {
         $categories = $this->categoryInterface->search($request);
-        return view('Admin.category.index')
+        return view('Admin.Category.index')
             ->with('categories', $categories);
     }
 
@@ -139,6 +139,6 @@ class CategoryController extends Controller
             'file' => 'required|mimes:csv'
         ]);
         $this->categoryInterface->upload($request);
-        return redirect()->route('category.index')->with(['message'=>'The choose file is successfully uploaded!']);
+        return redirect()->route('category.index')->with(['message' => 'The choose file is successfully uploaded!']);
     }
 }

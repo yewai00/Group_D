@@ -14,7 +14,7 @@ class RiderDao implements RiderDaoInterface {
      * @return object $rider
      */
     public function getRidersList(){
-       $riders = Rider::all();
+       $riders = Rider::paginate(8);
        return $riders;
     }
 
@@ -84,7 +84,7 @@ class RiderDao implements RiderDaoInterface {
         $keyword = $request->riders;
         $riders = DB::table('riders')->where('name', 'LIKE', '%' . $keyword . '%')
                             ->orwhere('riders.email', 'LIKE', '%' . $keyword . '%');
-        return $riders->get();
+        return $riders->paginate(8);
     }
 
     /**

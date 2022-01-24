@@ -56,6 +56,12 @@
             <span>Riders</span>
           </li>
         </a>
+        <a href="{{ route('users.list','0') }}" id="user">
+          <li>
+          <i class="fas fa-users"></i>
+            <span>Users</span>
+          </li>
+        </a>
         <a href="{{ route('graph') }}" id="graph">
           <li>
             <i class="fas fa-chart-bar"></i>

@@ -2,10 +2,12 @@
 
 namespace App\Services;
 
+use App\Exports\UsersExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Contracts\Dao\UserDaoInterface;
 use App\Contracts\Services\UserServicesInterface;
 
@@ -75,5 +77,39 @@ class UserServices implements UserServicesInterface
             return true;
         }
         return false;
+    }
+
+    /**
+     * to get all customers list
+     * @param
+     * @return customers list
+     */
+    public function getAllUsers($role)
+    {
+        return $this->userDao->getAllUsers($role);
+    }
+
+    /**
+     * to search user
+     * @param $request, $role
+     * @return lists of arrays
+     */
+    public function search(Request $request, $role)
+    {
+        return $this->userDao->search($request, $role);
+    }
+
+    /**
+     * to export user list
+     * @param $role
+     * @return list of user
+     */
+    public function export($role)
+    {
+        if ($role == 'user') {
+            return Excel::download(new UsersExport($this->userDao, $role), 'userList.csv');
+        } elseif ($role == 'admin') {
+            return Excel::download(new UsersExport($this->userDao, $role), 'adminList.csv');
+        }
     }
 }

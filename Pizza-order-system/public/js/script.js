@@ -26,11 +26,15 @@ $(function () {
     } else if (id == "riders") {
         $(".menu > a").removeClass("nav-active");
         $("#rider").addClass("nav-active");
+    } else if (id == "users") {
+        $(".menu > a").removeClass("nav-active");
+        $("#user").addClass("nav-active");
     } else if (id == "graph") {
         $(".menu > a").removeClass("nav-active");
         $("#graph").addClass("nav-active");
     }
 });
+
 $(function () {
     var ctx = $("#graphCanvas");
 
