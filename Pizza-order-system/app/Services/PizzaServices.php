@@ -59,12 +59,13 @@ class PizzaServices implements PizzaServicesInterface
         return $pizza;
     }
 
-     /**
+    /**
      * To get all categories
      * @param
      * @return list of Categories
      */
-    public function getAllCategories(){
+    public function getAllCategories()
+    {
         return $this->pizzaDao->getAllCategories();
     }
 
@@ -76,7 +77,7 @@ class PizzaServices implements PizzaServicesInterface
     public function editPizza(Request $request, $id)
     {
         $file = $request->file('image');
-        $fileName="";
+        $fileName = "";
         if ($file != null) {
             $pizza = $this->pizzaDao->getPizzaById($id);
             if (File::exists(public_path() . '/img/' . $pizza->image)) {
@@ -87,7 +88,7 @@ class PizzaServices implements PizzaServicesInterface
             $fileName = 'img_' . uniqid() . '_' . $file->getClientOriginalName();
             $file->move(public_path() . '/img/', $fileName);
         }
-        $this->pizzaDao->editPizza($request, $id,$fileName);
+        $this->pizzaDao->editPizza($request, $id, $fileName);
         return true;
     }
 
@@ -96,7 +97,8 @@ class PizzaServices implements PizzaServicesInterface
      * @param $id
      * @return
      */
-    public function deletePizzaById($id){
+    public function deletePizzaById($id)
+    {
         $pizza = $this->pizzaDao->getPizzaById($id);
         if (File::exists(public_path() . '/img/' . $pizza->image)) {
             File::delete(public_path() . '/img/' . $pizza->image);
@@ -109,7 +111,8 @@ class PizzaServices implements PizzaServicesInterface
      * @param Request $request
      * @return list of pizza
      */
-    public function searchPizza(Request $request){
+    public function searchPizza(Request $request)
+    {
         return $this->pizzaDao->searchPizza($request);
     }
 
@@ -118,8 +121,27 @@ class PizzaServices implements PizzaServicesInterface
      * @param
      * @return list of pizza with category name
      */
-    public function export(){
+    public function export()
+    {
         return $this->pizzaDao->export();
     }
 
+    /**
+     * To show pizza sales graph
+     * @param
+     * @return view with data
+     */
+    public function graph()
+    {
+        $pizza = $this->pizzaDao->graph();
+        $data = [];
+
+        foreach ($pizza as $row) {
+            $data['label'][] = $row->name;
+            $data['data'][] = $row->count;
+        }
+
+        $data['chart_data'] = json_encode($data);
+        return $data;
+    }
 }

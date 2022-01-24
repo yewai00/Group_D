@@ -67,4 +67,11 @@ interface PizzaDaoInterface
      * @return list of pizza with category name
      */
     public function export();
+
+     /**
+     * To show pizza sales graph
+     * @param
+     * @return view with data
+     */
+    public function graph();
 }
