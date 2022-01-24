@@ -33,7 +33,7 @@
             @enderror
           </div>
           <div class="input-group">
-            <label for="address">Addrss</label>
+            <label for="address">Address</label>
             <input type="text" name="address" id="address" value="{{ $rider->address ?? old('address')}}">
             @error('address')
               <small class="error">{{ $message }}</small>

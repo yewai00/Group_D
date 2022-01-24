@@ -13,13 +13,13 @@
          @csrf
          <div class="input-group">
            <label for="name">Name</label>
-           <input type="text" name="name" id="name" value="{{ old('name')}}">
+           <input type="text" name="name" id="name" value="{{ old('name')}}"  placeholder="Enter category name">
            @error('name')
              <div class="error">{{ $message }}</div>
            @enderror
          </div>
          <div class="card-footer">
-             <button type="submit" class="btn edit-btn">Create</button>
+             <button type="submit" class="btn add-btn">Create</button>
          </div>
        </form>
       </div><!-- ./card-body -->

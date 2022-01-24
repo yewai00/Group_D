@@ -43,7 +43,7 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('forget-password', [UserController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 
-Route::post('forget-password', [UserController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::post('forget-password', [UserController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
 
 Route::get('reset-password/{token}', [UserController::class, 'showResetPasswordForm'])->name('reset.password.get');
 
@@ -124,7 +124,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::post('/categories/update/{id}', [CategoryController::class, 'update'])->name('category.update');
 
-    Route::get('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
+    Route::delete('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
 
     Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 

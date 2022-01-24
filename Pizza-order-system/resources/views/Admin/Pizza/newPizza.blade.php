@@ -36,8 +36,8 @@
             </div>
             <div class="input-group">
                 <label>Buy One Get One</label><br>
-                <input type="radio" name="buy_one_get_one" id="yes" value="1"><label for="yes">Yes</label><br>
-                <input type="radio" name="buy_one_get_one" id="no" value="0"><label for="no">No</label>
+                <input type="radio" name="buy_one_get_one" id="yes" value="yes"><label for="yes">Yes</label><br>
+                <input type="radio" name="buy_one_get_one" id="no" value="no"><label for="no">No</label>
                 @if ($errors->has('buy_one_get_one'))
                 <br><small class="error">{{ $errors->first('buy_one_get_one') }}</small>
                 @endif

@@ -14,28 +14,28 @@
         <label for="name">Name</label>
         <input type="text" name="name" id="name" value="{{ old('name')}}" placeholder="Enter name...">
         @error('name')
-        <div class="error">{{ $message }}</div>
+        <small class="error">{{ $message }}</small>
         @enderror
       </div>
       <div class="input-group">
         <label for="phone">Phone</label>
         <input type="text" name="phone" id="phone" value="{{ old('phone')}}" placeholder="Enter phone number">
         @error('phone')
-        <div class="error">{{ $message }}</div>
+        <small class="error">{{ $message }}</small>
         @enderror
       </div>
       <div class="input-group">
         <label for="email">Email Address</label>
         <input type="text" name="email" id="email" value="{{ old('email')}}" placeholder="Enter email address">
         @error('email')
-        <div class="error">{{ $message }}</div>
+        <small class="error">{{ $message }}</small>
         @enderror
       </div>
       <div class="input-group">
         <label for="address">Address</label>
         <input type="text" name="address" id="address" value="{{ old('address')}}" placeholder="Enter address">
         @error('address')
-        <div class="error">{{ $message }}</div>
+        <small class="error">{{ $message }}</small>
         @enderror
       </div>
       <div class="input-group">

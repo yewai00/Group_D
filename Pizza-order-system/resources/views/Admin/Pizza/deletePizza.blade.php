@@ -25,9 +25,9 @@
       <tr>
         <td class="td-col1">Buy One Get One</td>
         <td class="td-col2">
-          @if ($pizza->buy_one_get_one_status == 1)
+          @if ($pizza->buy_one_get_one == 'yes')
           Yes
-          @elseif ($pizza->buy_one_get_one_status == 0)
+          @elseif ($pizza->buy_one_get_one == 'no')
           No
           @endif
         </td>

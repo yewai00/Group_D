@@ -42,11 +42,11 @@
       <div class="input-group">
         <label>Buy One Get One</label><br>
         @if($pizza->buy_one_get_one ==1)
-        <input type="radio" name="buy_one_get_one" id="yes" value="1" checked><label for="yes">Yes</label><br>
-        <input type="radio" name="buy_one_get_one" id="no" value="0"><label for="no">No</label>
+        <input type="radio" name="buy_one_get_one" id="yes" value="yes" checked><label for="yes">Yes</label><br>
+        <input type="radio" name="buy_one_get_one" id="no" value="no"><label for="no">No</label>
         @else
-        <input type="radio" name="buy_one_get_one" id="yes" value="1"><label for="yes">Yes</label><br>
-        <input type="radio" name="buy_one_get_one" id="no" value="0" checked><label for="no">No</label>
+        <input type="radio" name="buy_one_get_one" id="yes" value="yes"><label for="yes">Yes</label><br>
+        <input type="radio" name="buy_one_get_one" id="no" value="no" checked><label for="no">No</label>
         @endif
 
         @if ($errors->has('buy_one_get_one'))

@@ -44,9 +44,9 @@
         <img src="{{ asset('img/'.$item->image) }}">
       </td>
       <td>
-        @if ($item->buy_one_get_one == 1)
+        @if ($item->buy_one_get_one == 'yes')
         Yes
-        @elseif ($item->buy_one_get_one == 0)
+        @elseif ($item->buy_one_get_one == 'no')
         No
         @endif
       </td>

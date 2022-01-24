@@ -43,8 +43,13 @@
       <td>{{ $item->name }}</td>
       <td>{{ $item->count }}</td>
       <td>
-        <a href="{{ route('category.edit',$item->id) }}" class="btn edit-btn"><i class="fas fa-edit"></i></a>
-        <a href="{{ route('category.delete',$item->id) }}" class="btn delete-btn"><i class="fas fa-trash-alt"></i></a>
+        <a href="{{ route('category.edit',$item->id) }}" class="btn edit-btn"><i class="fas fa-edit"></i></a><!--
+        <a href="{{ route('category.delete',$item->id) }}" class="btn delete-btn"><i class="fas fa-trash-alt"></i></a>-->
+        <form action="{{ route('category.delete',$item->id) }}" onsubmit="return confirm('Are you sure to delete?');" method="POST" style="display: inline;">
+          @csrf
+          @method('DELETE')
+          <button class="btn delete-btn" type="submit"><i class="fas fa-trash-alt"></i></button>
+        </form>
       </td>
     </tr>
     @endforeach
