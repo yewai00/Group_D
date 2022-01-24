@@ -1,16 +1,17 @@
 <?php
 
 use App\Models\Pizza;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Rider\RiderController;
-use App\Http\Controllers\PizzaController;
-use App\Http\Controllers\CategoryController;
-
-
-use App\Http\Controllers\Customer\CustController;
-use App\Http\Controllers\UserController;
 use App\Services\PizzaServices;
 use PhpParser\Node\Expr\FuncCall;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
+
+use App\Http\Controllers\GraphController;
+use App\Http\Controllers\PizzaController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Rider\RiderController;
+use App\Http\Controllers\Customer\CustController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,7 +97,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::post('/profile/password/{id}', [UserController::class, 'submitChangePasswordForm'])->name('admin.password.post');
 
-    Route::get('/graph', [PizzaController::class, 'graph'])->name('graph');
+    Route::get('/graph', [GraphController::class, 'graph'])->name('graph');
 
     Route::get('/users/list/{role_id}', [UserController::class, 'getAllUsersList'])->name('users.list');
 

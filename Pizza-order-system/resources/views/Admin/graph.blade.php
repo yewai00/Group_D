@@ -2,27 +2,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pizza Order System</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <!--
-  <link rel="stylesheet" href="{{ asset('css/riders/riders.css') }}">-->
-    <script src="{{ asset('js/libraries/chart.min.js') }}"></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pizza Order System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <script src="{{ asset('js/libraries/chart.min.js') }}"></script>
   <script src="{{ asset('js/libraries/jquery-3.5.1.min.js') }}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
+  <script src="{{ asset('js/script.js') }}"></script>
 </head>
 
 <body>
-    <div class="nav clearfix">
-        <h1>
-            <a href="#"> Pizza Order System </a>
-        </h1>
-    </div>
-    <div class="container clearfix">
+  <div class="nav clearfix">
+    <h1>
+      <a href="#"> Pizza Order System </a>
+    </h1>
+  </div>
+  <div class="container clearfix">
     <div class="aside">
       <ul class="menu">
         <a href="{{ route('admin.profile') }}" id="profile" class="nav-active">
@@ -69,12 +67,16 @@
         </a>
       </ul>
     </div>
-        <div class="content">
-        <canvas id="graphCanvas"></canvas>
-        </div>
+    <div class="content">
+      <div class="graph-title">
+        <h2>Pizza Sales Graph</h2>
+      </div>
+      <canvas id="graphCanvas"></canvas>
     </div>
-    <script>
-        var cData = JSON.parse(`<?php echo $chart_data; ?>`);
-    </script>
+  </div>
+  <script>
+    var cData = JSON.parse(`<?php echo $chart_data; ?>`);
+  </script>
 </body>
+
 </html>

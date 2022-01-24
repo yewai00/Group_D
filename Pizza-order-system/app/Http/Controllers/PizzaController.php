@@ -151,21 +151,4 @@ class PizzaController extends Controller
     {
         return Excel::download(new PizzasExport($this->pizzaInterface), 'pizzas.csv');
     }
-
-    public function graph()
-    {
-        $pizza = Pizza::join('order_pizzas','pizzas.id','order_pizzas.pizza_id')
-                    ->select(DB::raw('count(*) as count, pizzas.name'))
-                    ->groupBy('order_pizzas.pizza_id')
-                    ->get();
-        $data = [];
-
-        foreach ($pizza as $row) {
-            $data['label'][] = $row->name;
-            $data['data'][] = $row->count;
-        }
-
-        $data['chart_data'] = json_encode($data);
-        return view('Admin.graph', $data);
-    }
 }
