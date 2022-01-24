@@ -40,6 +40,14 @@ Route::post('/login', [UserController::class, 'submitLoginForm'])->name('login.p
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+Route::get('forget-password', [UserController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+
+Route::post('forget-password', [UserController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+
+Route::get('reset-password/{token}', [UserController::class, 'showResetPasswordForm'])->name('reset.password.get');
+
+Route::post('reset-password', [UserController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
 
 
 

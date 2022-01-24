@@ -39,7 +39,7 @@
             <div class="card-footer">
                 <button type="submit" class="btn add-btn">Login</button>
                 <button type="reset" class="btn clear-btn">Clear</button>
-                <a href="#" class="link">
+                <a href="{{ route('forget.password.get')}}" class="link">
                     forget password?
                 </a>
             </div>

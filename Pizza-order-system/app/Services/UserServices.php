@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Contracts\Dao\UserDaoInterface;
 use App\Contracts\Services\UserServicesInterface;
+use Illuminate\Support\Str;
 
 class UserServices implements UserServicesInterface
 {
@@ -77,6 +78,54 @@ class UserServices implements UserServicesInterface
             return true;
         }
         return false;
+    }
+
+    public function processForgetPasswordForm(Request $request)
+    {
+        $token = Str::random(64);
+        $email = $request->email;
+        // Check password reset datas are successfully stored or not.
+        if ($this->userDao->saveUser($email, $token)) {
+            return Mail::send('Auth.forgetPasswordMail', ['token' => $token], function ($message) use ($email) {
+                $message->to($email);
+                $message->subject('Reset Password');
+            });
+        }
+    }
+
+    /**
+     * To get current reset password data of user
+     * 
+     * @param string $email
+     * @param string $token
+     * @return Object created reset_password object
+     */
+    public function getResetPassword($email, $token)
+    {
+        return $this->authDao->getResetPassword($email, $token);
+    }
+
+    /**
+     * To change password of user 
+     * 
+     * @param string $email
+     * @param string $password
+     * @return Object created reset_password object
+     */
+    public function resetPassword($email, $password)
+    {
+        return $this->authDao->resetPassword($email, $password);
+    }
+
+    /**
+     * To delte row of password reset table 
+     * 
+     * @param string $email
+     * @return Object created reset_password object
+     */
+    public function deletePasswordTableData($email)
+    {
+        return $this->authDao->deletePasswordTableData($email);
     }
 
     /**

@@ -6,7 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Contracts\Services\UserServicesInterface;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use SebastianBergmann\Environment\Console;
+
 
 class UserController extends Controller
 {
@@ -96,6 +103,87 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('cust');
     }
+
+    /**
+     * To show forgoet password email form page
+     *
+     * @return response()
+     */
+    public function showForgetPasswordForm()
+    {
+        return view('auth.forgetPassword');
+    }
+
+    /**
+     * To Store password reset data in database and sned user email.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return response()
+     */
+    public function submitForgetPasswordForm(Request $request)
+      {
+          $request->validate([
+              'email' => 'required|email|exists:users',
+          ]);
+  
+          $token = Str::random(64);
+  
+          DB::table('password_resets')->insert([
+              'email' => $request->email, 
+              'token' => $token, 
+              'created_at' => Carbon::now()
+            ]);
+  
+          Mail::send('Auth.forgetPasswordMail', ['token' => $token], function($message) use($request){
+              $message->to($request->email);
+              $message->subject('Reset Password');
+          });
+  
+          return back()->with('message', 'We have e-mailed your password reset link!');
+      }
+
+    /**
+     * To show reset password form page
+     *
+     * @return response()
+     */
+    public function showResetPasswordForm($token)
+    {
+        return view('Auth.forgetPasswordLink', ['token' => $token]);
+    }
+
+    /**
+     * To reset the password with user input data
+     *
+     * @param App\Http\Requests\PasswordResetRequest $request
+     * @return response()
+     */
+    public function submitResetPasswordForm(Request $request)
+      {
+          $request->validate([
+              'email' => 'required|email|exists:users',
+              'password' => 'required|string|min:6|confirmed',
+              'confirmation' => 'required'
+          ]);
+  
+          $updatePassword = DB::table('password_resets')
+                              ->where([
+                                'email' => $request->email, 
+                                'token' => $request->token
+                              ])
+                              ->first();
+  
+          if(!$updatePassword){
+              return back()->withInput()->with('error', 'Invalid token!');
+          }
+  
+          $user = User::where('email', $request->email)
+                      ->update(['password' => Hash::make($request->password)]);
+ 
+          DB::table('password_resets')->where(['email'=> $request->email])->delete();
+  
+          return redirect('/login')->with('message', 'Your password has been changed!');
+      }
 
     /**
      * to redirect admin profile
