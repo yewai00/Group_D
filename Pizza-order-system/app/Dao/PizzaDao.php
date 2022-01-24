@@ -106,7 +106,7 @@ class PizzaDao  implements PizzaDaoInterface
     {
         $pizzas = Pizza::orwhere('name', 'like', '%' . $request->search . '%')
             ->orwhere('description', 'like', '%' . $request->search . '%')
-            ->get();
+            ->paginate(5);
         return $pizzas;
     }
 

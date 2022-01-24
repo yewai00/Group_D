@@ -35,6 +35,7 @@
     </tr>
   </thead>
   <tbody>
+    @if(count($pizzas)>0)
     @foreach($pizzas as $item)
     <tr>
       <td>{{ $item->id }}</td>
@@ -57,6 +58,12 @@
       </td>
     </tr>
     @endforeach
+    @else
+    <tr>
+      <td class="error" colspan="6">*No data yet!</td>
+    </tr>
+    @endif
+
   </tbody>
 </table>
 {{ $pizzas->links() }}

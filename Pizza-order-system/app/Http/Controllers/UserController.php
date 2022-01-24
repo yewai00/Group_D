@@ -173,7 +173,6 @@ class UserController extends Controller
     public function search(Request $request, $role_id)
     {
         $role = $role_id == 1 ? 'admin' : 'user';
-        dd($role);
         $users = $this->userInterface->search($request, $role);
         if ($role == 'user') {
             return view('Admin.Users.userList')->with(['users' => $users]);

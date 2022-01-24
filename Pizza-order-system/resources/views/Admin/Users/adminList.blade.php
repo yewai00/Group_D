@@ -31,6 +31,7 @@
     </tr>
   </thead>
   <tbody>
+    @if(count($users)>0)
     @foreach($users as $item)
     <tr>
       <td>{{ $item->id }}</td>
@@ -44,6 +45,13 @@
       </td>
     </tr>
     @endforeach
+    @else
+    <tr>
+      <td class="error" colspan="5">
+        *No data yet!
+      </td>
+    </tr>
+    @endif
   </tbody>
 </table>
 {{ $users->links() }}

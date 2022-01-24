@@ -81,6 +81,6 @@ class UserDao  implements UserDaoInterface
                     ->orwhere('email', 'like', '%' . $key . '%')
                     ->orwhere('address', 'like', '%' . $key . '%');
             })
-            ->get();
+            ->paginate(8);
     }
 }

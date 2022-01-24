@@ -36,6 +36,7 @@
     </tr>
   </thead>
   <tbody>
+    @if(count($categories)>0)
     @foreach($categories as $item)
     <tr>
       <td>{{ $item->id }}</td>
@@ -47,6 +48,14 @@
       </td>
     </tr>
     @endforeach
+    @else
+    <tr>
+      <td class="error" colspan="4">
+        *No data yet!
+      </td>
+    </tr>
+    @endif
+
   </tbody>
 </table>
 {{ $categories->links() }}

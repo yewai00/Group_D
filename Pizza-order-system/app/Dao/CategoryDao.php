@@ -79,7 +79,7 @@ class CategoryDao implements CategoryDaoInterface
     public function search(Request $request) {
         $keyword = $request->search;
         $categories = DB::table('categories')->where('name', 'LIKE', '%' . $keyword . '%');
-        return $categories->get();
+        return $categories->paginate(8);
     }
 
     /**
