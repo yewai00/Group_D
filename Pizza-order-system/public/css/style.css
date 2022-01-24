@@ -21,7 +21,7 @@ label {
 .nav {
     display: block;
     line-height: 1;
-    padding: 15px 30px;
+    padding: 20px 30px;
     background-color: #87c5c5;
     border-bottom: 1px solid #000;
 }
@@ -69,7 +69,8 @@ a {
     width: 25%;
     text-align: right;
 }
-.menu li span{
+
+.menu li span {
     padding-left: 30px;
 }
 
@@ -78,7 +79,7 @@ a.nav-active {
     color: #464646;
 }
 
-a.nav-active:hover {
+.menu .nav-active:hover {
     background-color: #b3dbdb;
     color: #464646;
 }
@@ -125,8 +126,7 @@ a.nav-active:hover {
 }
 
 .search-form input {
-    padding-top: 3px;
-    padding-left: 10px;
+    padding: 5px 10px;
     border: 1px solid #696969;
     border-radius: 10px;
 }
@@ -141,7 +141,7 @@ button {
 }
 
 .card {
-    width: 80%;
+    width: 700px;
     margin: auto;
     padding: 20px 50px;
     background-color: #EAF4F4;
@@ -153,7 +153,7 @@ button {
 }
 
 .card-title {
-    width: 80%;
+    width: 700px;
     margin: auto;
     padding: 20px;
     border: 1px solid #989898;
@@ -171,8 +171,7 @@ button {
 .card textarea {
     width: 100%;
     margin-top: 5px;
-    padding-top: 5px;
-    padding-left: 10px;
+    padding: 10px;
     border: 1px solid #686868;
     border-radius: 5px;
 }
@@ -221,16 +220,23 @@ table {
     border-collapse: collapse;
 }
 
-td,
-th {
-    padding: 10px;
-    border: 1px solid #dbdbdb;
-    text-align: center;
-    vertical-align: middle;
+.list tr:hover {
+    background-color: #e4e7e6;
 }
 
-tr:nth-child(even) {
-    background-color: #d6e4f0;
+.list td,
+.list th {
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #a6a6a6;
+}
+
+.list th {
+    padding: 20px 10px;
+    background-color:
+        /*#c5ecec;*/
+        #d0eee9;
 }
 
 
@@ -290,12 +296,17 @@ tr:nth-child(even) {
 
 .pizza-detail {
     width: 80%;
-    margin: auto;
-    margin-top: 30px;
+    margin: 30px auto;
 }
 
-.pizza-detail tr {
-    border-bottom: 1px solid #595959;
+.pizza-detail td {
+    border: 1px solid #969696;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.pizza-detail tr:nth-child(even) {
+    background-color: #e6ebeb;
 }
 
 .detail-img {

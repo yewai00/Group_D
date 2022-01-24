@@ -15,28 +15,28 @@
             <label for="name">Name</label>
             <input type="text" name="name" id="name" value="{{ $rider->name ?? old('name')}}">
             @error('name')
-              <div class="error">{{ $message }}</div>
+              <small class="error">{{ $message }}</small>
             @enderror
           </div>
           <div class="input-group">
             <label for="phone">Phone</label>
             <input type="text" name="phone" id="phone" value="{{ $rider->phone ?? old('phone')}}">
             @error('phone')
-              <div class="error">{{ $message }}</div>
+              <small class="error">{{ $message }}</small>
             @enderror
           </div>
           <div class="input-group">
             <label for="email">Email</label>
             <input type="text" name="email" id="email" value="{{ $rider->email ?? old('email')}}">
             @error('email')
-              <div class="error">{{ $message }}</div>
+              <small class="error">{{ $message }}</small>
             @enderror
           </div>
           <div class="input-group">
             <label for="address">Addrss</label>
             <input type="text" name="address" id="address" value="{{ $rider->address ?? old('address')}}">
             @error('address')
-              <div class="error">{{ $message }}</div>
+              <small class="error">{{ $message }}</small>
             @enderror
           </div>
           <div class="input-group">
@@ -52,7 +52,7 @@
           </select>
           </div>
          <div class="card-footer">
-             <button type="submit" class="btn edit-btn">Update</button>
+             <button type="submit" class="btn add-btn">Update</button>
          </div>
         </form>
       </div><!-- ./card-body -->

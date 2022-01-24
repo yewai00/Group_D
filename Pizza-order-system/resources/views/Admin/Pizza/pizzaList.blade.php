@@ -16,7 +16,7 @@
     <form action="{{ route('pizza.search') }}" method="post" class="search-form">
       @csrf
       <input type="text" name="search" value="{{ old('search') }}" placeholder="search">
-      <button type="submit" class="btn add-btn">Search</button>
+      <button type="submit" class="btn search-btn">Search</button>
     </form>
     <a href="{{ route('pizza.export') }}" class="btn edit-btn">
       Download

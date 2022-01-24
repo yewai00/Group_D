@@ -10,11 +10,11 @@
 </div>
 @endif
 <div class="header clearfix">
-  <a href="{{ route('riders.create') }}" class="btn add-btn add-rider">Add New Rider</a>
+  <a href="{{ route('riders.create') }}" class="btn add-btn add-rider">Add Rider</a>
   <div class="right">
     <form action="{{ route('riders.search') }}" method="get" class="search-form">
       <input type="text" name="riders" id="riders" placeholder="Search">
-      <button type="submit" class="btn edit-btn">Search</button>
+      <button type="submit" class="btn search-btn">Search</button>
     </form>
     <a href="{{ route('riders.export') }}" class="btn add-btn">Download</a>
     <a href="{{ route('riders.upload.get') }}" class="btn add-btn">Upload</a>
