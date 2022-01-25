@@ -13,6 +13,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Rider\RiderController;
 use App\Http\Controllers\Customer\CustController;
 use App\Http\Middleware\AdminCheckMiddleware;
+use App\Http\Middleware\UserCheckMiddleware;
 use GuzzleHttp\Middleware;
 
 /*
@@ -25,12 +26,6 @@ use GuzzleHttp\Middleware;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::get('/admin/categories', function () {
-    return view('Admin.layouts.app');
-});
-
 
 
 Route::get('/register', [UserController::class, 'showRegisterForm'])->name('register.get');
@@ -52,7 +47,7 @@ Route::get('reset-password/{token}', [UserController::class, 'showResetPasswordF
 Route::post('reset-password', [UserController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 //rider crud route
-Route::group(['prefix'=>'admin/riders','middleware'=>[AdminCheckMiddleware::class],'as'=>'riders.'],function () {
+Route::group(['prefix' => 'admin/riders', 'middleware' => [AdminCheckMiddleware::class], 'as' => 'riders.'], function () {
     Route::get('/', [RiderController::class, 'index'])->name('index');
 
     Route::post('/', [RiderController::class, 'store'])->name('store');
@@ -74,7 +69,7 @@ Route::group(['prefix'=>'admin/riders','middleware'=>[AdminCheckMiddleware::clas
     Route::post('/upload', [RiderController::class, 'upload'])->name('upload');
 });
 
-Route::group(['prefix' => 'admin','middleware'=>[AdminCheckMiddleware::class]], function () {
+Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]], function () {
     Route::get('/pizzas/list', [PizzaController::class, 'pizzaList'])->name('admin.pizza.list');
 
     Route::get('/pizzas/create', [PizzaController::class, 'showNewPizzaForm'])->name('pizza.create.get');
@@ -113,7 +108,7 @@ Route::group(['prefix' => 'admin','middleware'=>[AdminCheckMiddleware::class]], 
 });
 
 
-Route::group(['prefix' => 'admin','middleware'=>[AdminCheckMiddleware::class]], function () {
+Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]], function () {
     Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
 
     Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
@@ -136,5 +131,10 @@ Route::group(['prefix' => 'admin','middleware'=>[AdminCheckMiddleware::class]], 
 });
 
 Route::get('/', [CustController::class, 'index'])->name('cust');
-Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
-Route::get('/cart', [CustController::class, 'cart'])->name('cart');
+
+Route::group(['middleware' => [UserCheckMiddleware::class]], function () {
+
+    Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
+    
+    Route::get('/cart', [CustController::class, 'cart'])->name('cart');
+});
