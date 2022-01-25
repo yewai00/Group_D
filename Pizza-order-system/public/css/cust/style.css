@@ -493,3 +493,9 @@ footer {
     padding: 5px;
 }
 
+.alert i {
+    float: right;
+    line-height: 1;
+    font-size: 24px;
+}
+
