@@ -28,13 +28,13 @@
             <li class="nav-list"><a href="/#">Home</a></li>
             <li class="nav-list"><a href="/#pizza-list">Pizza</a></li>
             <li class="nav-list"><a href="/#contact-us">Contact Us</a></li>
-            <li class="nav-list"><a href="">Cart(0)</a></li>
             @guest
+            <li class="nav-list"><a href="{{ route('register.get') }}">Register</a></li>
             <li class="nav-list"><a href="{{ url('login') }}" class="login">Login</a></li>
             @else
+            <li class="nav-list"><a href="">Cart(0)</a></li>
             <li class="nav-list"><a href="{{ url('logout') }}" class="login">Logout</a></li>
             @endguest
-
           </ul>
         </nav>
       </div>
