@@ -19,5 +19,6 @@ interface CustDaoInterface {
      * @param $id
      */
     public function getPizzaDetail($id);
+
 }
 ?>
