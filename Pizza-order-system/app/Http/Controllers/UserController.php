@@ -85,8 +85,13 @@ class UserController extends Controller
 
         $this->userInterface->login($request);
         $status = $this->userInterface->login($request);
-        if ($status) {
-            return redirect()->route('admin.pizza.list');
+        if($status){
+            if(Auth::user()->role == 'admin'){
+                return redirect()->route('admin.profile');
+            }
+            elseif(Auth::user()->role == 'user'){
+                return redirect()->route('cust');
+            }
         }
 
         return back()->with(['error' => 'Oppes! You have entered invalid credentials']);

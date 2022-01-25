@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Customer;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Contracts\Services\CustServiceInterface;
 
 class CustController extends Controller
@@ -26,9 +27,14 @@ class CustController extends Controller
     /**
      * show pizza list and categories
      * @return view with pizzas list and categories
-     * 
+     *
      */
     public function index() {
+        if(Auth::check()){
+            if(Auth::user()->role == 'admin'){
+                return redirect()->route('admin.profile');
+            }
+        }
         $pizzas = $this->custInterface->getPizzasList();
         $categories = $this->custInterface->getCategoriesList();
         return  view('customer.index')
@@ -47,7 +53,7 @@ class CustController extends Controller
 
     /**
      * show cart info
-     * 
+     *
      */
     public function cart() {
         return view('customer.cart');
