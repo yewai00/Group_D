@@ -12,6 +12,8 @@ use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Rider\RiderController;
 use App\Http\Controllers\Customer\CustController;
+use App\Http\Middleware\AdminCheckMiddleware;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,12 +51,8 @@ Route::get('reset-password/{token}', [UserController::class, 'showResetPasswordF
 
 Route::post('reset-password', [UserController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-
-
-
-
 //rider crud route
-Route::prefix('admin/riders')->name('riders.')->group(function () {
+Route::group(['prefix'=>'admin/riders','middleware'=>[AdminCheckMiddleware::class],'as'=>'riders.'],function () {
     Route::get('/', [RiderController::class, 'index'])->name('index');
 
     Route::post('/', [RiderController::class, 'store'])->name('store');
@@ -76,7 +74,7 @@ Route::prefix('admin/riders')->name('riders.')->group(function () {
     Route::post('/upload', [RiderController::class, 'upload'])->name('upload');
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware'=>[AdminCheckMiddleware::class]], function () {
     Route::get('/pizzas/list', [PizzaController::class, 'pizzaList'])->name('admin.pizza.list');
 
     Route::get('/pizzas/create', [PizzaController::class, 'showNewPizzaForm'])->name('pizza.create.get');
@@ -115,7 +113,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware'=>[AdminCheckMiddleware::class]], function () {
     Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
 
     Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
