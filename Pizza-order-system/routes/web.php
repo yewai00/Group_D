@@ -140,3 +140,5 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', [CustController::class, 'index'])->name('cust');
 Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
 Route::get('/cart', [CustController::class, 'cart'])->name('cart');
+
+Route::get('/pizzas/search',[CustController::class,'searchPizza'])->name('user.pizza.search');

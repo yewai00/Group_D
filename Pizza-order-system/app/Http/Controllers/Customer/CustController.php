@@ -58,4 +58,18 @@ class CustController extends Controller
     public function cart() {
         return view('customer.cart');
     }
+
+    /**
+     * To get pizza list by category
+     * @param category id
+     * @return pizza list
+     */
+    public function searchPizza(Request $request){
+        $pizzas=$this->custInterface->searchPizza($request);
+        $categories = $this->custInterface->getCategoriesList();
+        $name=$request->name;
+        cookie('pizza_name', $name, 3600);
+        return  view('customer.index')
+            ->with(['pizzas' => $pizzas,'categories' => $categories,'category_id'=>$request->category_id]);
+    }
 }

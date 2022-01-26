@@ -2,10 +2,12 @@
 
 namespace App\Services;
 
-use App\Contracts\Services\CustServiceInterface;
+use Illuminate\Http\Request;
 use App\Contracts\Dao\CustDaoInterface;
+use App\Contracts\Services\CustServiceInterface;
 
-class CustService implements CustServiceInterface {
+class CustService implements CustServiceInterface
+{
 
     private $pizzaDao;
 
@@ -30,7 +32,8 @@ class CustService implements CustServiceInterface {
     /**
      * get categories list
      */
-    public function getCategoriesList() {
+    public function getCategoriesList()
+    {
         return $this->custDao->getCategoriesList();
     }
 
@@ -42,5 +45,14 @@ class CustService implements CustServiceInterface {
     {
         return $this->custDao->getPizzaDetail($id);
     }
+
+    /**
+     * to get pizza list by category
+     * @param Request $request
+     * @return pizza list
+     */
+    public function searchPizza(Request $request)
+    {
+        return $this->custDao->searchPizza($request);
+    }
 }
-?>

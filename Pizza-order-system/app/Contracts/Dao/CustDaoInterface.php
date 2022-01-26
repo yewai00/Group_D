@@ -1,9 +1,12 @@
-<?php 
+<?php
 
 namespace App\Contracts\Dao;
 
-interface CustDaoInterface {
-    
+use Illuminate\Http\Request;
+
+interface CustDaoInterface
+{
+
     /**
      * show pizza list
      */
@@ -19,5 +22,11 @@ interface CustDaoInterface {
      * @param $id
      */
     public function getPizzaDetail($id);
+
+    /**
+     * to get pizza list by category
+     * @param Request $request
+     * @return pizza list
+     */
+    public function searchPizza(Request $request);
 }
-?>
