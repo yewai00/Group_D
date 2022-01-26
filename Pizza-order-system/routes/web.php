@@ -28,6 +28,12 @@ use GuzzleHttp\Middleware;
 */
 
 
+
+Route::get('/admin', function () {
+    return view('Admin.layouts.app');
+});
+
+
 Route::get('/register', [UserController::class, 'showRegisterForm'])->name('register.get');
 
 Route::post('/register', [UserController::class, 'submitRegisterForm'])->name('register.post');
@@ -105,7 +111,26 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
     Route::post('/users/search/{role}', [UserController::class, 'search'])->name('user.search');
 
     Route::get('/users/download/{role}', [UserController::class, 'export'])->name('user.download');
+
+    // Route::get('/profile', [UserController::class, 'showAdminProfile'])->name('user.profile');
+
+    // Route::post('/profile/{id}', [UserController::class, 'submitAdminProfile'])->name('user.profile.post');
+
+    // Route::get('/profile', [UserController::class, 'showCustomerProfile'])->name('admin.profile');
+
+    // Route::get('/user/detail/{id}', [UserController::class, 'userDetails'])->name('user.detail');
+
+
 });
+
+// User/ user detail and change password
+Route::get('/user/detail', [UserController::class, 'showUserProfile'])->name('user.profile');
+
+Route::post('/user/detail/{id}', [UserController::class, 'submitUserProfile'])->name('user.profile.post');
+
+Route::get('/user/password', [UserController::class, 'showUserChangePasswordForm'])->name('customer.password.get');
+
+Route::post('/user/password/{id}', [UserController::class, 'submitUserChangePasswordForm'])->name('customer.password.post');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]], function () {
