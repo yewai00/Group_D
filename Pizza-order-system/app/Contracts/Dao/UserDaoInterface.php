@@ -73,5 +73,4 @@ interface UserDaoInterface
      * @return lists of arrays
      */
     public function search(Request $request, $role);
-
 }
