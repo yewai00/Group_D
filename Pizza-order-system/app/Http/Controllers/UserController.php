@@ -12,7 +12,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use SebastianBergmann\Environment\Console;
+
 
 
 class UserController extends Controller
@@ -199,6 +199,15 @@ class UserController extends Controller
     {
         return view('Admin.Profile.profile');
     }
+    /**
+     * to redirect user profile
+     * @param
+     * @return
+     */
+    public function showUserProfile()
+    {
+        return view('customer.userDetail');
+    }
 
     /**
      * to update admin profile
@@ -212,13 +221,27 @@ class UserController extends Controller
     }
 
     /**
-     * To redirect admin change password page
+     * to update user profile
+     * @param Request $request ,$id
+     * @return view
+     */
+    public function submitUserProfile(Request $request, $id)
+    {
+        $this->userInterface->updateUserInfo($request, $id);
+        return back()->with(['message' => 'Your profile is successfully updated!']);
+    }
+
+
+    
+    
+    /**
+     * To redirect user change password page
      * @param
      * @return
      */
-    public function showAdminChangePasswordForm()
+    public function showUserChangePasswordForm()
     {
-        return view('Admin.Profile.changePassword');
+        return view('customer.changePassword');
     }
 
     /**
@@ -237,6 +260,27 @@ class UserController extends Controller
         $status = $this->userInterface->updateUserPassword($request);
         if ($status) {
             return redirect()->route('admin.profile')->with(['message' => "The password is successfully updated!"]);
+        }
+        return back()->with(['error' => 'The old password is invalid!']);
+    }
+
+    /**
+     * to change user password
+     * @param Request $request
+     * @return message success or not
+     */
+    public function submitUserChangePasswordForm(Request $request, $id)
+    {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|min:8|same:confirm_password',
+            'confirm_password' => 'required',
+        ]);
+
+        $status = $this->userInterface->updateUserPassword($request);
+
+        if ($status) {
+            return redirect()->route('user.profile')->with(['message' => "The password is successfully updated!"]);
         }
         return back()->with(['error' => 'The old password is invalid!']);
     }
@@ -283,5 +327,10 @@ class UserController extends Controller
     public function export($role)
     {
         return $this->userInterface->export($role);
+    }
+
+    public function test() 
+    {
+        return view('customer.userDetail');
     }
 }
