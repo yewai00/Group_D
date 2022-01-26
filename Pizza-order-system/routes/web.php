@@ -112,15 +112,6 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
     Route::get('/users/download/{role}', [UserController::class, 'export'])->name('user.download');
 
-    // Route::get('/profile', [UserController::class, 'showAdminProfile'])->name('user.profile');
-
-    // Route::post('/profile/{id}', [UserController::class, 'submitAdminProfile'])->name('user.profile.post');
-
-    // Route::get('/profile', [UserController::class, 'showCustomerProfile'])->name('admin.profile');
-
-    // Route::get('/user/detail/{id}', [UserController::class, 'userDetails'])->name('user.detail');
-
-
 });
 
 // User/ user detail and change password
