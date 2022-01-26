@@ -58,4 +58,32 @@ class CustController extends Controller
     public function cart() {
         return view('customer.cart');
     }
+
+    /**
+     * To get pizza list by category
+     * @param category id
+     * @return pizza list
+     */
+    public function searchPizza(Request $request){
+        $pizzas=$this->custInterface->searchPizza($request);
+        $categories = $this->custInterface->getCategoriesList();
+        $name=$request->name;
+        return  redirect('/#pizza-list')
+            ->with(['pizzas' => $pizzas,'categories' => $categories,'category_id'=>$request->category_id]);
+    }
+
+    /**
+     * To send contact mail to admin
+     * @param Request $request
+     * @return message success or not
+     */
+    public function contactMail(Request $request){
+        $request->validate([
+            'subject' => 'required|max:100',
+            'message' => 'required',
+        ]);
+
+        $this->custInterface->contactMail($request);
+        return redirect('/#contact-us')->with(['message'=>'The message has been sent to admin!']);
+    }
 }

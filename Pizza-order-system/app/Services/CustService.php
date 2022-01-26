@@ -2,10 +2,14 @@
 
 namespace App\Services;
 
-use App\Contracts\Services\CustServiceInterface;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Contracts\Dao\CustDaoInterface;
+use App\Contracts\Services\CustServiceInterface;
 
-class CustService implements CustServiceInterface {
+class CustService implements CustServiceInterface
+{
 
     private $pizzaDao;
 
@@ -30,7 +34,8 @@ class CustService implements CustServiceInterface {
     /**
      * get categories list
      */
-    public function getCategoriesList() {
+    public function getCategoriesList()
+    {
         return $this->custDao->getCategoriesList();
     }
 
@@ -42,5 +47,33 @@ class CustService implements CustServiceInterface {
     {
         return $this->custDao->getPizzaDetail($id);
     }
+
+    /**
+     * to get pizza list by category
+     * @param Request $request
+     * @return pizza list
+     */
+    public function searchPizza(Request $request)
+    {
+        return $this->custDao->searchPizza($request);
+    }
+
+    /**
+     * To send contact mail to admin
+     * @param Request $request
+     * @return message success or not
+     */
+    public function contactMail(Request $request)
+    {
+        //$message = $request->message;
+        $data=[
+            "message"=>$request->message,
+            "name"=>Auth::user()->name
+        ];
+        Mail::send('customer.contactMail', ['data' => $data], function ($message) use ($request) {
+            $message->from(Auth::user()->email, Auth::user()->email);
+            $message->to('nandaroo600@gmail.com', "Admin")->subject($request->subject);
+        });
+        return true;
+    }
 }
-?>

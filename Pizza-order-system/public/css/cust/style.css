@@ -114,11 +114,16 @@ header {
 /* pizza list */
 
 .filter {
-    padding: 60px 0 40px;
+    padding: 50px 0px;
+    text-align: center;
 }
 
 .select-style {
-    padding: 5px 60px 5px 30px;
+    padding: 5px 10px;
+    width: 200px;
+    margin-right: 20px;
+    border-radius: 20px;
+    text-align: center;
     border: 1px solid #1d5532;
     background: url(../../img/arrow.png)no-repeat center right;
     color: #1d5532;
@@ -127,20 +132,13 @@ header {
     appearance: none;
 }
 
-.filter-left {
-    float: left;
-}
-
-.filter-right {
-    float: right;
-}
-
 .text-box {
     width: 200px;
-    padding: 5px 10px;
+    border-radius: 20px;
+    padding: 7px 10px;
+    border: 1px solid #696969;
     outline: none;
     resize: none;
-    border-radius: 3px;
 }
 
 .text-box:not(:last-child) {
@@ -358,12 +356,15 @@ p .price {
 #message {
     display: block;
     width: 346px;
-    margin-bottom: 20px;
     padding: 5px 10px;
     border: none;
     outline: none;
     resize: none;
     border-radius: 7px;
+}
+
+.mt-20 {
+    margin-top: 20px;
 }
 
 .btn-submit {
@@ -479,8 +480,8 @@ footer {
 /* User Detail */
 .alert {
     margin-bottom: 30px;
-    padding: 20px 50px;
-    background-color: #52f2b5;
+    padding: 20px 30px;
+    background-color: #cbf3e4;
     border-radius: 5px;
 }
 

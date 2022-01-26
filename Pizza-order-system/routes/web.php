@@ -111,7 +111,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
     Route::post('/users/search/{role}', [UserController::class, 'search'])->name('user.search');
 
     Route::get('/users/download/{role}', [UserController::class, 'export'])->name('user.download');
-    
+
 });
 
 // User/ user detail and change password
@@ -148,9 +148,14 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
 Route::get('/', [CustController::class, 'index'])->name('cust');
 
+Route::get('/pizzas/search',[CustController::class,'searchPizza'])->name('user.pizza.search');
+
+
 Route::group(['middleware' => [UserCheckMiddleware::class]], function () {
 
     Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
 
     Route::get('/cart', [CustController::class, 'cart'])->name('cart');
+
+    Route::post('/contact/mail',[CustController::class,'contactMail'])->name('contact.mail');
 });
