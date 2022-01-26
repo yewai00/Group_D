@@ -111,16 +111,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
     Route::post('/users/search/{role}', [UserController::class, 'search'])->name('user.search');
 
     Route::get('/users/download/{role}', [UserController::class, 'export'])->name('user.download');
-
-    // Route::get('/profile', [UserController::class, 'showAdminProfile'])->name('user.profile');
-
-    // Route::post('/profile/{id}', [UserController::class, 'submitAdminProfile'])->name('user.profile.post');
-
-    // Route::get('/profile', [UserController::class, 'showCustomerProfile'])->name('admin.profile');
-
-    // Route::get('/user/detail/{id}', [UserController::class, 'userDetails'])->name('user.detail');
-
-
+    
 });
 
 // User/ user detail and change password
@@ -160,6 +151,6 @@ Route::get('/', [CustController::class, 'index'])->name('cust');
 Route::group(['middleware' => [UserCheckMiddleware::class]], function () {
 
     Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
-    
+
     Route::get('/cart', [CustController::class, 'cart'])->name('cart');
 });
