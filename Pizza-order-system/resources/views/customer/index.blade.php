@@ -30,25 +30,20 @@
             @csrf
           <div class="filter clearfix">
             <div class="filter-left">
-              <label for="select-box">Choose Category:</label>
+              <label for="select-box">Category:</label>
               <select name="category_id" id="select-box" class="select-style">
-                <option value="">Choose Category</option>
+                <option value="">All</option>
                 @foreach($categories as $c)
                   <option value="{{ $c->id }}">{{ $c->name }}</option>
                 @endforeach
               </select>
-            </div>
-            <div class="filter-right">
               <label for="">Name:</label>
               <input type="text" class="text-box" name="name">
-             <!-- @if (Cookie::get('name') !== false)
-              <input type="text" class="text-box" name="name" value="{{ Cookie::get('name') }}">
-              @endif-->
               <label for="">Min price:</label>
               <input type="text" class="text-box" name="min_price">
               <label for="">Max price:</label>
               <input type="text" class="text-box" name="max_price">
-              <input type="submit" value="search" class="btn-submit">
+              <button class="btn-submit" type="submit">Search</button>
             </div>
           </div>
           <!-- ./filter -->
