@@ -26,25 +26,24 @@
         <h3 class="h3-header">Our Pizza List</h3>
         <p class="pizza-list-text">We offer recipes that are hand-crafted by our chef</p>
         <p class="pizza-list-smtext">We make it fresh. You bake it to perfection.</p>
-        <form action="#">
+        <form action="{{ route('user.pizza.search') }}" method="get">
+            @csrf
           <div class="filter clearfix">
             <div class="filter-left">
-              <label for="select-box">Choose Category:</label>
-              <select name="select-box" id="select-box" class="select-style">
-                <option value="none">Choose Category</option>
+              <label for="select-box">Category:</label>
+              <select name="category_id" id="select-box" class="select-style">
+                <option value="">All</option>
                 @foreach($categories as $c)
-                  <option value="{{ $c->name }}">{{ $c->name }}</option>
+                  <option value="{{ $c->id }}">{{ $c->name }}</option>
                 @endforeach
               </select>
-            </div>
-            <div class="filter-right">
               <label for="">Name:</label>
-              <input type="text" class="text-box">
+              <input type="text" class="text-box" name="name">
               <label for="">Min price:</label>
-              <input type="text" class="text-box">
+              <input type="text" class="text-box" name="min_price">
               <label for="">Max price:</label>
-              <input type="text" class="text-box">
-              <input type="submit" value="search" class="btn-submit">
+              <input type="text" class="text-box" name="max_price">
+              <button class="btn-submit" type="submit">Search</button>
             </div>
           </div>
           <!-- ./filter -->
@@ -88,7 +87,7 @@
             <textarea name="message" id="message" cols="30" rows="10"></textarea>
             <input type="submit" value="submit" class="btn-submit">
            </form>
-         </div> 
+         </div>
         </div>
         <!-- ./c-box -->
         <div class="c-box">
@@ -105,13 +104,13 @@
                <p>yourname@domain.com</p>
              </li>
            </ul>
-         </div> 
+         </div>
         </div>
         <!-- ./c-box -->
         <div class="c-box">
          <div class="c-box-inner">
          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1909.1888642583708!2d96.06402713405248!3d16.857199076264003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1bfd9da6faf03%3A0xa52691144965bf96!2sMyanmar%20(Barmar)!5e0!3m2!1sen!2smm!4v1642669754373!5m2!1sen!2smm" width="366" height="310" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-         </div> 
+         </div>
         </div>
         <!-- ./c-box -->
         <div class="c-box">
