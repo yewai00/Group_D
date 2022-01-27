@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
   <script src="{{ asset('js/libraries/jquery-3.5.1.min.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -43,7 +45,8 @@
   </header>
   <!-- header -->
   <div class="content">
-        @yield('content')
-    </div>
+    @yield('content')
+  </div>
 </body>
+
 </html>

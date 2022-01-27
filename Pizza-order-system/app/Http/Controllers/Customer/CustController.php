@@ -9,7 +9,7 @@ use App\Contracts\Services\CustServiceInterface;
 
 class CustController extends Controller
 {
-     /**
+    /**
      * rider interface
      */
     private $custInterface;
@@ -29,16 +29,17 @@ class CustController extends Controller
      * @return view with pizzas list and categories
      *
      */
-    public function index() {
-        if(Auth::check()){
-            if(Auth::user()->role == 'admin'){
+    public function index()
+    {
+        if (Auth::check()) {
+            if (Auth::user()->role == 'admin') {
                 return redirect()->route('admin.profile');
             }
         }
         $pizzas = $this->custInterface->getPizzasList();
         $categories = $this->custInterface->getCategoriesList();
         return  view('customer.index')
-            ->with(['pizzas' => $pizzas,'categories' => $categories]);
+            ->with(['pizzas' => $pizzas, 'categories' => $categories]);
     }
 
     /**
@@ -46,7 +47,8 @@ class CustController extends Controller
      * @param $id
      * @return view with pizza detail
      */
-    public function pizzaDetail($id) {
+    public function pizzaDetail($id)
+    {
         $pizza = $this->custInterface->getPizzaDetail($id);
         return view('customer.pizza-detail')->with(['pizza' => $pizza]);
     }
@@ -55,7 +57,8 @@ class CustController extends Controller
      * show cart info
      *
      */
-    public function cart() {
+    public function cart()
+    {
         return view('customer.cart');
     }
 
@@ -64,14 +67,15 @@ class CustController extends Controller
      * @param category id
      * @return pizza list
      */
-    public function searchPizza(Request $request){
-        if($request->category_id == null && $request->name == null && $request->min_price == null && $request->max_price == null){
+    public function searchPizza(Request $request)
+    {
+        if ($request->category_id == null && $request->name == null && $request->min_price == null && $request->max_price == null) {
             return redirect('/#pizza-list');
         }
-        $pizzas=$this->custInterface->searchPizza($request);
+        $pizzas = $this->custInterface->searchPizza($request);
         $categories = $this->custInterface->getCategoriesList();
         return  view('customer.index')
-            ->with(['pizzas' => $pizzas,'categories' => $categories]);
+            ->with(['pizzas' => $pizzas, 'categories' => $categories]);
     }
 
     /**
@@ -79,13 +83,14 @@ class CustController extends Controller
      * @param Request $request
      * @return message success or not
      */
-    public function contactMail(Request $request){
+    public function contactMail(Request $request)
+    {
         $request->validate([
             'subject' => 'required|max:100',
             'message' => 'required',
         ]);
 
         $this->custInterface->contactMail($request);
-        return redirect('/#contact-us')->with(['message'=>'The message has been sent to admin!']);
+        return redirect('/#contact-us')->with(['message' => 'The message has been sent to admin!']);
     }
 }
