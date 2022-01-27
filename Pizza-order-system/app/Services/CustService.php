@@ -75,4 +75,20 @@ class CustService implements CustServiceInterface
         });
         return true;
     }
+
+    /** 
+     * store order
+     */
+    public function orderAdd()
+    {
+        return $this->custDao->orderAdd();
+    }
+
+    /**
+     * store orderPizza detail
+     */
+    public function orderPizzaAdd($order_id, $pizza_id, $qty, $price)
+    {
+        return $this->custDao->orderPizzaAdd($order_id, $pizza_id, $qty, $price);
+    }
 }

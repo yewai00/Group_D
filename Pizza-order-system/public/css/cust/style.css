@@ -232,7 +232,7 @@ p .price {
     transition: transform 0.2s ease-in-out;
 }
 
-.list-box img:hover {
+.list-box .show-pizza:hover {
     transform: scale(1.1);
 }
 
@@ -498,5 +498,175 @@ footer {
     float: right;
     line-height: 1;
     font-size: 24px;
+}
+
+/* cart */
+
+.p-cart {
+    margin: 20px auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 15px;
+}
+
+.cart-inner {
+    padding: 45px 60px;
+}
+
+.cart-header {
+    margin-bottom: 10px;
+    font-size: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.left-cart-header {
+    float: left;
+}
+
+.left-cart-header::before {
+    margin-right: 10px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f07a";
+}
+
+.right-cart-header {
+    float: right;
+}
+
+.cart-list {
+    padding: 20px 0 40px;
+}
+
+.clear-cart {
+    background-color: #f56363;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.cart-item {
+    padding: 20px 0;
+}
+
+.left-cart-item,
+.l-blk{
+    float: left;
+    width: 45%;
+}
+
+.left-cart-item {
+    padding-left: 30px;
+}
+
+.left-cart-item .img-wrap {
+    width: 300px;
+    height: 225px;
+}
+
+.left-cart-item .promo {
+    width: 70px;
+}
+
+.cart-pizza {
+    width: 100%;
+}
+
+.right-cart-item,
+.r-blk {
+    float: right;
+    width: 55%;
+}
+
+
+.r-blk {
+    padding: 90px 0;
+}
+
+.l-blk h5 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 40px auto;
+}
+
+.pizza-qty {
+    width: 35px;
+    padding: 3px 5px;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+}
+
+.r-blk p {
+    font-size: 20px;
+    text-align: center;
+    display: inline;
+    margin-right: 100px;
+}
+
+.remove-item {
+    background-color: #f25212;
+    padding: 10px;
+    display: inline;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.remove-item::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 16px;
+    color: #fff;
+    margin-right: 5px;
+    vertical-align: middle;
+    content: "\f1f8";
+}
+
+.minus {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.plus {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.minus::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 20px;
+    color: tomato;
+    vertical-align: middle;
+    content: "\f146";
+}
+
+.plus::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 20px;
+    color: tomato;
+    vertical-align: middle;
+    content: "\f0fe";
+}
+
+.total {
+    padding: 30px;
+    border-top: 1px solid #e3e3e3;
+}
+
+.total p{
+    text-align: right;
+    margin-right: 30px;
+    font-size: 20px;
+}
+
+.total .price {
+    margin-left: 30px;
+}
+
+.order .login {
+    font-size: 18px;
+    float: right;
+    margin:20px 60px 0 0;
 }
 
