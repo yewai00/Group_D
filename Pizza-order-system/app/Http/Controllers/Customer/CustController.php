@@ -71,7 +71,7 @@ class CustController extends Controller
         $pizzas=$this->custInterface->searchPizza($request);
         $categories = $this->custInterface->getCategoriesList();
         return  view('customer.index')
-            ->with(['pizzas' => $pizzas,'categories' => $categories,'category_id'=>$request->category_id]);
+            ->with(['pizzas' => $pizzas,'categories' => $categories]);
     }
 
     /**

@@ -35,4 +35,5 @@ interface CustServiceInterface {
      * @return message success or not
      */
     public function contactMail(Request $request);
+
 }

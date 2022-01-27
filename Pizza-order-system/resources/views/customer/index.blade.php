@@ -16,34 +16,33 @@
       </div>
       <!-- ./bnr-right -->
     </div>
-  </div>
-  <!-- ./container -->
-</section>
-<!-- ./bnr -->
-<section id="pizza-list">
-  <div class="container">
-    <div class="pizza-list-inner">
-      <h3 class="h3-header">Our Pizza List</h3>
-      <p class="pizza-list-text">We offer recipes that are hand-crafted by our chef</p>
-      <p class="pizza-list-smtext">We make it fresh. You bake it to perfection.</p>
-      <form action="{{ route('user.pizza.search') }}" method="get">
-        @csrf
-        <div class="filter clearfix">
-          <div class="filter-left">
-            <label for="select-box">Category:</label>
-            <select name="category_id" id="select-box" class="select-style">
-              <option value="">All</option>
-              @foreach($categories as $c)
-              <option value="{{ $c->id }}">{{ $c->name }}</option>
-              @endforeach
-            </select>
-            <label for="">Name:</label>
-            <input type="text" class="text-box" name="name">
-            <label for="">Min price:</label>
-            <input type="text" class="text-box" name="min_price">
-            <label for="">Max price:</label>
-            <input type="text" class="text-box" name="max_price">
-            <button class="btn-submit" type="submit">Search</button>
+    <!-- ./container -->
+  </section>
+  <!-- ./bnr -->
+  <section id="pizza-list">
+    <div class="container">
+      <div class="pizza-list-inner">
+        <h3 class="h3-header">Our Pizza List</h3>
+        <p class="pizza-list-text">We offer recipes that are hand-crafted by our chef</p>
+        <p class="pizza-list-smtext">We make it fresh. You bake it to perfection.</p>
+        <form action="{{ route('user.pizza.search') }}" method="get">
+            @csrf
+          <div class="filter clearfix">
+            <div class="filter-left">
+              <label for="select-box">Category:</label>
+              <select name="category_id" id="select-box" class="select-style">
+                <option value="">All</option>
+                @foreach($categories as $c)
+                  <option value="{{ $c->id }}">{{ $c->name }}</option>
+                @endforeach
+              </select>
+              <label for="">Name:</label>
+              <input type="text" class="text-box" name="name">
+              <label for="">Min price:</label>
+              <input type="text" class="text-box" name="min_price">
+              <label for="">Max price:</label>
+              <input type="text" class="text-box" name="max_price">
+              <button class="btn-submit" type="submit">Search</button>
           </div>
         </div>
         <!-- ./filter -->
@@ -132,13 +131,13 @@
 
       </div>
     </div>
-  </div>
-</section>
-<footer>
-  <div class="footer-inner">
-    <h3><a href="#">Pizza Order System</a></h3>
-    <p>&copy; 2022 Pizza Order System. All Right Reserved.</p>
-    <p>Designed & Developed By Group-D</p>
-  </div>
-</footer>
+
+  </section>
+  <footer>
+    <div class="footer-inner">
+      <h3><a href="#">Pizza Order System</a></h3>
+      <p>&copy; 2022 Pizza Order System. All Right Reserved.</p>
+      <p>Designed & Developed By Group-D</p>
+    </div>
+  </footer>
 @endsection
