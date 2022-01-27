@@ -1,13 +1,13 @@
-@extends('customer.layouts.app')
+@extends('Auth.layouts.app')
 @section('content')
 <div class="card-title">
   Reset Password
 </div>
 <div class="card">
-  @if(Session::has('error'))
-  <div class="alert error-alert clearfix">
+  @if(Session::has('message'))
+  <div class="alert clearfix">
     <span>
-      {{ Session::get('error') }}
+      {{ Session::get('message') }}
     </span>
     <i class="fas fa-times close-btn"></i>
   </div>

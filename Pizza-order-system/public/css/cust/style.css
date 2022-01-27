@@ -356,12 +356,15 @@ p .price {
 #message {
     display: block;
     width: 346px;
-    margin-bottom: 20px;
     padding: 5px 10px;
     border: none;
     outline: none;
     resize: none;
     border-radius: 7px;
+}
+
+.mt-20 {
+    margin-top: 20px;
 }
 
 .btn-submit {
@@ -477,8 +480,8 @@ footer {
 /* User Detail */
 .alert {
     margin-bottom: 30px;
-    padding: 20px 50px;
-    background-color: #52f2b5;
+    padding: 20px 30px;
+    background-color: #cbf3e4;
     border-radius: 5px;
 }
 

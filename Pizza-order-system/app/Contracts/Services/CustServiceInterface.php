@@ -28,4 +28,12 @@ interface CustServiceInterface {
      * @return pizza list
      */
     public function searchPizza(Request $request);
+
+    /**
+     * To send contact mail to admin
+     * @param Request $request
+     * @return message success or not
+     */
+    public function contactMail(Request $request);
+
 }

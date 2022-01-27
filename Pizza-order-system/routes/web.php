@@ -156,4 +156,6 @@ Route::group(['middleware' => [UserCheckMiddleware::class]], function () {
     Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
 
     Route::get('/cart', [CustController::class, 'cart'])->name('cart');
+
+    Route::post('/contact/mail',[CustController::class,'contactMail'])->name('contact.mail');
 });
