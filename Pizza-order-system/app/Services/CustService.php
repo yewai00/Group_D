@@ -65,7 +65,6 @@ class CustService implements CustServiceInterface
      */
     public function contactMail(Request $request)
     {
-        //$message = $request->message;
         $data=[
             "message"=>$request->message,
             "name"=>Auth::user()->name

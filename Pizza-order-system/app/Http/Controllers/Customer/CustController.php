@@ -65,10 +65,12 @@ class CustController extends Controller
      * @return pizza list
      */
     public function searchPizza(Request $request){
+        if($request->category_id == null && $request->name == null && $request->min_price == null && $request->max_price == null){
+            return redirect('/#pizza-list');
+        }
         $pizzas=$this->custInterface->searchPizza($request);
         $categories = $this->custInterface->getCategoriesList();
-        $name=$request->name;
-        return  redirect('/#pizza-list')
+        return  view('customer.index')
             ->with(['pizzas' => $pizzas,'categories' => $categories,'category_id'=>$request->category_id]);
     }
 
