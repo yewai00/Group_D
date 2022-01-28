@@ -7,6 +7,21 @@ $(document).ready(function () {
     $(".close-btn").click(function () {
         $(".alert").remove();
     });
+
+    let menuOpen = false;
+    $(".menu-btn").click(function () {
+        if (!menuOpen) {
+            $(".menu-btn").addClass("open");
+            $(".aside").css("right", "0");
+            /*$(".aside").css("display", "block");*/
+            menuOpen = true;
+        } else {
+            $(".menu-btn").removeClass("open");
+            menuOpen = false;
+            $(".aside").css("right", "-100%");
+           /* $(".aside").css("display", "none");*/
+        }
+    });
 });
 
 $(function () {
@@ -74,7 +89,6 @@ $(function () {
             display: true,
             position: "top",
             text: "Last Week Registered Users -  Day Wise Count",
-            fontSize: 18,
             fontColor: "#111",
         },
         legend: {

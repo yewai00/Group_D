@@ -231,9 +231,17 @@ class UserController extends Controller
         return back()->with(['message' => 'Your profile is successfully updated!']);
     }
 
+     /**
+     * To redirect user change password page
+     * @param
+     * @return
+     */
+    public function showChangePasswordForm()
+    {
+        return view('Admin.Profile.changePassword');
+    }
 
-    
-    
+
     /**
      * To redirect user change password page
      * @param
@@ -329,7 +337,7 @@ class UserController extends Controller
         return $this->userInterface->export($role);
     }
 
-    public function test() 
+    public function test()
     {
         return view('customer.userDetail');
     }
