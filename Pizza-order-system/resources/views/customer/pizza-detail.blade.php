@@ -14,11 +14,10 @@
         <h5>{{ $pizza->name }}</h5>
         <p>{{ $pizza->description }}</p>
         <p>Price: <span class="price"><b>{{ $pizza->price }}</b> MMK</span></p>
-        <a href="{{ url('/cart') }}" class="btn-atc">Add To Cart</a>
+        <a href="{{ url('/add-item/'.$pizza->id) }}" class="btn-atc">Add To Cart</a>
       </div>
     </div>
   </div>
-  <!-- ./pizza-detail -->
   <footer>
     <div class="footer-inner">
       <h3><a href="#">Pizza Order System</a></h3>

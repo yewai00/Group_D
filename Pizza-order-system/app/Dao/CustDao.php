@@ -7,6 +7,10 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Contracts\Dao\CustDaoInterface;
+use App\Models\Order;
+use App\Models\OrderPizza;
+use Illuminate\Support\Facades\Auth;
+
 
 class CustDao implements CustDaoInterface {
 
@@ -66,5 +70,32 @@ class CustDao implements CustDaoInterface {
 
         $pizzas=$query->paginate(6);
         return $pizzas;
+    }
+
+    /**
+     * store order
+     */
+    public function orderAdd()
+    {
+        $user_id = Auth::user()->id;
+        $rider_id = 1;
+        $order = Order::create([
+            'user_id' => $user_id,
+            'rider_id' => $rider_id,
+        ]);
+        return $order;
+    }
+
+    /**
+     * store orderPizza detail
+     */
+    public function orderPizzaAdd($order_id, $pizza_id, $qty, $price)
+    {
+        OrderPizza::create([
+                'order_id' => $order_id,
+                'pizza_id' => $pizza_id,
+                'quantity' => $qty,
+                'price' => $price,
+            ]);
     }
 }

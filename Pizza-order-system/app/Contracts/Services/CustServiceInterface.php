@@ -36,4 +36,14 @@ interface CustServiceInterface {
      */
     public function contactMail(Request $request);
 
+    /*
+     * store order
+     */
+    public function orderAdd();
+
+    /**
+     * store orderPizza detail
+     */
+    public function orderPizzaAdd($order_id, $pizza_id, $qty, $price);
+
 }
