@@ -29,7 +29,7 @@
       <th>Email</th>
       <th class="w-20">Address</th>
       <th>Created At</th>
-      <th>Actions</th>
+      <th class="td-action">Actions</th>
     </tr>
   </thead>
   <tbody>

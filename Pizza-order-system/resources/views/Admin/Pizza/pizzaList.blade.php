@@ -40,7 +40,7 @@
     <tr>
       <td>{{ $item->id }}</td>
       <td>{{ $item->name }}</td>
-      <td>
+      <td class="td-img">
         <img src="{{ asset('img/'.$item->image) }}">
       </td>
       <td>
@@ -51,7 +51,7 @@
         @endif
       </td>
       <td>{{ $item->price }}</td>
-      <td>
+      <td class="td-action">
         <a href="{{ route('pizza.detail',$item->id) }}" class="btn add-btn"><i class="fas fa-eye"></i></a>
         <a href="{{ route('pizza.edit.get',$item->id) }}" class="btn edit-btn"><i class="fas fa-edit"></i></a>
         <a href="{{ route('pizza.delete.get',$item->id) }}" class="btn delete-btn"><i class="fas fa-trash-alt"></i></a>
