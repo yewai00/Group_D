@@ -7,6 +7,15 @@ $(document).ready(function () {
     $(".close-btn").click(function () {
         $(".alert").remove();
     });
+
+    $(".order-btn").click(function () {
+        var modal_id = "#order-" + $(this).attr('id');
+        $(modal_id).css("display", "block");
+    });
+
+    $(".close").click(function () {
+        $(".modal").css("display", "none");
+    });
 });
 
 $(function () {

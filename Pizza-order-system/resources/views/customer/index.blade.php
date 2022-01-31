@@ -48,12 +48,12 @@
         <!-- ./filter -->
       </form>
       <div class="list">
-        <div class="list-inner clearfix"></div>
+        <div class="list-inner clearfix">
           @foreach($pizzas as $pizza)
           <div class="list-box">
             <div class="list-box-inner">
               <div class="pizza-img-wrap">
-                @if($pizza->buy_one_get_one)
+                @if($pizza->buy_one_get_one == 'yes')
                 <img src="{{ asset('img/buy1.png') }}" alt="buy-one-get-one" class="buy-one">
                 @endif
                 <img src="{{ asset('img/'.$pizza->image) }}" alt="" class="show-pizza">

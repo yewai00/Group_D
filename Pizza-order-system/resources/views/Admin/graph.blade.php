@@ -41,7 +41,7 @@
             <span>Pizzas</span>
           </li>
         </a>
-        <a href="#" id="order">
+        <a href="{{ route('order.list') }}" id="order">
           <li>
             <i class="fas fa-receipt"></i>
             <span>Orders</span>
