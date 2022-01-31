@@ -614,26 +614,20 @@ input[type=file]::file-selector-button:hover {
     }
 
     .td-col1 {
-        width: 30%;
-        padding: 20px;
-        font-family: Roboto-bold;
-        border-collapse: collapse;
+        padding: 1.465vw;
     }
 
     .td-col2 {
-        width: 70%;
-        padding: 20px;
+        padding: 1.465vw;
     }
 
     .pizza-detail {
         width: 80%;
-        margin: 30px auto;
+        margin: 2.441vw auto;
     }
 
     .pizza-detail td {
-        border: 1px solid #969696;
-        text-align: center;
-        vertical-align: middle;
+        border: 0.098vw solid #969696;
     }
 
     .pizza-detail tr:nth-child(even) {
@@ -696,6 +690,67 @@ input[type=file]::file-selector-button:hover {
     }
 
     /*------------------end graph---------------*/
+    /* Modal Header */
+    .modal-header {
+        padding: 0.977vw;
+        line-height: 1.953vw;
+    }
+
+    /* Modal Body */
+    .modal-body {
+        padding: 0.195vw 1.465vw;
+    }
+
+    /* Modal Footer */
+    .modal-footer {
+        padding: 0.195vw 1.465vw;
+    }
+
+    .modal {
+        border-radius: 10px0.781vw;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        margin: 2.441vw auto;
+        padding: 1.465vw;
+    }
+
+    .modal-content .btn {
+        margin-top: 1.953vw;
+    }
+
+    /* The Close Button */
+    .close {
+        font-size: 1.953vw;
+    }
+
+    .card-body p {
+        padding: 0.977vw 0px;
+        text-align: center;
+    }
+
+    .card-body p span {
+        display: inline-block;
+        padding-left: 1.465vw;
+    }
+
+    .order-table th {
+        padding: 1.758vw 0;
+    }
+
+    .order-table td {
+        padding: 0.977vw;
+
+    }
+
+    .order-detail {
+        padding: 0.977vw 0px;
+    }
+
+    .order-detail label {
+        padding-right: 1.465vw;
+    }
 
 }
 
@@ -868,6 +923,7 @@ input[type=file]::file-selector-button:hover {
     .card input[type=text],
     .card input[type=password],
     .card select,
+    select,
     .card textarea {
         width: 100%;
         margin-top: 0.781vw;
@@ -995,10 +1051,72 @@ input[type=file]::file-selector-button:hover {
 
     .graph-title h2 {
         font-size: 3.125vw;
-        margin-bottom:2.344vw;
-        border-bottom:  0.313vw solid #52B8F2;
+        margin-bottom: 2.344vw;
+        border-bottom: 0.313vw solid #52B8F2;
     }
 
     /*------------------end graph---------------*/
+    /* Modal Header */
+    .modal-header {
+        padding: 1.250vw 0px;
+        line-height: 2.344vw;
+    }
 
+    /* Modal Body */
+    .modal-body {
+        padding: 0.313vw 1.563vw;
+    }
+
+    /* Modal Footer */
+    .modal-footer {
+        padding: 0.313vw 1.563vw;
+    }
+
+    .modal {
+        border-radius: 0.781vw;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        margin: 2.344vw auto;
+        padding: 1.563vw;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    .modal-content .btn {
+        display: inline-block;
+        margin-top: 2.344vw;
+    }
+
+    /* The Close Button */
+    .close {
+        font-size: 2.344vw;
+        padding-right: 1.563vw;
+    }
+
+    .card-body p {
+        padding: 0.781vw 0px;
+    }
+
+    .card-body p span {
+        padding-left: 1.563vw;
+    }
+
+    .order-table th {
+        padding: 2.344vw;
+    }
+
+    .order-table td {
+        padding: 1.250vw;
+
+    }
+
+    .order-detail {
+        padding: 1.563vw 0px;
+    }
+
+    .order-detail label {
+        padding-right: 1.563vw;
+    }
 }
