@@ -11,6 +11,8 @@ use App\Models\Order;
 use App\Models\OrderPizza;
 use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
+use App\Mail\OrderMail;
+use Illuminate\Support\Facades\Mail;
 
 class CustController extends Controller
 {
@@ -64,12 +66,14 @@ class CustController extends Controller
      * @param $id
      */
     public function getAddToCart(Request $request, $id) {
-        $pizza = $this->custInterface->getPizzaDetail($id);
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->add($pizza, $pizza->id);
-        $request->session()->put('cart', $cart);
-        return redirect()->route('cart');
+        if(Auth::check()){
+            $pizza = $this->custInterface->getPizzaDetail($id);
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            $cart->add($pizza, $pizza->id);
+            $request->session()->put('cart', $cart);
+            return redirect()->route('cart');
+        }
     }
 
     /**
@@ -129,6 +133,9 @@ class CustController extends Controller
                 $price = $session->items[$i]['price'];
                 $this->custInterface->orderPizzaAdd($order_id, $pizza_id, $qty, $price);
             } 
+            $orderList = new Cart($session);
+            $email = Auth::user()->email;
+            $this->sendOrderMail($orderList, $email, $order_id);
             $this->sessionDestroy();
         }
         return redirect()->route('cust');
@@ -164,6 +171,17 @@ class CustController extends Controller
 
         $this->custInterface->contactMail($request);
         return redirect('/#contact-us')->with(['message' => 'The message has been sent to admin!']);
+    }
+
+    /**
+     * send email to 
+     * @param string $email
+     * return Object
+     */
+    public function sendOrderMail($orderList, $email, $order_id) { 
+        $orderLists = new OrderMail($orderList, $order_id);
+        $this->custInterface->sendMail($email, $orderLists);
+        return $orderLists;
     }
 
     /**
