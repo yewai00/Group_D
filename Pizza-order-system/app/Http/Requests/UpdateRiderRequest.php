@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use \Illuminate\Validation\Rule;    
+use \Illuminate\Validation\Rule;
 
 class UpdateRiderRequest extends FormRequest
 {
@@ -30,7 +30,6 @@ class UpdateRiderRequest extends FormRequest
             'phone' => 'required|min:11',
             'email' => ['required', 'email',Rule::unique('riders')->ignore($id)],
             'address' => 'required',
-            'status' => 'required'
         ];
     }
 }

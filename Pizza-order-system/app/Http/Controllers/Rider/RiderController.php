@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Rider;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Contracts\Services\Rider\RiderServiceInterface;
-use Dotenv\Store\File\Reader;
 use App\Http\Requests\StoreRiderRequest;
 use App\Http\Requests\UpdateRiderRequest;
 
