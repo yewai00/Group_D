@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Cart;
 
@@ -23,11 +23,11 @@ class Cart {
                 $storedItem = $this->items[$id];
             }
         }
-        if($item['buy_one_get_one']) {
+        if($item['buy_one_get_one'] == 'yes') {
             $storedItem['qty'] = $storedItem['qty'] + 2;
             $storedItem['price'] = $item->price * ($storedItem['qty'] / 2);
             $this->items[$id] = $storedItem;
-            $this->totalQty = $this->totalQty + 2;  
+            $this->totalQty = $this->totalQty + 2;
         }
         else {
             $storedItem['qty']++;
@@ -54,14 +54,14 @@ class Cart {
                     $this->totalQty = $this->totalQty - 2;
                     $this->totalPrice -= $item->price;
                 }
-            }      
+            }
             else {
                 $storedItem['qty']--;
                 $storedItem['price'] = $item->price * $storedItem['qty'];
                 $this->items[$id] = $storedItem;
                 $this->totalQty--;
                 $this->totalPrice -= $item->price;
-            }  
+            }
         }
     }
 }

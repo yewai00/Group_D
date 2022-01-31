@@ -6,7 +6,7 @@
       <div class="bnr-left">
         <div class="bnr-left-inner">
           <h2>WE HAVE THE <br> BEST PIZZA</h2>
-          <p>Hey! Our Delious Pizza is waiting for you, we are <br> always near to you with fresh ingredients.</p>
+          <p>Hey! Our Delicious Pizza is waiting for you, we are <br> always near to you with fresh ingredients.</p>
           <a href="#pizza-list" class="btn-cta">Order Now</a>
         </div>
       </div>
@@ -47,13 +47,13 @@
         </div>
         <!-- ./filter -->
       </form>
-      <div class="list">
+      <div class="list clearfix">
         <div class="list-inner clearfix">
           @foreach($pizzas as $pizza)
           <div class="list-box">
             <div class="list-box-inner">
               <div class="pizza-img-wrap">
-                @if($pizza->buy_one_get_one)
+                @if($pizza->buy_one_get_one == 'yes')
                 <img src="{{ asset('img/buy1.png') }}" alt="buy-one-get-one" class="buy-one">
                 @endif
                 <img src="{{ asset('img/'.$pizza->image) }}" alt="" class="show-pizza">
