@@ -549,7 +549,7 @@ footer {
 }
 
 .left-cart-item,
-.l-blk{
+.l-blk {
     float: left;
     width: 45%;
 }
@@ -654,7 +654,7 @@ footer {
     border-top: 1px solid #e3e3e3;
 }
 
-.total p{
+.total p {
     text-align: right;
     margin-right: 30px;
     font-size: 20px;
@@ -667,6 +667,256 @@ footer {
 .order .login {
     font-size: 18px;
     float: right;
-    margin:20px 60px 0 0;
+    margin: 20px 60px 0 0;
 }
 
+@media screen and (min-width:768px) and (max-width:1024px) {
+    .container {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    header {
+        padding-top: 1.270vw;
+        font-size: 1.367vw;
+    }
+
+    .logo {
+        margin-right: 3.766vw;
+    }
+
+    .nav {
+        float: right;
+    }
+
+    .nav-wrap {
+        padding-top: 2.605vw;
+    }
+
+    .nav ul li {
+        margin-right: 1.855vw;
+    }
+
+    .nav ul li:last-child {
+        margin-right: 0vw;
+    }
+
+    /* Pizza List */
+    .select-style {
+        width: 14.648vw;
+        font-size: 1.172vw; 
+    }
+
+    .text-box {
+        width: 14.648vw;
+        padding: 0.651vw 1.302vw;
+    }
+
+    .btn-submit {
+        padding: 0.977vw;
+        margin-top: 1.953vw;
+        width: 1.953vw;
+    }
+
+    /* Contact Us */
+    .contact-us-inner {
+        margin-bottom: 5.209vw;
+        padding: 7.813vw 13.75vw;
+        border-radius: 1.953vw;
+    }
+
+    .c-box-inner {
+        width: 67.625vw;
+        padding: 3.907vw;
+        margin-bottom: 6.511vw;
+    }
+
+    #subject,
+    #message {
+        width: 100%;
+    }
+
+    iframe {
+        width: 59.570vw;
+    }
+
+}
+
+@media screen and (max-width:767.9px) {
+    body {
+        max-width: 100%;
+    }
+
+    /* Navbar */
+    .container {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    header {
+        padding-top: 2.031vw;
+        width: 100%;
+    }
+
+    .logo {
+        margin-top: 0vw;
+    }
+
+    .nav {
+        padding: 1.406vw 0 0.938vw 0;
+    }
+
+    .humburger {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        right: 4.219vw;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 7.938vw;
+        height: 6.063vw;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .humburger span {
+        display: block;
+        position: absolute;
+        width: 4.375vw;
+        height: 0.469vw;
+        left: 0.938vw;
+        background: #ffffff;
+        -webkit-transition: 0.3s ease-in-out;
+        -moz-transition: 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+    }
+
+    .humburger span:nth-child(1) {
+        top: 1.563vw;
+    }
+
+    .humburger span:nth-child(2) {
+        top: 3.125vw;
+    }
+
+    .humburger span:nth-child(3) {
+        top: 4.688vw;
+    }
+
+    .nav-inner {
+        position: absolute;
+        z-index: 2;
+        top: 8.906vw;
+        right: 0;
+        text-align: center;
+        transform: translateX(100%);
+        transition: all 0.6s;
+        width: 100%;
+        height: 54.695vw;
+        overflow-y: scroll;
+        background-color: #f8c296;
+    }
+
+    .nav-inner ul li {
+        font-size: 2.500vw;
+        width: 100%;
+        padding: 3.125vw 0;
+    }
+
+    .nav-inner ul li a {
+        color: #2e1e18;
+    }
+
+    .nav-inner.active {
+        transform: translateX(0%);
+    }
+
+    .humburger.active span:nth-child(1) {
+        top: 2.500vw;
+        left: 6px;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    .humburger.active span:nth-child(2),
+    .humburger.active span:nth-child(3) {
+        top: 2.500vw;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    /* Banner */
+    .bnr-inner {
+        padding: 7.814vw 0;
+    }
+
+    .bnr-left-inner {
+        padding: 0vw 10.418vw;
+    }
+
+    .bnr-left h2 {
+        font-size: 3.256vw;
+        letter-spacing: 0.521vw;
+        margin: 10.418vw auto 3.256vw;
+    }
+
+    .btn-cta {
+        padding: 1.302vw;
+    }
+
+    /* Pizza List */
+    .pizza-list-inner {
+        padding: 6.511vw 0 2.605vw;
+    }
+
+    .select-style {
+        width: 19.534vw;
+        font-size: 1.563vw;
+    }
+
+    .text-box {
+        width: 19.534vw;
+        padding: 0.651vw 1.302vw;
+    }
+
+    .btn-submit {
+        padding: 1.302vw;
+    }
+
+    .list-box {
+        width: 42.323vw;
+    }
+
+    .list-box-inner {
+        padding: 1.953vw 1.953vw 3.907vw;
+    }
+
+    .detail {
+        width: 26.045vw;
+    }
+
+    /* Contact Us */
+    .contact-us-inner {
+        margin-bottom: 5.209vw;
+        padding: 7.813vw 13.75vw;
+        border-radius: 1.953vw;
+    }
+
+    .c-box-inner {
+        width: 67.625vw;
+        padding: 3.907vw;
+        margin-bottom: 6.511vw;
+    }
+
+    #subject,
+    #message {
+        width: 100%;
+    }
+
+    iframe {
+        width: 455px;
+    }
+
+}
