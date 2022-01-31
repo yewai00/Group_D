@@ -124,21 +124,23 @@ header {
     margin-right: 20px;
     border-radius: 20px;
     text-align: center;
-    border: 1px solid #1d5532;
+    border: 1px solid #c1c1c1;
     background: url(../../img/arrow.png)no-repeat center right;
     color: #1d5532;
     font-size: 18px;
     text-transform: uppercase;
     appearance: none;
+    box-shadow: #c0bebe76 0px 0px 8px;
 }
 
 .text-box {
     width: 200px;
     border-radius: 20px;
     padding: 7px 10px;
-    border: 1px solid #696969;
+    border: 1px solid #c1c1c1;
     outline: none;
     resize: none;
+    box-shadow: #c0bebe76 0px 0px 8px;
 }
 
 .text-box:not(:last-child) {
@@ -179,7 +181,7 @@ header {
     float: left;
     width: 453px;
     margin-bottom: 30px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: #959da533 0px 8px 24px;
     text-align: center;
     border-radius: 15px;
 }

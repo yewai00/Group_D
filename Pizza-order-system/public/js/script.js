@@ -28,8 +28,11 @@ $(document).ready(function () {
 
    $(".close").click(function () {
         $(".modal").css("display", "none");
-    });
+   });
+
+    $(".c-box-inner").heightLine();
 });
+
 $(function () {
     var id = window.location.pathname.split("/")[2];
     if (id == "profile") {

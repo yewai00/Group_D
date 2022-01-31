@@ -12,7 +12,7 @@
       </div>
       <!-- ./bnr-left -->
       <div class="bnr-right">
-        <img src="img/pizza-bnr.png" alt="">
+        <img src="../img/pizza-bnr.png" alt="">
       </div>
       <!-- ./bnr-right -->
     </div>
