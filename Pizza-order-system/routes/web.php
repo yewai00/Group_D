@@ -1,20 +1,21 @@
 <?php
 
 use App\Models\Pizza;
+use GuzzleHttp\Middleware;
 use App\Services\PizzaServices;
 use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Route;
+
+
 use App\Http\Controllers\UserController;
-
-
 use App\Http\Controllers\GraphController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Middleware\UserCheckMiddleware;
+use App\Http\Middleware\AdminCheckMiddleware;
 use App\Http\Controllers\Rider\RiderController;
 use App\Http\Controllers\Customer\CustController;
-use App\Http\Middleware\AdminCheckMiddleware;
-use App\Http\Middleware\UserCheckMiddleware;
-use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +113,15 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
     Route::get('/users/download/{role}', [UserController::class, 'export'])->name('user.download');
 
+    Route::get('/orders/list', [OrderController::class, 'orderList'])->name('order.list');
+
+    Route::post('/orders/define/rider', [OrderController::class, 'defineRider'])->name('order.rider');
+
+    Route::get('/orders/detail/{id}', [OrderController::class, 'orderDetail'])->name('order.detail');
+
+    Route::get('/orders/search',[OrderController::class,'search'])->name('order.search');
+
+    Route::get('/orders/download/{id}',[OrderController::class,'download'])->name('order.download');
 });
 
 // User/ user detail and change password
@@ -148,7 +158,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
 Route::get('/', [CustController::class, 'index'])->name('cust');
 
-Route::get('/pizzas/search',[CustController::class,'searchPizza'])->name('user.pizza.search');
+Route::get('/pizzas/search', [CustController::class, 'searchPizza'])->name('user.pizza.search');
 
 
 Route::group(['middleware' => [UserCheckMiddleware::class]], function () {
@@ -157,7 +167,7 @@ Route::group(['middleware' => [UserCheckMiddleware::class]], function () {
 
     Route::get('/cart', [CustController::class, 'cart'])->name('cart');
 
-    Route::post('/contact/mail',[CustController::class,'contactMail'])->name('contact.mail');
+    Route::post('/contact/mail', [CustController::class, 'contactMail'])->name('contact.mail');
 });
 
 Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
