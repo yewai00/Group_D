@@ -4,7 +4,7 @@
     <div class="pizza-detail-inner clearfix">
       <div class="left-detail">
         <div class="img-wrap">
-          @if($pizza->buy_one_get_one)
+          @if($pizza->buy_one_get_one == 'yes')
           <img src="{{ asset('img/buy1.png') }}" alt="buy-one-get-one" class="promo">
           @endif
           <img src="{{ asset('img/'.$pizza->image) }}" alt="" class="pizza-img">
