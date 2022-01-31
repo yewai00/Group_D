@@ -73,7 +73,7 @@ class CustDao implements CustDaoInterface {
     }
 
     /**
-     * store order
+     * store order table
      */
     public function orderAdd()
     {
@@ -87,15 +87,16 @@ class CustDao implements CustDaoInterface {
     }
 
     /**
-     * store orderPizza detail
+     * store orderPizza detail in orderPizza table
      */
     public function orderPizzaAdd($order_id, $pizza_id, $qty, $price)
     {
-        OrderPizza::create([
+        $orderPizza = OrderPizza::create([
                 'order_id' => $order_id,
                 'pizza_id' => $pizza_id,
                 'quantity' => $qty,
                 'price' => $price,
             ]);
+        return $orderPizza;
     }
 }

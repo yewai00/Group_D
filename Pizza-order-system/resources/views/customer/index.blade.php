@@ -48,7 +48,7 @@
         <!-- ./filter -->
       </form>
       <div class="list">
-        <div class="list-inner clearfix"></div>
+        <div class="list-inner clearfix">
           @foreach($pizzas as $pizza)
           <div class="list-box">
             <div class="list-box-inner">
