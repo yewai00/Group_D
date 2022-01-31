@@ -13,21 +13,21 @@ $(document).ready(function () {
         $(modal_id).css("display", "block");
     });
 
-    $(".close").click(function () {
-        $(".modal").css("display", "none");
+    let menuOpen = false;
+    $(".menu-btn").click(function () {
+        if (!menuOpen) {
+            $(".menu-btn").addClass("open");
+            $(".aside").css("right", "0");
+            menuOpen = true;
+        } else {
+            $(".menu-btn").removeClass("open");
+            menuOpen = false;
+            $(".aside").css("right", "-100%");
+        }
+    });
 
-        let menuOpen = false;
-        $(".menu-btn").click(function () {
-            if (!menuOpen) {
-                $(".menu-btn").addClass("open");
-                $(".aside").css("right", "0");
-                menuOpen = true;
-            } else {
-                $(".menu-btn").removeClass("open");
-                menuOpen = false;
-                $(".aside").css("right", "-100%");
-            }
-        });
+   $(".close").click(function () {
+        $(".modal").css("display", "none");
     });
 });
 $(function () {
