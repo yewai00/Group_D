@@ -65,7 +65,7 @@
         @endif
       </td>
       <td>{{ \Carbon\Carbon::parse($item->created_at)->format('Y-m-d H:i:s') }}</td>
-      <td>
+      <td class="td-action">
         <a href="{{ route('order.detail',$item->id) }}" class="btn add-btn"><i class="fas fa-eye"></i></a>
       </td>
     </tr>
