@@ -6,7 +6,7 @@
       <div class="bnr-left">
         <div class="bnr-left-inner">
           <h2>WE HAVE THE <br> BEST PIZZA</h2>
-          <p>Hey! Our Delious Pizza is waiting for you, we are <br> always near to you with fresh ingredients.</p>
+          <p>Hey! Our Delicious Pizza is waiting for you, we are <br> always near to you with fresh ingredients.</p>
           <a href="#pizza-list" class="btn-cta">Order Now</a>
         </div>
       </div>
@@ -47,7 +47,7 @@
         </div>
         <!-- ./filter -->
       </form>
-      <div class="list">
+      <div class="list clearfix">
         <div class="list-inner clearfix">
           @foreach($pizzas as $pizza)
           <div class="list-box">

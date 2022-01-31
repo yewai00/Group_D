@@ -19,6 +19,7 @@ label {
 }
 
 .nav {
+
     display: block;
     line-height: 1;
     padding: 20px 30px;
@@ -477,7 +478,7 @@ input[type=file]::file-selector-button:hover {
 
     .nav {
         width: 100vw;
-        padding: 2.5vw 2.930vw;
+        padding: 2vw 2.930vw;
         border-bottom: 0.098vw solid #000;
     }
 
