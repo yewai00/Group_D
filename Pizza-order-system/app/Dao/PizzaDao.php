@@ -74,6 +74,7 @@ class PizzaDao  implements PizzaDaoInterface
             $pizza->name = $request->name;
             $pizza->category_id = $request->category_id;
             $pizza->buy_one_get_one = $request->buy_one_get_one;
+            $pizza->price = $request->price;
             $pizza->description = $request->description;
             if ($fileName != null) {
                 $pizza->image = $fileName;

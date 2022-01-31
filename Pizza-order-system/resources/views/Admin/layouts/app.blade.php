@@ -4,13 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,  initial-scale=1.0" />
   <title>Pizza Order System</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-  <!--
-  <link rel="stylesheet" href="{{ asset('css/riders/riders.css') }}">-->
   <script src="{{ asset('js/libraries/chart.min.js') }}"></script>
   <script src="{{ asset('js/libraries/jquery-3.5.1.min.js') }}"></script>
   <script src="{{ asset('js/script.js') }}"></script>
@@ -22,6 +20,9 @@
     <h1>
       <a href="#"> Pizza Order System </a>
     </h1>
+    <div class="menu-btn right">
+      <div class="menu-burger"></div>
+    </div>
   </div>
   <div class="container clearfix">
     <div class="aside">
@@ -58,7 +59,7 @@
         </a>
         <a href="{{ route('users.list','0') }}" id="user">
           <li>
-          <i class="fas fa-users"></i>
+            <i class="fas fa-users"></i>
             <span>Users</span>
           </li>
         </a>
@@ -77,7 +78,7 @@
       </ul>
     </div>
     <div class="content">
-        @yield('content')
+      @yield('content')
     </div>
   </div>
 </body>

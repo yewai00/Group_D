@@ -19,6 +19,9 @@
     <h1>
       <a href="#"> Pizza Order System </a>
     </h1>
+    <div class="menu-btn right">
+      <div class="menu-burger"></div>
+    </div>
   </div>
   <div class="container clearfix">
     <div class="aside">

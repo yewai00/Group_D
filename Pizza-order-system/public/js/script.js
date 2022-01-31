@@ -9,15 +9,29 @@ $(document).ready(function () {
     });
 
     $(".order-btn").click(function () {
-        var modal_id = "#order-" + $(this).attr('id');
+        var modal_id = "#order-" + $(this).attr("id");
         $(modal_id).css("display", "block");
     });
 
     $(".close").click(function () {
         $(".modal").css("display", "none");
+
+        let menuOpen = false;
+        $(".menu-btn").click(function () {
+            if (!menuOpen) {
+                $(".menu-btn").addClass("open");
+                $(".aside").css("right", "0");
+                /*$(".aside").css("display", "block");*/
+                menuOpen = true;
+            } else {
+                $(".menu-btn").removeClass("open");
+                menuOpen = false;
+                $(".aside").css("right", "-100%");
+                /* $(".aside").css("display", "none");*/
+            }
+        });
     });
 });
-
 $(function () {
     var id = window.location.pathname.split("/")[2];
     if (id == "profile") {
@@ -83,7 +97,6 @@ $(function () {
             display: true,
             position: "top",
             text: "Last Week Registered Users -  Day Wise Count",
-            fontSize: 18,
             fontColor: "#111",
         },
         legend: {
