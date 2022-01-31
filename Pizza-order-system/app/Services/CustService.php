@@ -76,6 +76,15 @@ class CustService implements CustServiceInterface
         return true;
     }
 
+    /**
+     * send email
+     * @param $email
+     * @param $orderLists
+     */
+    public function sendMail($email, $orderLists) {
+        Mail::to($email)->send($orderLists);
+    }
+    
     /** 
      * store order
      */

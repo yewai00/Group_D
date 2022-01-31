@@ -8,20 +8,29 @@ $(document).ready(function () {
         $(".alert").remove();
     });
 
+    $(".order-btn").click(function () {
+        var modal_id = "#order-" + $(this).attr("id");
+        $(modal_id).css("display", "block");
+    });
+
     let menuOpen = false;
     $(".menu-btn").click(function () {
         if (!menuOpen) {
             $(".menu-btn").addClass("open");
             $(".aside").css("right", "0");
-            /*$(".aside").css("display", "block");*/
             menuOpen = true;
         } else {
             $(".menu-btn").removeClass("open");
             menuOpen = false;
             $(".aside").css("right", "-100%");
-           /* $(".aside").css("display", "none");*/
         }
     });
+
+   $(".close").click(function () {
+        $(".modal").css("display", "none");
+   });
+
+    $(".c-box-inner").heightLine();
 });
 
 $(function () {
