@@ -38,10 +38,10 @@
             </select>
             <label for="">Name:</label>
             <input type="text" class="text-box" name="name">
-            <label for="">Min price:</label>
-            <input type="text" class="text-box" name="min_price">
-            <label for="">Max price:</label>
-            <input type="text" class="text-box" name="max_price">
+            <label for=""  class="sp">Min price:</label>
+            <input type="text" class="text-box sp" name="min_price">
+            <label for=""  class="sp">Max price:</label>
+            <input type="text" class="text-box sp" name="max_price" >
             <button class="btn-submit" type="submit">Search</button>
           </div>
         </div>
