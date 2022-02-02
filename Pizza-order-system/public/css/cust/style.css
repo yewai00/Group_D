@@ -1702,6 +1702,15 @@ footer {
         padding: 1.406vw 0 0.938vw 0;
     }
 
+    .nav-list a{
+        font-size: 2.188vw;
+    }
+
+    .login {
+        padding: 0.781vw 1.250vw;
+        border-radius: 0.781vw;
+    }
+
     .humburger {
         display: block;
         position: absolute;
@@ -1756,7 +1765,7 @@ footer {
         font-size: 2.500vw;
         width: 100%;
         padding: 3.125vw 0;
-        border-bottom: 1px solid #6b6a69;
+        border-bottom: 0.156vw solid #6b6a69;
     }
 
     .nav-inner ul li a {
@@ -1769,7 +1778,6 @@ footer {
 
     .humburger.active span:nth-child(1) {
         top: 2.500vw;
-        left: 6px;
         -webkit-transform: rotate(-45deg);
         -moz-transform: rotate(-45deg);
         transform: rotate(-45deg);
