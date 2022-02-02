@@ -38,10 +38,12 @@
             </select>
             <label for="">Name:</label>
             <input type="text" class="text-box" name="name">
-            <label for=""  class="sp">Min price:</label>
-            <input type="text" class="text-box sp" name="min_price">
-            <label for=""  class="sp">Max price:</label>
-            <input type="text" class="text-box sp" name="max_price" >
+            <div class="sp-block">
+              <label for="">Min price:</label>
+              <input type="text" class="text-box" name="min_price">
+              <label for="">Max price:</label>
+              <input type="text" class="text-box" name="max_price">
+            </div>
             <button class="btn-submit" type="submit">Search</button>
           </div>
         </div>
@@ -106,7 +108,7 @@
       <!-- ./c-box -->
       <div class="c-box">
         <div class="c-box-inner">
-          <h4>Contact info</h4>
+          <h4>Contact Info</h4>
           <ul>
             <li class="address">
               <p>No.(56), Mya Thidar Street, Pyay Road,Hlaing Thar Yar Township, Yangon</p>

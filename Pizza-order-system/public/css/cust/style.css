@@ -15,6 +15,11 @@
     content: "\f818";
 }
 
+.sp-block{
+    display: inline-block;
+    text-align: center;
+}
+
 h1{
     font-size: 1.573vw;
 }
@@ -1674,6 +1679,11 @@ footer {
         max-width: 100%;
     }
 
+    .sp-block{
+        display: block;
+        margin: 10px auto;
+    }
+
     /* Navbar */
     .container {
         width: 95%;
@@ -1850,10 +1860,6 @@ footer {
         border: 0.156vw solid #c1c1c1;
         font-size: 1.875vw;
         box-shadow: #c0bebe76 0px 0px 1.250vw;
-    }
-
-    .sp {
-        display: none;
     }
 
     .text-box:not(:last-child) {
@@ -2042,8 +2048,8 @@ footer {
     }
 
     .btn-submit {
-        padding: 1.250vw;
-        border-radius: 0.781vw;
+        padding: 1vw;
+        border-radius: 0.65vw;
         font-size: 1.875vw;
     }
 
