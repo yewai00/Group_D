@@ -72,7 +72,7 @@
     </div>
     <div class="content">
       <div class="graph-title">
-        <h2>Pizza Sales Graph</h2>
+        <h2>Pizza Sales Graph For Last Week</h2>
       </div>
       <canvas id="graphCanvas"></canvas>
     </div>

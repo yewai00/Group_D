@@ -28,7 +28,6 @@ class StoreRiderRequest extends FormRequest
             'phone' => 'required|min:11',
             'email' => 'required|email|unique:riders',
             'address' => 'required',
-            'status' => 'required'
         ];
     }
 }
