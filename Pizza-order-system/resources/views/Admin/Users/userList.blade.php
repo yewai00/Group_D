@@ -7,9 +7,8 @@
   </a>
 
   <div class="right">
-    <form action="{{ route('user.search', '0') }}" method="post" class="search-form">
-      @csrf
-      <input type="text" name="search" placeholder="search">
+    <form action="{{ route('user.search', '0') }}" method="get" class="search-form">
+      <input type="text" name="search" placeholder="name or email or address">
       <button type="submit" class="btn search-btn">Search</button>
     </form>
     <a href="{{ route('user.download','0') }}" class="btn edit-btn">

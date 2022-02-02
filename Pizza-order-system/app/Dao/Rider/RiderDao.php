@@ -83,7 +83,8 @@ class RiderDao implements RiderDaoInterface {
     public function search(Request $request) {
         $keyword = $request->riders;
         $riders = DB::table('riders')->where('name', 'LIKE', '%' . $keyword . '%')
-                            ->orwhere('riders.email', 'LIKE', '%' . $keyword . '%');
+                            ->orwhere('riders.email', 'LIKE', '%' . $keyword . '%')
+                            ->orwhere('address','LIKe','%'.$keyword.'%');
         return $riders->paginate(8);
     }
 

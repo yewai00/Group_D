@@ -93,7 +93,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
     Route::get('/pizzas/delete/{id}', [PizzaController::class, 'deletePizza'])->name('pizza.delete.post');
 
-    Route::post('/pizzas/search', [PizzaController::class, 'searchPizza'])->name('pizza.search');
+    Route::get('/pizzas/search', [PizzaController::class, 'searchPizza'])->name('pizza.search');
 
     Route::get('/pizzas/export', [PizzaController::class, 'export'])->name('pizza.export');
 
@@ -109,7 +109,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
     Route::get('/users/list/{role_id}', [UserController::class, 'getAllUsersList'])->name('users.list');
 
-    Route::post('/users/search/{role}', [UserController::class, 'search'])->name('user.search');
+    Route::get('/users/search/{role}', [UserController::class, 'search'])->name('user.search');
 
     Route::get('/users/download/{role}', [UserController::class, 'export'])->name('user.download');
 
@@ -147,7 +147,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
     Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 
-    Route::post('/categories/search', [CategoryController::class, 'search'])->name('category.search');
+    Route::get('/categories/search', [CategoryController::class, 'search'])->name('category.search');
 
     Route::get('/categories/export', [CategoryController::class, 'export'])->name('category.export');
 

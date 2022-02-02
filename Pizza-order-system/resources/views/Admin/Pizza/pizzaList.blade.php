@@ -13,9 +13,8 @@
     Add Pizza
   </a>
   <div class="right">
-    <form action="{{ route('pizza.search') }}" method="post" class="search-form">
-      @csrf
-      <input type="text" name="search" value="{{ old('search') }}" placeholder="search">
+    <form action="{{ route('pizza.search') }}" method="get" class="search-form">
+      <input type="text" name="search" value="{{ old('search') }}" placeholder="pizza name or description">
       <button type="submit" class="btn search-btn">Search</button>
     </form>
     <a href="{{ route('pizza.export') }}" class="btn edit-btn">
