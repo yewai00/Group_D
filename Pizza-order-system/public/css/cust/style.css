@@ -1732,14 +1732,14 @@ footer {
     .nav-inner {
         position: absolute;
         z-index: 2;
-        top: 8.906vw;
+        top: 9.3vw;
         right: 0;
         text-align: center;
         transform: translateX(100%);
         transition: all 0.6s;
         width: 100%;
         overflow-y: scroll;
-        background-color: #f8c296;
+        background-color: #f8c296ef;
     }
 
     .nav-inner ul li {
