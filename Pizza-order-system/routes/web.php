@@ -127,7 +127,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 // User/ user detail and change password
 Route::get('/user/detail', [UserController::class, 'showUserProfile'])->name('user.profile');
 
-Route::post('/user/detail/{id}', [UserController::class, 'submitUserProfile'])->name('user.profile.post');
+Route::post('/user/detail/{id}', [UserController::class, 'submitAdminProfile'])->name('user.profile.post');
 
 Route::get('/user/password', [UserController::class, 'showUserChangePasswordForm'])->name('customer.password.get');
 

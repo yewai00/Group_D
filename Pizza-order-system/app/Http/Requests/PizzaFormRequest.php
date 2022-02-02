@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PasswordResetRequest extends FormRequest
+class PizzaFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,12 @@ class PasswordResetRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|exists:users',
-            'password' => 'required|string|min:8|same:confirmation',
-            'confirmation' => 'required'
+            'name' => 'required',
+            'image' => 'image|mimes:png,jpeg|max:2048',
+            'category_id' => 'required',
+            'price' => 'required',
+            'buy_one_get_one' => 'required',
+            'description' => 'required|max:1000'
         ];
     }
 }

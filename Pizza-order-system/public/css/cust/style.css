@@ -1256,6 +1256,37 @@ footer {
         float: right;
         margin: 1.465vw 5.953vw 0;
     }
+
+    .dropdown-content {
+        top: 2.441vw;
+        min-width: 15.625vw;
+        box-shadow: 0px 0.781vw 1.563vw 0px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dropdown-content a {
+        padding: 1.172vw 1.563vw;
+        border-bottom: 0.098vw solid #898989;
+    }
+    
+    .dropdown-content a:first-child{
+        border-top: 0.098vw solid #898989;
+    }
+    
+    .dropdown-content i {
+        padding-right: 0.977vw;
+    }
+    
+    .dropbtn i {
+        padding-left: 0.977vw;
+    }
+    
+    .user-btn{
+        box-shadow: #1d553266 0px 0px 0.977vw;
+    }
+    
+    .user-btn:hover {
+        box-shadow: #1d553233 0px 0px 0.781vw;
+    }
 }
 
 @media screen and (max-width:767.9px) {
@@ -1344,6 +1375,17 @@ footer {
 
     .nav-inner.active {
         transform: translateX(0%);
+    }
+
+    .dropdown-content{
+        position:relative;
+        left:0;
+        top:10px;
+    }
+
+    .dropdown-content a{
+        display:block;
+        width:100vw;
     }
 
     .humburger.active span:nth-child(1) {
