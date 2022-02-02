@@ -30,7 +30,9 @@ $(document).ready(function () {
         $(".modal").css("display", "none");
    });
 
-    $(".c-box-inner").heightLine();
+    $(".c-box-inner").heightLine({
+        minWidth:768
+    });
 });
 
 $(function () {
@@ -97,7 +99,7 @@ $(function () {
         title: {
             display: true,
             position: "top",
-            text: "Last Week Registered Users -  Day Wise Count",
+            text: "Last Week Pizza Sales",
             fontColor: "#111",
         },
         legend: {
