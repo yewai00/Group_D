@@ -14,7 +14,9 @@
         <h5>{{ $pizza->name }}</h5>
         <p>{{ $pizza->description }}</p>
         <p>Price: <span class="price"><b>{{ $pizza->price }}</b> MMK</span></p>
+        @if(Auth::check())
         <a href="{{ url('/add-item/'.$pizza->id) }}" class="btn-atc">Add To Cart</a>
+        @endif
       </div>
     </div>
   </div>

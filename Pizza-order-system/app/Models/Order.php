@@ -14,6 +14,6 @@ class Order extends Model
     protected $nullable = ['rider_id'];
 
     public function user() {
-        return $this->hasMany(User::class);  
+        return $this->belongsTo(User::class);
     }
 }
