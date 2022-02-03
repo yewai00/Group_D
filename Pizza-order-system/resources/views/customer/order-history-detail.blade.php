@@ -11,7 +11,7 @@
           <div class="cart-item clearfix">
             <div class="left-cart-item">
               <div class="img-wrap">
-                @if($hd->b1g1)
+                @if($hd->b1g1 == 'yes')
                   <img src="{{ asset('img/buy1.png') }}" alt="buy-one-get-one" class="promo">
                 @endif
                 <img src="{{ asset('img/'.$hd->image) }}" alt="pizza" class="cart-pizza">
