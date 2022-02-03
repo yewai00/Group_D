@@ -23,6 +23,9 @@ class UserDao  implements UserDaoInterface
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->password = Hash::make($request->password);
+        if($request->role!=''){
+            $user->role=$request->role;
+        }
         $user->save();
         return true;
     }
@@ -63,7 +66,7 @@ class UserDao  implements UserDaoInterface
 
     /**
      * To get current reset password data of user
-     * 
+     *
      * @param string $email
      * @param string $token
      * @return Object created reset_password object
@@ -74,8 +77,8 @@ class UserDao  implements UserDaoInterface
     }
 
     /**
-     * To change password of user 
-     * 
+     * To change password of user
+     *
      * @param string $email
      * @param string $password
      * @return bool
@@ -86,14 +89,14 @@ class UserDao  implements UserDaoInterface
     }
 
     /**
-     * To delte row of password reset table 
-     * 
+     * To delte row of password reset table
+     *
      * @param string $email
      * @return bool
      */
     public function deletePasswordTableData($email)
     {
-        
+
     }
     /**
      * to get all customers list
