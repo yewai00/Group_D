@@ -103,17 +103,17 @@ class CustDao implements CustDaoInterface
     }
 
     /**
-     * show order history 
+     * show order history
      * @param $id
-     * 
+     *
      */
     public function orderHistory($id) {
         $history = DB::table('orders')
-            ->join('riders', 'orders.rider_id', '=', 'riders.id')
+            ->leftJoin('riders', 'orders.rider_id', '=', 'riders.id')
             ->join('order_pizzas', 'orders.id', '=', 'order_pizzas.order_id')
             ->select('orders.id as id',
-                'riders.name as name', 
-                DB::raw('sum(order_pizzas.price) as price') , 
+                'riders.name as name',
+                DB::raw('sum(order_pizzas.price) as price') ,
                 'orders.created_at as created_at')
             ->groupBy('orders.id')
             ->orderBy("orders.id", "desc")
