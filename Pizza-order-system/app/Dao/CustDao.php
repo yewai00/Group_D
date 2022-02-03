@@ -51,7 +51,7 @@ class CustDao implements CustDaoInterface {
         $name=$request->name;
         $min_price=$request->min_price;
         $max_price=$request->max_price;
-        
+
         if($category_id){
             $query->where('category_id',$request->category_id);
         }
@@ -73,7 +73,7 @@ class CustDao implements CustDaoInterface {
     }
 
     /**
-     * store order
+     * store order table
      */
     public function orderAdd()
     {
@@ -81,21 +81,21 @@ class CustDao implements CustDaoInterface {
         $rider_id = 1;
         $order = Order::create([
             'user_id' => $user_id,
-            'rider_id' => $rider_id,
         ]);
         return $order;
     }
 
     /**
-     * store orderPizza detail
+     * store orderPizza detail in orderPizza table
      */
     public function orderPizzaAdd($order_id, $pizza_id, $qty, $price)
     {
-        OrderPizza::create([
+        $orderPizza = OrderPizza::create([
                 'order_id' => $order_id,
                 'pizza_id' => $pizza_id,
                 'quantity' => $qty,
                 'price' => $price,
             ]);
+        return $orderPizza;
     }
 }

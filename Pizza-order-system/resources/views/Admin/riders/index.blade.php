@@ -13,7 +13,7 @@
   <a href="{{ route('riders.create') }}" class="btn add-btn add-rider">Add Rider</a>
   <div class="right">
     <form action="{{ route('riders.search') }}" method="get" class="search-form">
-      <input type="text" name="riders" id="riders" placeholder="Search">
+      <input type="text" name="riders" id="riders" placeholder="name or email or address">
       <button type="submit" class="btn search-btn">Search</button>
     </form>
     <a href="{{ route('riders.export') }}" class="btn edit-btn">Download</a>

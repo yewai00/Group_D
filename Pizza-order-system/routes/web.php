@@ -1,20 +1,21 @@
 <?php
 
 use App\Models\Pizza;
+use GuzzleHttp\Middleware;
 use App\Services\PizzaServices;
 use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\Route;
+
+
 use App\Http\Controllers\UserController;
-
-
 use App\Http\Controllers\GraphController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Middleware\UserCheckMiddleware;
+use App\Http\Middleware\AdminCheckMiddleware;
 use App\Http\Controllers\Rider\RiderController;
 use App\Http\Controllers\Customer\CustController;
-use App\Http\Middleware\AdminCheckMiddleware;
-use App\Http\Middleware\UserCheckMiddleware;
-use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,7 +93,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
     Route::get('/pizzas/delete/{id}', [PizzaController::class, 'deletePizza'])->name('pizza.delete.post');
 
-    Route::post('/pizzas/search', [PizzaController::class, 'searchPizza'])->name('pizza.search');
+    Route::get('/pizzas/search', [PizzaController::class, 'searchPizza'])->name('pizza.search');
 
     Route::get('/pizzas/export', [PizzaController::class, 'export'])->name('pizza.export');
 
@@ -108,10 +109,19 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
     Route::get('/users/list/{role_id}', [UserController::class, 'getAllUsersList'])->name('users.list');
 
-    Route::post('/users/search/{role}', [UserController::class, 'search'])->name('user.search');
+    Route::get('/users/search/{role}', [UserController::class, 'search'])->name('user.search');
 
     Route::get('/users/download/{role}', [UserController::class, 'export'])->name('user.download');
 
+    Route::get('/orders/list', [OrderController::class, 'orderList'])->name('order.list');
+
+    Route::post('/orders/define/rider', [OrderController::class, 'defineRider'])->name('order.rider');
+
+    Route::get('/orders/detail/{id}', [OrderController::class, 'orderDetail'])->name('order.detail');
+
+    Route::get('/orders/search',[OrderController::class,'search'])->name('order.search');
+
+    Route::get('/orders/download/{id}',[OrderController::class,'download'])->name('order.download');
 });
 
 // User/ user detail and change password
@@ -137,18 +147,22 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
     Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 
-    Route::post('/categories/search', [CategoryController::class, 'search'])->name('category.search');
+    Route::get('/categories/search', [CategoryController::class, 'search'])->name('category.search');
 
     Route::get('/categories/export', [CategoryController::class, 'export'])->name('category.export');
 
     Route::get('/categories/upload', [CategoryController::class, 'showUploadForm'])->name('category.upload.get');
 
     Route::post('/categories/upload', [CategoryController::class, 'upload'])->name('category.upload');
+
+    Route::get('/new',[UserController::class,'newAdminForm'])->name('admin.new');
+
+    Route::post('/new',[UserController::class,'submitNewAdminForm'])->name('admin.new.post');
 });
 
 Route::get('/', [CustController::class, 'index'])->name('cust');
 
-Route::get('/pizzas/search',[CustController::class,'searchPizza'])->name('user.pizza.search');
+Route::get('/pizzas/search', [CustController::class, 'searchPizza'])->name('user.pizza.search');
 
 
 Route::group(['middleware' => [UserCheckMiddleware::class]], function () {
@@ -157,7 +171,7 @@ Route::group(['middleware' => [UserCheckMiddleware::class]], function () {
 
     Route::get('/cart', [CustController::class, 'cart'])->name('cart');
 
-    Route::post('/contact/mail',[CustController::class,'contactMail'])->name('contact.mail');
+    Route::post('/contact/mail', [CustController::class, 'contactMail'])->name('contact.mail');
 });
 
 Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');

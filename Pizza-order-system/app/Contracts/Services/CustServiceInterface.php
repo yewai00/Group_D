@@ -46,4 +46,11 @@ interface CustServiceInterface {
      */
     public function orderPizzaAdd($order_id, $pizza_id, $qty, $price);
 
+    /**
+     * send email
+     * @param $email
+     * @param $orderLists
+     */
+    public function sendMail($email, $orderLists);
+
 }

@@ -32,6 +32,12 @@
             <span> My Profile</span>
           </li>
         </a>
+        <a href="{{ route('admin.new') }}" id="new">
+          <li>
+          <i class="far fa-plus-square"></i>
+            <span>New Admin</span>
+          </li>
+        </a>
         <a href="{{ route('category.index') }}" id="category">
           <li>
             <i class="far fa-list-alt"></i>
@@ -44,7 +50,7 @@
             <span>Pizzas</span>
           </li>
         </a>
-        <a href="#" id="order">
+        <a href="{{ route('order.list') }}" id="order">
           <li>
             <i class="fas fa-receipt"></i>
             <span>Orders</span>
@@ -72,7 +78,7 @@
     </div>
     <div class="content">
       <div class="graph-title">
-        <h2>Pizza Sales Graph</h2>
+        <h2>Pizza Sales Graph For Last Week</h2>
       </div>
       <canvas id="graphCanvas"></canvas>
     </div>

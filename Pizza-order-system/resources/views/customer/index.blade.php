@@ -12,7 +12,7 @@
       </div>
       <!-- ./bnr-left -->
       <div class="bnr-right">
-        <img src="img/pizza-bnr.png" alt="">
+        <img src="../img/pizza-bnr.png" alt="">
       </div>
       <!-- ./bnr-right -->
     </div>
@@ -38,22 +38,24 @@
             </select>
             <label for="">Name:</label>
             <input type="text" class="text-box" name="name">
-            <label for="">Min price:</label>
-            <input type="text" class="text-box" name="min_price">
-            <label for="">Max price:</label>
-            <input type="text" class="text-box" name="max_price">
+            <div class="sp-block">
+              <label for="">Min price:</label>
+              <input type="text" class="text-box" name="min_price">
+              <label for="">Max price:</label>
+              <input type="text" class="text-box" name="max_price">
+            </div>
             <button class="btn-submit" type="submit">Search</button>
           </div>
         </div>
         <!-- ./filter -->
       </form>
-      <div class="list">
+      <div class="list clearfix">
         <div class="list-inner clearfix">
           @foreach($pizzas as $pizza)
           <div class="list-box">
             <div class="list-box-inner">
               <div class="pizza-img-wrap">
-                @if($pizza->buy_one_get_one)
+                @if($pizza->buy_one_get_one == 'yes')
                 <img src="{{ asset('img/buy1.png') }}" alt="buy-one-get-one" class="buy-one">
                 @endif
                 <img src="{{ asset('img/'.$pizza->image) }}" alt="" class="show-pizza">
@@ -106,10 +108,10 @@
       <!-- ./c-box -->
       <div class="c-box">
         <div class="c-box-inner">
-          <h4>Contact info</h4>
+          <h4>Contact Info</h4>
           <ul>
             <li class="address">
-              <p>No.(56), Mya Thidar Street, Pyay Road,Hlaing Thar Yar Township, Yangon</p>
+              <p>No.(56), Mya Thidar Street, Pyay Road, Hlaing Thar Yar Township, Yangon</p>
             </li>
             <li class="ph">
               <p>(+95) 9 258 369 147, (+95) 9 452 159 687</p>
@@ -123,15 +125,10 @@
       <!-- ./c-box -->
       <div class="c-box">
         <div class="c-box-inner">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1909.1888642583708!2d96.06402713405248!3d16.857199076264003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1bfd9da6faf03%3A0xa52691144965bf96!2sMyanmar%20(Barmar)!5e0!3m2!1sen!2smm!4v1642669754373!5m2!1sen!2smm" width="366" height="310" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1909.1888642583708!2d96.06402713405248!3d16.857199076264003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1bfd9da6faf03%3A0xa52691144965bf96!2sMyanmar%20(Barmar)!5e0!3m2!1sen!2smm!4v1642669754373!5m2!1sen!2smm" width="500" height="310" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
-      <!-- ./c-box -->
-      <div class="c-box">
-
-      </div>
     </div>
-
 </section>
 <footer>
   <div class="footer-inner">

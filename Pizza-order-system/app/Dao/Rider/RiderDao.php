@@ -30,7 +30,6 @@ class RiderDao implements RiderDaoInterface {
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'address' => $request->address,
-                'status' => $request->status,
             ]);
         }, 5);
         return $riders;
@@ -49,7 +48,6 @@ class RiderDao implements RiderDaoInterface {
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'address' => $request->address,
-                'status' => $request->status,
             ]);
         }, 5);
     }
@@ -83,7 +81,8 @@ class RiderDao implements RiderDaoInterface {
     public function search(Request $request) {
         $keyword = $request->riders;
         $riders = DB::table('riders')->where('name', 'LIKE', '%' . $keyword . '%')
-                            ->orwhere('riders.email', 'LIKE', '%' . $keyword . '%');
+                            ->orwhere('riders.email', 'LIKE', '%' . $keyword . '%')
+                            ->orwhere('address','LIKe','%'.$keyword.'%');
         return $riders->paginate(8);
     }
 

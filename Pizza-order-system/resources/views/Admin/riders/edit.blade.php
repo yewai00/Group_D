@@ -39,18 +39,6 @@
               <small class="error">{{ $message }}</small>
             @enderror
           </div>
-          <div class="input-group">
-            <label for="">Status</label>
-            <select class="form-select form-control" name="status">
-              @if($rider->status == "avaliable")
-                <option value="avaliable" selected>avaliable</option>
-                <option value="not avaliable">not avaliable</option>
-              @else
-                <option value="avaliable">avaliable</option>
-                <option value="not avaliable" selected>not avaliable</option>
-              @endif
-          </select>
-          </div>
          <div class="card-footer">
              <button type="submit" class="btn add-btn">Update</button>
          </div>

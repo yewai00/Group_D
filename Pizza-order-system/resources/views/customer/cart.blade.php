@@ -13,7 +13,7 @@
           <div class="cart-item clearfix">
             <div class="left-cart-item">
               <div class="img-wrap">
-                @if($pizza['item']['buy_one_get_one'])
+                @if($pizza['item']['buy_one_get_one'] == 'yes')
                   <img src="{{ asset('img/buy1.png') }}" alt="buy-one-get-one" class="promo">
                 @endif
                 <img src="img/{{$pizza['item']['image']}}" alt="pizza" class="cart-pizza">
