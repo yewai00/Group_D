@@ -17,7 +17,7 @@
           <td>{{ $h->name ? $h->name : 'N/A' }}</td>
           <td>{{ $h->price }} MMK</td>
           <td>{{date("F j, Y, g:i A", strtotime($h->created_at))}}</td>
-          <td><a href="/order-history/detail/{{ $h->id }}" class="hdetail">detail</a></td>
+          <td><a href="/order-history/detail/{{ $h->id }}" class="hdetail"><i class="fas fa-info-circle"></i> show detail</a></td>
         </tr>
         @endforeach
       </table>

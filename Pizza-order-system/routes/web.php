@@ -183,4 +183,4 @@ Route::get('/delete-item/{id}', [CustController::class, 'deleteItem']);
 Route::get('/session-destroy', [CustController::class, 'sessionDestroy']);
 Route::get('order', [CustController::class, 'makeorder']);
 Route::get('/order-history/detail/{id}', [CustController::class, 'orderHistoryDetail']);
-Route::get('/order-history/{id}', [CustController::class, 'orderHistory']);
+Route::get('/order-history', [CustController::class, 'orderHistory']);

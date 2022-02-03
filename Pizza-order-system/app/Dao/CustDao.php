@@ -81,7 +81,6 @@ class CustDao implements CustDaoInterface
     public function orderAdd()
     {
         $user_id = Auth::user()->id;
-        $rider_id = 1;
         $order = Order::create([
             'user_id' => $user_id,
         ]);

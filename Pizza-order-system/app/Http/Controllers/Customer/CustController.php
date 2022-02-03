@@ -195,7 +195,8 @@ class CustController extends Controller
      * @param $id
      * 
      */
-    public function orderHistory($id) {
+    public function orderHistory() {
+        $id = Auth::user()->id;
         $history = $this->custInterface->orderHistory($id);
         return view('customer.order-history')->with(['history' => $history]);
     }
