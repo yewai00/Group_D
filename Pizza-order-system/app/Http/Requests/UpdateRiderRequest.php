@@ -28,7 +28,7 @@ class UpdateRiderRequest extends FormRequest
         return [
             'name' => 'required',
             'phone' => 'required|min:11',
-            'email' => ['required', 'email',Rule::unique('riders')->ignore($id)],
+            'email' => ['required', 'email', Rule::unique('riders')->ignore($id)],
             'address' => 'required',
         ];
     }

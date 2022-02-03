@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class RidersExport implements FromCollection, WithHeadings
 {
-     /**
+    /**
      * rider dao
      */
     private $riderDao;
@@ -24,8 +24,8 @@ class RidersExport implements FromCollection, WithHeadings
     }
 
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         return $this->riderDao->export();
@@ -42,6 +42,5 @@ class RidersExport implements FromCollection, WithHeadings
             'created_at',
             'updated_at'
         ];
-
     }
 }

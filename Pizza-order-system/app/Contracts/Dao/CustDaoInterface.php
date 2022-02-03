@@ -39,5 +39,4 @@ interface CustDaoInterface
      * store orderPizza detail
      */
     public function orderPizzaAdd($order_id, $pizza_id, $qty, $price);
-
 }

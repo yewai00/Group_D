@@ -65,8 +65,9 @@ class CustController extends Controller
      * @param Request $request
      * @param $id
      */
-    public function getAddToCart(Request $request, $id) {
-        if(Auth::check()){
+    public function getAddToCart(Request $request, $id)
+    {
+        if (Auth::check()) {
             $pizza = $this->custInterface->getPizzaDetail($id);
             $oldCart = Session::has('cart') ? Session::get('cart') : null;
             $cart = new Cart($oldCart);
@@ -81,7 +82,8 @@ class CustController extends Controller
      * @param Request $request
      * @param $id
      */
-    public function minusItem(Request $request, $id) {
+    public function minusItem(Request $request, $id)
+    {
         $pizza = $this->custInterface->getPizzaDetail($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
@@ -94,7 +96,8 @@ class CustController extends Controller
      * delete item from cart
      * @param $id
      */
-    public function deleteItem($id) {
+    public function deleteItem($id)
+    {
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $qty = $oldCart->items[$id]['qty'];
         $price = $oldCart->items[$id]['price'];
@@ -108,31 +111,32 @@ class CustController extends Controller
     /**
      * show cart
      */
-    public function getCart() {
-        if(Auth::check()){
+    public function getCart()
+    {
+        if (Auth::check()) {
             if (!Session::has('cart')) {
                 return view('customer.cart', ['pizzas' => null]);
             }
             $oldCart = Session::get('cart');
             $cart = new Cart($oldCart);
             return view('customer.cart', ['pizzas' => $cart->items, 'totalPrice' => $cart->totalPrice]);
-        }
-        else {
+        } else {
             return redirect()->route('cust');
         }
     }
 
-    public function makeorder() {
-        if(Auth::check()){
+    public function makeorder()
+    {
+        if (Auth::check()) {
             $session = Session::get('cart');
             $order = $this->custInterface->orderAdd();
             $order_id = $order->id;
-            foreach(array_keys($session->items) as $i) {
+            foreach (array_keys($session->items) as $i) {
                 $pizza_id = $i;
                 $qty = $session->items[$i]['qty'];
                 $price = $session->items[$i]['price'];
                 $this->custInterface->orderPizzaAdd($order_id, $pizza_id, $qty, $price);
-            } 
+            }
             $orderList = new Cart($session);
             $email = Auth::user()->email;
             $this->sendOrderMail($orderList, $email, $order_id);
@@ -174,11 +178,12 @@ class CustController extends Controller
     }
 
     /**
-     * send email to 
+     * send email to
      * @param string $email
      * return Object
      */
-    public function sendOrderMail($orderList, $email, $order_id) { 
+    public function sendOrderMail($orderList, $email, $order_id)
+    {
         $orderLists = new OrderMail($orderList, $order_id);
         $this->custInterface->sendMail($email, $orderLists);
         return $orderLists;
@@ -187,7 +192,8 @@ class CustController extends Controller
     /**
      * session destroy
      */
-    public function sessionDestroy() {
+    public function sessionDestroy()
+    {
         session()->forget('cart');
         return redirect('/');
     }

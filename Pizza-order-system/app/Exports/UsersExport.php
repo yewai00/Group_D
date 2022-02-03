@@ -4,8 +4,9 @@ namespace App\Exports;
 
 use App\Models\User;
 use App\Contracts\Dao\UserDaoInterface;
-use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use App\Contracts\Services\UserServicesInterface;
 
 class UsersExport implements FromCollection, WithHeadings
 {
@@ -14,12 +15,12 @@ class UsersExport implements FromCollection, WithHeadings
 
     /**
      * Class Constructor
-     * @param UserDaoInterface
+     * @param UserServiceInterface
      * @return
      */
-    public function __construct(UserDaoInterface $userDaoInterface, $role)
+    public function __construct(UserServicesInterface $userInterface, $role)
     {
-        $this->userDao = $userDaoInterface;
+        $this->userInterface = $userInterface;
         $this->role = $role;
     }
 
@@ -29,7 +30,7 @@ class UsersExport implements FromCollection, WithHeadings
      */
     public function collection()
     {
-        return $this->userDao->getAllUsers($this->role);
+        return $this->userInterface->export($this->role);
     }
 
     public function headings(): array

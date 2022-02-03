@@ -62,7 +62,8 @@ class OrderController extends Controller
      * @param $searchKey
      * @return order list
      */
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $orders = $this->orderInterface->search($request);
         $riders = $this->orderInterface->getRidersList();
         return view('Admin.Orders.index')->with(['orders' => $orders, 'riders' => $riders]);
@@ -73,7 +74,8 @@ class OrderController extends Controller
      * @param order id
      * @return true
      */
-    public function download($id){
+    public function download($id)
+    {
         $this->orderInterface->download($id);
         return back();
     }

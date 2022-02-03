@@ -30,10 +30,11 @@ class RiderController extends Controller
      *
      * @return view to index with $riders list
      */
-    public function index(){
+    public function index()
+    {
         $riders = $this->riderInterface->getRidersList();
         return view('Admin.riders.index')
-            ->with('riders',$riders);
+            ->with('riders', $riders);
     }
 
     /**
@@ -41,17 +42,19 @@ class RiderController extends Controller
      *
      * @return redirect to index with message
      */
-    public function store(StoreRiderRequest $request) {
+    public function store(StoreRiderRequest $request)
+    {
         $this->riderInterface->store($request);
         return redirect()->route('riders.index')
-                ->with('success', 'rider created successfully.');
+            ->with('success', 'rider created successfully.');
     }
 
     /**
      * show create page
      *
      */
-    public function create() {
+    public function create()
+    {
         return view('Admin.riders.create');
     }
 
@@ -61,10 +64,11 @@ class RiderController extends Controller
      * @param $id
      * @returb redirect to index with message
      */
-    public function update(UpdateRiderRequest $request, $id) {
+    public function update(UpdateRiderRequest $request, $id)
+    {
         $this->riderInterface->update($request, $id);
         return redirect()->route('riders.index')
-                ->with('success', 'rider updated successfully.');
+            ->with('success', 'rider updated successfully.');
     }
 
     /**
@@ -73,7 +77,8 @@ class RiderController extends Controller
      * @param $id
      * @return view to edit page
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $rider = $this->riderInterface->edit($id);
         return view('Admin.riders.edit')
             ->with('rider', $rider);
@@ -85,10 +90,11 @@ class RiderController extends Controller
      * @param $id
      * @return redirect to index page with message
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $delete = $this->riderInterface->destroy($id);
         return redirect()->route('riders.index')
-                ->with('success', 'rider deleted successfully.');
+            ->with('success', 'rider deleted successfully.');
     }
 
     /**
@@ -97,10 +103,11 @@ class RiderController extends Controller
      * return view to index page with search result
      *
      */
-    public function search(Request $request) {
+    public function search(Request $request)
+    {
         $riders = $this->riderInterface->search($request);
         return view('Admin.riders.index')
-                    ->with('riders', $riders);
+            ->with('riders', $riders);
     }
 
     /**
@@ -108,7 +115,8 @@ class RiderController extends Controller
      * @param
      * @return
      */
-    public function export(){
+    public function export()
+    {
         return $this->riderInterface->export();
     }
 
@@ -133,6 +141,6 @@ class RiderController extends Controller
             'file' => 'required|mimes:csv'
         ]);
         $this->riderInterface->upload($request);
-        return redirect()->route('riders.index')->with(['success'=>'The choose file is successfully uploaded!']);
+        return redirect()->route('riders.index')->with(['success' => 'The choose file is successfully uploaded!']);
     }
 }

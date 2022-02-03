@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Contracts\Services\Rider;
+
 use Illuminate\Http\Request;
 
 
@@ -49,11 +50,10 @@ interface RiderServiceInterface
      */
     public function export();
 
-     /**
+    /**
      * to upload csv file into riders table
      * @param Request $request
      * @return message success or not
      */
     public function upload(Request $request);
 }
-

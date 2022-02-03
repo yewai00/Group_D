@@ -65,9 +65,9 @@ class CustService implements CustServiceInterface
      */
     public function contactMail(Request $request)
     {
-        $data=[
-            "message"=>$request->message,
-            "name"=>Auth::user()->name
+        $data = [
+            "message" => $request->message,
+            "name" => Auth::user()->name
         ];
         Mail::send('customer.contactMail', ['data' => $data], function ($message) use ($request) {
             $message->from(Auth::user()->email, Auth::user()->email);
@@ -81,11 +81,12 @@ class CustService implements CustServiceInterface
      * @param $email
      * @param $orderLists
      */
-    public function sendMail($email, $orderLists) {
+    public function sendMail($email, $orderLists)
+    {
         Mail::to($email)->send($orderLists);
     }
-    
-    /** 
+
+    /**
      * store order
      */
     public function orderAdd()

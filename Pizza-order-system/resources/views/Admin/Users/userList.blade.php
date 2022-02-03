@@ -11,7 +11,7 @@
       <input type="text" name="search" placeholder="name or email or address">
       <button type="submit" class="btn search-btn">Search</button>
     </form>
-    <a href="{{ route('user.download','0') }}" class="btn edit-btn">
+    <a href="{{ route('user.download','user') }}" class="btn edit-btn">
       Download
     </a>
   </div>

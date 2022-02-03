@@ -24,8 +24,8 @@ class UserDao  implements UserDaoInterface
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->password = Hash::make($request->password);
-        if($request->role!=''){
-            $user->role=$request->role;
+        if ($request->role != '') {
+            $user->role = $request->role;
         }
         $user->save();
         return true;
@@ -62,7 +62,6 @@ class UserDao  implements UserDaoInterface
 
     public function submitForgetPasswordForm(Request $request)
     {
-
     }
 
     /**
@@ -75,11 +74,11 @@ class UserDao  implements UserDaoInterface
     public function getResetPassword($email, $token)
     {
         return DB::table('password_resets')
-        ->where([
-            'email' => $email,
-            'token' => $token
-        ])
-        ->first();
+            ->where([
+                'email' => $email,
+                'token' => $token
+            ])
+            ->first();
     }
 
     /**
@@ -92,7 +91,7 @@ class UserDao  implements UserDaoInterface
     public function resetPassword($email, $password)
     {
         return User::where('email', $email)
-        ->update(['password' => Hash::make($password)]);
+            ->update(['password' => Hash::make($password)]);
     }
 
     /**
@@ -113,8 +112,21 @@ class UserDao  implements UserDaoInterface
      */
     public function getAllUsers($role)
     {
-        return User::select('id', 'name', 'email', 'phone', 'address','role', 'created_at', 'updated_at')
+        return User::select('id', 'name', 'email', 'phone', 'address', 'role', 'created_at', 'updated_at')
             ->where('role', $role)->paginate(8);
+    }
+
+    /**
+     * to get all customers list
+     * @param
+     * @return customers list
+     */
+    public function export($role)
+    {
+
+        $users = User::select('id', 'name', 'email', 'phone', 'address', 'role', 'created_at', 'updated_at')
+            ->where('role', $role)->get();
+        return $users;
     }
 
     /**

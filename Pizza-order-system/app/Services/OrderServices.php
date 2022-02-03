@@ -91,7 +91,7 @@ class OrderServices implements OrderServicesInterface
     {
         $orders = $this->orderDao->orderDetail($id);
         $pdf = app('dompdf.wrapper');
-        $pdf->loadView('Admin.Orders.download', ["orders"=>$orders]);
+        $pdf->loadView('Admin.Orders.download', ["orders" => $orders]);
         //$file_name='Order-ID:'.$id.'.pdf';
         return $pdf->download('order.pdf');
     }

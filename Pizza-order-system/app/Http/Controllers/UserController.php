@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Str;
+use App\Exports\UsersExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\UserFormRequest;
 use App\Http\Requests\LoginFormRequest;
 use Illuminate\Support\Facades\Session;
@@ -157,14 +159,8 @@ class UserController extends Controller
      * @return response()
      */
 
-    public function submitResetPasswordForm(Request $request)
+    public function submitResetPasswordForm(PasswordResetRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email|exists:users',
-            'password' => 'required|string|min:6|same:confirmation',
-            'confirmation' => 'required'
-        ]);
-
         $updatePassword = $this->userInterface->getResetPassword($request->email, $request->token);
 
         if (!$updatePassword) {
@@ -313,7 +309,11 @@ class UserController extends Controller
      */
     public function export($role)
     {
-        return $this->userInterface->export($role);
+        if ($role == 'user') {
+            return Excel::download(new UsersExport($this->userInterface, $role), 'userList.csv');
+        } elseif ($role == "admin") {
+            return Excel::download(new UsersExport($this->userInterface, $role), 'adminList.csv');
+        }
     }
 
     public function test()

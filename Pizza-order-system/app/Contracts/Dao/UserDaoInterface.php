@@ -36,7 +36,7 @@ interface UserDaoInterface
 
     /**
      * To get current reset password data of user
-     * 
+     *
      * @param string $email
      * @param string $token
      * @return Object created reset_password object
@@ -44,8 +44,8 @@ interface UserDaoInterface
     public function getResetPassword($email, $token);
 
     /**
-     * To change password of user 
-     * 
+     * To change password of user
+     *
      * @param string $email
      * @param string $password
      * @return bool
@@ -53,8 +53,8 @@ interface UserDaoInterface
     public function resetPassword($email, $password);
 
     /**
-     * To delte row of password reset table 
-     * 
+     * To delte row of password reset table
+     *
      * @param string $email
      * @return bool
      */
@@ -73,4 +73,11 @@ interface UserDaoInterface
      * @return lists of arrays
      */
     public function search(Request $request, $role);
+
+    /**
+     * to get all customers list
+     * @param
+     * @return customers list
+     */
+    public function export($role);
 }

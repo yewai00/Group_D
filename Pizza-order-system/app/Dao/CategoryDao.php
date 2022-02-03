@@ -14,12 +14,13 @@ class CategoryDao implements CategoryDaoInterface
      * get category list
      * @return object $category
      */
-    public function getCategoriesList(){
-        $categories = Category::leftjoin('pizzas','categories.id','pizzas.category_id')
-        ->select('categories.*',DB::raw('count(pizzas.id) as count'))
-        ->groupBy('categories.id')
-        ->paginate(8);
-       return $categories;
+    public function getCategoriesList()
+    {
+        $categories = Category::leftjoin('pizzas', 'categories.id', 'pizzas.category_id')
+            ->select('categories.*', DB::raw('count(pizzas.id) as count'))
+            ->groupBy('categories.id')
+            ->paginate(8);
+        return $categories;
     }
 
     /**
@@ -27,8 +28,9 @@ class CategoryDao implements CategoryDaoInterface
      * @param Request $request
      *
      */
-    public function store(Request $request) {
-       $categories = DB::transaction(function () use ($request) {
+    public function store(Request $request)
+    {
+        $categories = DB::transaction(function () use ($request) {
             Category::create([
                 'name' => $request->name,
             ]);
@@ -42,8 +44,9 @@ class CategoryDao implements CategoryDaoInterface
      * @param $id
      *
      */
-    public function update(Request $request, $id) {
-        DB::transaction(function () use ($request, $id){
+    public function update(Request $request, $id)
+    {
+        DB::transaction(function () use ($request, $id) {
             Category::find($id)->update([
                 'name' => $request->name,
             ]);
@@ -55,7 +58,8 @@ class CategoryDao implements CategoryDaoInterface
      * @param $id
      * @return object $category
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $category = Category::find($id);
         return $category;
     }
@@ -65,7 +69,8 @@ class CategoryDao implements CategoryDaoInterface
      * @param $id
      *
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         DB::transaction(function () use ($id) {
             Category::find($id)->delete();
         }, 5);
@@ -76,12 +81,13 @@ class CategoryDao implements CategoryDaoInterface
      * @param Request $request
      * @return search result
      */
-    public function search(Request $request) {
+    public function search(Request $request)
+    {
         $keyword = $request->search;
-        $categories = Category::leftjoin('pizzas','categories.id','pizzas.category_id')
-        ->select('categories.*',DB::raw('count(pizzas.id) as count'))
-        ->groupBy('categories.id')
-        ->where('categories.name', 'LIKE', '%' . $keyword . '%');
+        $categories = Category::leftjoin('pizzas', 'categories.id', 'pizzas.category_id')
+            ->select('categories.*', DB::raw('count(pizzas.id) as count'))
+            ->groupBy('categories.id')
+            ->where('categories.name', 'LIKE', '%' . $keyword . '%');
         return $categories->paginate(8);
     }
 
@@ -90,7 +96,8 @@ class CategoryDao implements CategoryDaoInterface
      * @param
      * @return list of categories
      */
-    public function export(){
+    public function export()
+    {
         return Category::all();
     }
 }

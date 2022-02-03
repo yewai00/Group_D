@@ -4,7 +4,8 @@ namespace App\Contracts\Services;
 
 use Illuminate\Http\Request;
 
-interface CustServiceInterface {
+interface CustServiceInterface
+{
 
     /**
      * show pizza list
@@ -52,5 +53,4 @@ interface CustServiceInterface {
      * @param $orderLists
      */
     public function sendMail($email, $orderLists);
-
 }

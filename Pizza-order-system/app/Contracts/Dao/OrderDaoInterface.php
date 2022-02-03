@@ -24,7 +24,7 @@ interface OrderDaoInterface
      */
     public function getRidersList();
 
-     /**
+    /**
      * To define rider for order
      * @param Request $request
      * @return true
@@ -45,7 +45,7 @@ interface OrderDaoInterface
      */
     public function getNetPriceByOrderId($id);
 
-     /**
+    /**
      * To search data from order list
      * @param $searchKey
      * @return order list

@@ -9,7 +9,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Contracts\Dao\CategoryDaoInterface;
 use App\Contracts\Services\CategoryServiceInterface;
 
-class CategoryService implements CategoryServiceInterface {
+class CategoryService implements CategoryServiceInterface
+{
 
     /**
      * category dao
@@ -20,7 +21,7 @@ class CategoryService implements CategoryServiceInterface {
      * @param CategoryDaoInterface $categoryDao
      * @return void
      */
-    public function __construct( CategoryDaoInterface $categoryDao )
+    public function __construct(CategoryDaoInterface $categoryDao)
     {
         $this->categoryDao = $categoryDao;
     }
@@ -29,23 +30,26 @@ class CategoryService implements CategoryServiceInterface {
      * get category list
      * @return object categories
      */
-    public function getCategoriesList(){
-       return $this->categoryDao->getCategoriesList();
+    public function getCategoriesList()
+    {
+        return $this->categoryDao->getCategoriesList();
     }
 
     /**
      * store category
      * @param Request $request
      */
-    public function store(Request $request) {
-       return $this->categoryDao->store($request);
+    public function store(Request $request)
+    {
+        return $this->categoryDao->store($request);
     }
 
     /**
      * update category
      * @param Request $request
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         return $this->categoryDao->update($request, $id);
     }
 
@@ -53,15 +57,17 @@ class CategoryService implements CategoryServiceInterface {
      * find edit id
      * @param $id
      */
-    public function edit($id) {
-       return $this->categoryDao->edit($id);
+    public function edit($id)
+    {
+        return $this->categoryDao->edit($id);
     }
 
     /**
      * delete category
      * @param $id
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         return $this->categoryDao->destroy($id);
     }
 
@@ -70,7 +76,8 @@ class CategoryService implements CategoryServiceInterface {
      * @param Request $request
      *
      */
-    public function search(Request $request) {
+    public function search(Request $request)
+    {
         return $this->categoryDao->search($request);
     }
 
@@ -79,7 +86,8 @@ class CategoryService implements CategoryServiceInterface {
      * @param
      * @return list of categories
      */
-    public function export(){
+    public function export()
+    {
 
         return Excel::download(new CategoriesExport($this->categoryDao), 'categories.csv');
     }
@@ -90,7 +98,8 @@ class CategoryService implements CategoryServiceInterface {
      * @param Request $request
      * @return message success or not
      */
-    public function upload(Request $request){
+    public function upload(Request $request)
+    {
         return Excel::import(new CategoriesImport, $request->file('file'));
     }
 }

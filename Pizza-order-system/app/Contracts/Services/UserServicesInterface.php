@@ -41,7 +41,7 @@ interface UserServicesInterface
 
     /**
      * To store forget password data and send email
-     * 
+     *
      * @param Request $request request including inputs
      * @return
      */
@@ -49,7 +49,7 @@ interface UserServicesInterface
 
     /**
      * To get current reset password data of user
-     * 
+     *
      * @param string $email
      * @param string $token
      * @return Object created reset_password object
@@ -57,8 +57,8 @@ interface UserServicesInterface
     public function getResetPassword($email, $token);
 
     /**
-     * To change password of user 
-     * 
+     * To change password of user
+     *
      * @param string $email
      * @param string $password
      * @return bool
@@ -66,13 +66,13 @@ interface UserServicesInterface
     public function resetPassword($email, $password);
 
     /**
-     * To deelte row of password reset table 
-     * 
+     * To deelte row of password reset table
+     *
      * @param string $email
      * @return bool
      */
     public function deletePasswordTableData($email);
-    
+
     /** to get all customers list
      * @param
      * @return customers list

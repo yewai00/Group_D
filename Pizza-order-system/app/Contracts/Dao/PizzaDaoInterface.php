@@ -68,7 +68,7 @@ interface PizzaDaoInterface
      */
     public function export();
 
-     /**
+    /**
      * To show pizza sales graph
      * @param
      * @return view with data

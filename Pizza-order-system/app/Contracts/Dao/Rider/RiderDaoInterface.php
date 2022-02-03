@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Contracts\Dao\Rider;
+
 use Illuminate\Http\Request;
 
 
@@ -49,4 +50,3 @@ interface RiderDaoInterface
      */
     public function export();
 }
-

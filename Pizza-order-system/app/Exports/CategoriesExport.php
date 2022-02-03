@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 class CategoriesExport implements FromCollection, WithHeadings
 {
 
-     /**
+    /**
      * category dao
      */
     private $categoryDao;
@@ -19,14 +19,14 @@ class CategoriesExport implements FromCollection, WithHeadings
      * @param CategoryDaoInterface $categoryDao
      * @return void
      */
-    public function __construct( CategoryDaoInterface $categoryDao )
+    public function __construct(CategoryDaoInterface $categoryDao)
     {
         $this->categoryDao = $categoryDao;
     }
 
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         return $this->categoryDao->export();
