@@ -65,6 +65,7 @@ class OrderDao  implements OrderDaoInterface
             ->join('pizzas', 'pizzas.id', 'order_pizzas.pizza_id')
             ->leftJoin('riders', 'riders.id', 'orders.rider_id')
             ->select('orders.*', 'order_pizzas.*', 'pizzas.name as pizza_name', 'order_pizzas.pizza_id', 'riders.name as rider_name')
+            ->orderBy('order_pizzas.pizza_id')
             ->get();
 
         return $order;

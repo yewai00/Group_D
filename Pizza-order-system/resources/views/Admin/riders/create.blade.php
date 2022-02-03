@@ -38,13 +38,6 @@
         <small class="error">{{ $message }}</small>
         @enderror
       </div>
-      <div class="input-group">
-        <label for="status">Status</label>
-        <select class="form-control form-select" name="status">
-          <option value="avaliable" selected>avaliable</option>
-          <option value="not avaliable">not avaliable</option>
-        </select>
-      </div>
       <div class="card-footer">
         <button type="submit" class="btn add-btn">Create</button>
       </div>

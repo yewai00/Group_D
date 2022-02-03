@@ -30,7 +30,6 @@ class RiderDao implements RiderDaoInterface {
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'address' => $request->address,
-                'status' => $request->status,
             ]);
         }, 5);
         return $riders;
@@ -49,7 +48,6 @@ class RiderDao implements RiderDaoInterface {
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'address' => $request->address,
-                'status' => $request->status,
             ]);
         }, 5);
     }

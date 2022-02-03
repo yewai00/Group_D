@@ -38,8 +38,15 @@
             <li class="nav-list"><a href="{{ url('login') }}" class="login">Login</a></li>
             @else
             <li class="nav-list"><a href="/cart" class="cart">Cart({{ Session::has('cart') ? count(Session::get('cart')->items): 0}})</a></li>
-            <li class="nav-list"><a href="{{ url('/user/detail') }}">Profile</a></li>
-            <li class="nav-list"><a href="{{ url('logout') }}" class="login">Logout</a></li>
+            <li class="nav-list">
+              <div class="dropdown">
+                <a class="dropbtn login user-btn">{{ Auth::user()->name }}<i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                  <a href="{{ url('/user/detail') }}"><i class="fas fa-user-circle"></i>My Profile</a>
+                  <a href="{{ url('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                </div>
+              </div>
+            </li>
             @endguest
           </ul>
           </div>
