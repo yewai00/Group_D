@@ -1618,16 +1618,23 @@ footer {
     /* User Detail */
     .alert {
         margin-bottom: 2.930vw;
-        padding: 1.953vw 2.930vw;
+        padding: 1vw;
         border-radius: 0.488vw;
+        line-height: 1;
     }
 
     .alert span {
         padding: 0.488vw;
+        width: 90%;
+        float: left;
     }
 
     .alert i {
-        font-size: 0.488vw;
+        width: 10%;
+        float: right;
+        font-size: 1.5vw;
+        padding-top: 0.8vw;
+        padding-right: 0.8vw;
     }
 
     /* cart */
@@ -1776,32 +1783,32 @@ footer {
         min-width: 15.625vw;
         box-shadow: 0px 0.781vw 1.563vw 0px rgba(0, 0, 0, 0.2);
     }
-    
+
     .dropdown-content a {
         padding: 1.172vw 1.563vw;
         border-bottom: 0.098vw solid #898989;
     }
-    
+
     .dropdown-content a:first-child{
         border-top: 0.098vw solid #898989;
     }
-    
+
     .dropdown-content i {
         padding-right: 0.977vw;
     }
-    
+
     .dropbtn i {
         padding-left: 0.977vw;
     }
-    
+
     .user-btn{
         box-shadow: #1d553266 0px 0px 0.977vw;
     }
-    
+
     .user-btn:hover {
         box-shadow: #1d553233 0px 0px 0.781vw;
     }
-  
+
     .dropbtn {
         padding: 0.977vw 1.953vw;
     }

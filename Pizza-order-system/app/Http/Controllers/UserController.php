@@ -336,16 +336,8 @@ class UserController extends Controller
      * @param
      * @return view
      */
-    public function submitNewAdminForm(Request $request)
+    public function submitNewAdminForm(UserFormRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|max:11',
-            'address' => 'required|max:1000',
-            'password' => 'required|min:8|same:confirmation',
-            'confirmation' => 'required'
-        ]);
         $this->userInterface->saveUser($request);
         return back()->with(['message' => 'The new admin is added successfullly!']);
     }
