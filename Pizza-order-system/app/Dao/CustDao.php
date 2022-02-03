@@ -98,4 +98,54 @@ class CustDao implements CustDaoInterface {
             ]);
         return $orderPizza;
     }
+
+    /**
+     * show order history 
+     * @param $id
+     * 
+     */
+    public function orderHistory($id) {
+        $history = DB::table('orders')
+            ->join('riders', 'orders.rider_id', '=', 'riders.id')
+            ->join('order_pizzas', 'orders.id', '=', 'order_pizzas.order_id')
+            ->select('orders.id as id',
+                'riders.name as name', 
+                DB::raw('sum(order_pizzas.price) as price') , 
+                'orders.created_at as created_at')
+            ->groupBy('orders.id')
+            ->orderBy("orders.id", "desc")
+            ->where('orders.user_id', $id)
+            ->get();
+        return $history;
+    }
+
+    /**
+     * show order history detail
+     * @param $id
+     */
+    public function orderHistoryDetail($id) {
+        $historyDetail = DB::table('order_pizzas')
+            ->join('pizzas', 'order_pizzas.pizza_id', 'pizzas.id')
+            ->select('pizzas.name as name',
+                'pizzas.image as image',
+                'pizzas.price as price',
+                'pizzas.buy_one_get_one as b1g1',
+                'order_pizzas.quantity as qty',
+                )
+            ->where('order_pizzas.order_id', $id)
+            ->get();
+        return $historyDetail;
+    }
+
+     /**
+     * get total price of an order
+     */
+    public function getTotalPrice($id) {
+        $totalPrice = DB::table('order_pizzas')
+            ->select(DB::raw('sum(order_pizzas.price) as totalPrice'))
+            ->groupBy('order_pizzas.order_id')
+            ->where('order_pizzas.order_id', $id)
+            ->get();
+        return $totalPrice;
+    }
 }
