@@ -156,23 +156,24 @@ class UserController extends Controller
      * @param App\Http\Requests\PasswordResetRequest $request
      * @return response()
      */
-    public function submitResetPasswordForm(PasswordResetRequest $request)
+
+    public function submitResetPasswordForm(Request $request)
     {
-        $updatePassword = DB::table('password_resets')
-            ->where([
-                'email' => $request->email,
-                'token' => $request->token
-            ])
-            ->first();
+        $request->validate([
+            'email' => 'required|email|exists:users',
+            'password' => 'required|string|min:6|same:confirmation',
+            'confirmation' => 'required'
+        ]);
+
+        $updatePassword = $this->userInterface->getResetPassword($request->email, $request->token);
 
         if (!$updatePassword) {
             return back()->withInput()->with('error', 'Invalid token!');
         }
 
-        $user = User::where('email', $request->email)
-            ->update(['password' => Hash::make($request->password)]);
+        $this->userInterface->resetPassword($request->email, $request->password);
 
-        DB::table('password_resets')->where(['email' => $request->email])->delete();
+        $this->userInterface->deletePasswordTableData($request->email);
 
         return redirect('/login')->with('message', 'Your password has been changed!');
     }
@@ -206,6 +207,17 @@ class UserController extends Controller
         $request->validate([
             'email' => [Rule::unique('users')->ignore(Auth::user()->id)],
         ]);
+        $this->userInterface->updateUserInfo($request, $id);
+        return back()->with(['message' => 'Your profile is successfully updated!']);
+    }
+
+    /**
+     * to update user profile
+     * @param Request $request ,$id
+     * @return view
+     */
+    public function submitUserProfile(Request $request, $id)
+    {
         $this->userInterface->updateUserInfo($request, $id);
         return back()->with(['message' => 'Your profile is successfully updated!']);
     }
@@ -307,5 +319,34 @@ class UserController extends Controller
     public function test()
     {
         return view('customer.userDetail');
+    }
+
+    /**
+     * To create new admin
+     * @param
+     * @return view
+     */
+    public function newAdminForm()
+    {
+        return view('Admin.Profile.newAdmin');
+    }
+
+    /**
+     * To create new admin
+     * @param
+     * @return view
+     */
+    public function submitNewAdminForm(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|max:11',
+            'address' => 'required|max:1000',
+            'password' => 'required|min:8|same:confirmation',
+            'confirmation' => 'required'
+        ]);
+        $this->userInterface->saveUser($request);
+        return back()->with(['message' => 'The new admin is added successfullly!']);
     }
 }

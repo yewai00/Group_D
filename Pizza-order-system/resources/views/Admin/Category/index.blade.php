@@ -13,8 +13,7 @@
     Add Category
   </a>
   <div class="right">
-    <form action="{{ route('category.search') }}" method="post" class="search-form">
-      @csrf
+    <form action="{{ route('category.search') }}" method="get" class="search-form">
       <input type="text" name="search" value="{{ old('search') }}" placeholder="search">
       <button type="submit" class="btn search-btn">Search</button>
     </form>
