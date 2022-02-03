@@ -11,8 +11,7 @@
 <div class="header clearfix">
   <div class="right">
     <form action="{{ route('order.search') }}" method="get" class="search-form">
-      @csrf
-      <input type="text" name="key" value="{{ old('search') }}" placeholder="search">
+      <input type="text" name="key" value="{{ old('search') }}" placeholder="user name or rider name">
       <button type="submit" class="btn search-btn">Search</button>
     </form>
   </div>

@@ -95,37 +95,37 @@ class UserServices implements UserServicesInterface
 
     /**
      * To get current reset password data of user
-     * 
+     *
      * @param string $email
      * @param string $token
      * @return Object created reset_password object
      */
     public function getResetPassword($email, $token)
     {
-        return $this->authDao->getResetPassword($email, $token);
+        return $this->userDao->getResetPassword($email, $token);
     }
 
     /**
-     * To change password of user 
-     * 
+     * To change password of user
+     *
      * @param string $email
      * @param string $password
      * @return Object created reset_password object
      */
     public function resetPassword($email, $password)
     {
-        return $this->authDao->resetPassword($email, $password);
+        return $this->userDao->resetPassword($email, $password);
     }
 
     /**
-     * To delte row of password reset table 
-     * 
+     * To delte row of password reset table
+     *
      * @param string $email
      * @return Object created reset_password object
      */
     public function deletePasswordTableData($email)
     {
-        return $this->authDao->deletePasswordTableData($email);
+        return $this->userDao->deletePasswordTableData($email);
     }
 
     /**

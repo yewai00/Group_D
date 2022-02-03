@@ -38,7 +38,7 @@
             <li class="nav-list"><a href="{{ url('login') }}" class="login">Login</a></li>
             @else
             <li class="nav-list"><a href="/cart" class="cart">Cart({{ Session::has('cart') ? count(Session::get('cart')->items): 0}})</a></li>
-            <li class="nav-list">
+            <li class="nav-list dd">
               <div class="dropdown">
                 <a class="dropbtn login user-btn">{{ Auth::user()->name }}<i class="fas fa-caret-down"></i></a>
                 <div class="dropdown-content">

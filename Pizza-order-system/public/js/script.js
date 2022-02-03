@@ -30,7 +30,9 @@ $(document).ready(function () {
         $(".modal").css("display", "none");
    });
 
-    $(".c-box-inner").heightLine();
+    $(".c-box-inner").heightLine({
+        minWidth:768
+    });
 });
 
 $(function () {
@@ -56,6 +58,9 @@ $(function () {
     } else if (id == "graph") {
         $(".menu > a").removeClass("nav-active");
         $("#graph").addClass("nav-active");
+    } else if (id == "new") {
+        $(".menu > a").removeClass("nav-active");
+        $("#new").addClass("nav-active");
     }
 });
 
@@ -97,7 +102,7 @@ $(function () {
         title: {
             display: true,
             position: "top",
-            text: "Last Week Registered Users -  Day Wise Count",
+            text: "Last Week Pizza Sales",
             fontColor: "#111",
         },
         legend: {

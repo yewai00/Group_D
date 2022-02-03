@@ -85,11 +85,10 @@ class UserController extends Controller
 
         $this->userInterface->login($request);
         $status = $this->userInterface->login($request);
-        if($status){
-            if(Auth::user()->role == 'admin'){
+        if ($status) {
+            if (Auth::user()->role == 'admin') {
                 return redirect()->route('admin.profile');
-            }
-            elseif(Auth::user()->role == 'user'){
+            } elseif (Auth::user()->role == 'user') {
                 return redirect()->route('cust');
             }
         }
@@ -126,26 +125,26 @@ class UserController extends Controller
      * @return response()
      */
     public function submitForgetPasswordForm(Request $request)
-      {
-          $request->validate([
-              'email' => 'required|email|exists:users',
-          ]);
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+        ]);
 
-          $token = Str::random(64);
+        $token = Str::random(64);
 
-          DB::table('password_resets')->insert([
-              'email' => $request->email,
-              'token' => $token,
-              'created_at' => Carbon::now()
-            ]);
+        DB::table('password_resets')->insert([
+            'email' => $request->email,
+            'token' => $token,
+            'created_at' => Carbon::now()
+        ]);
 
-          Mail::send('Auth.forgetPasswordMail', ['token' => $token], function($message) use($request){
-              $message->to($request->email);
-              $message->subject('Reset Password');
-          });
+        Mail::send('Auth.forgetPasswordMail', ['token' => $token], function ($message) use ($request) {
+            $message->to($request->email);
+            $message->subject('Reset Password');
+        });
 
-          return back()->with('message', 'We have e-mailed your password reset link!');
-      }
+        return back()->with('message', 'We have e-mailed your password reset link!');
+    }
 
     /**
      * To show reset password form page
@@ -164,31 +163,25 @@ class UserController extends Controller
      * @return response()
      */
     public function submitResetPasswordForm(Request $request)
-      {
-          $request->validate([
-              'email' => 'required|email|exists:users',
-              'password' => 'required|string|min:6|same:confirmation',
-              'confirmation' => 'required'
-          ]);
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+            'password' => 'required|string|min:6|same:confirmation',
+            'confirmation' => 'required'
+        ]);
 
-          $updatePassword = DB::table('password_resets')
-                              ->where([
-                                'email' => $request->email,
-                                'token' => $request->token
-                              ])
-                              ->first();
+        $updatePassword = $this->userInterface->getResetPassword($request->email, $request->token);
 
-          if(!$updatePassword){
-              return back()->withInput()->with('error', 'Invalid token!');
-          }
+        if (!$updatePassword) {
+            return back()->withInput()->with('error', 'Invalid token!');
+        }
 
-          $user = User::where('email', $request->email)
-                      ->update(['password' => Hash::make($request->password)]);
+        $this->userInterface->resetPassword($request->email, $request->password);
 
-          DB::table('password_resets')->where(['email'=> $request->email])->delete();
+        $this->userInterface->deletePasswordTableData($request->email);
 
-          return redirect('/login')->with('message', 'Your password has been changed!');
-      }
+        return redirect('/login')->with('message', 'Your password has been changed!');
+    }
 
     /**
      * to redirect admin profile
@@ -231,7 +224,7 @@ class UserController extends Controller
         return back()->with(['message' => 'Your profile is successfully updated!']);
     }
 
-     /**
+    /**
      * To redirect user change password page
      * @param
      * @return
@@ -340,5 +333,34 @@ class UserController extends Controller
     public function test()
     {
         return view('customer.userDetail');
+    }
+
+    /**
+     * To create new admin
+     * @param
+     * @return view
+     */
+    public function newAdminForm()
+    {
+        return view('Admin.Profile.newAdmin');
+    }
+
+    /**
+     * To create new admin
+     * @param
+     * @return view
+     */
+    public function submitNewAdminForm(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|max:11',
+            'address' => 'required|max:1000',
+            'password' => 'required|min:8|same:confirmation',
+            'confirmation' => 'required'
+        ]);
+        $this->userInterface->saveUser($request);
+        return back()->with(['message' => 'The new admin is added successfullly!']);
     }
 }
