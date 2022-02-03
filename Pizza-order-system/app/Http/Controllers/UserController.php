@@ -341,4 +341,22 @@ class UserController extends Controller
     {
         return view('customer.userDetail');
     }
+
+    /**
+     * To create new admin
+     * @param
+     * @return view
+     */
+    public function newAdminForm(){
+        return view('Admin.Profile.newAdmin');
+    }
+
+    /**
+     * To create new admin
+     * @param
+     * @return view
+     */
+    public function submitNewAdminForm(){
+        return view('Admin.Profile.newAdmin');
+    }
 }
