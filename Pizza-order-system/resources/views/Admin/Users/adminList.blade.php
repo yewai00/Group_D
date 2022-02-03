@@ -23,6 +23,7 @@
       <th>Email</th>
       <th>Phone Number</th>
       <th>Address</th>
+      <th>Role</th>
     </tr>
   </thead>
   <tbody>
@@ -37,6 +38,9 @@
       <td>{{ $item->phone }}</td>
       <td>
         {{ $item->address }}
+      </td>
+      <td>
+        {{ $item->role }}
       </td>
     </tr>
     @endforeach

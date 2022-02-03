@@ -4,6 +4,7 @@ namespace App\Dao;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Contracts\Dao\UserDaoInterface;
@@ -73,7 +74,12 @@ class UserDao  implements UserDaoInterface
      */
     public function getResetPassword($email, $token)
     {
-
+        return DB::table('password_resets')
+        ->where([
+            'email' => $email,
+            'token' => $token
+        ])
+        ->first();
     }
 
     /**
@@ -85,7 +91,8 @@ class UserDao  implements UserDaoInterface
      */
     public function resetPassword($email, $password)
     {
-
+        return User::where('email', $email)
+        ->update(['password' => Hash::make($password)]);
     }
 
     /**
@@ -96,8 +103,9 @@ class UserDao  implements UserDaoInterface
      */
     public function deletePasswordTableData($email)
     {
-
+        return DB::table('password_resets')->where(['email' => $email])->delete();
     }
+
     /**
      * to get all customers list
      * @param
@@ -105,7 +113,7 @@ class UserDao  implements UserDaoInterface
      */
     public function getAllUsers($role)
     {
-        return User::select('id', 'name', 'email', 'phone', 'address', 'created_at', 'updated_at')
+        return User::select('id', 'name', 'email', 'phone', 'address','role', 'created_at', 'updated_at')
             ->where('role', $role)->paginate(8);
     }
 
