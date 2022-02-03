@@ -15,12 +15,12 @@
     content: "\f818";
 }
 
-.sp-block{
+.sp-block {
     display: inline-block;
     text-align: center;
 }
 
-h1{
+h1 {
     font-size: 1.573vw;
 }
 
@@ -682,7 +682,6 @@ footer {
     margin: 20px 60px 0 0;
 }
 
-
 .dropbtn {
     border: none;
     cursor: pointer;
@@ -712,7 +711,7 @@ footer {
     border-bottom: 1px solid #898989;
 }
 
-.dropdown-content a:first-child{
+.dropdown-content a:first-child {
     border-top: 1px solid #898989;
 }
 
@@ -732,7 +731,7 @@ footer {
     padding-left: 10px;
 }
 
-.user-btn{
+.user-btn {
     box-shadow: #1d553266 0px 0px 10px;
 }
 
@@ -750,12 +749,12 @@ footer {
         font-size: 1.001vw;
     }
 
-    .container{
+    .container {
         width: 90%;
-        margin:auto;
+        margin: auto;
     }
 
-    body{
+    body {
         font-size: 1.001vw;
     }
 
@@ -778,7 +777,7 @@ footer {
         line-height: 1.3;
         margin: 5.718vw auto 1.787vw;
         font-family: Lucky;
-        font-size:3.931vw;
+        font-size: 3.931vw;
         letter-spacing: 0.357vw;
         word-spacing: 0.572vw;
     }
@@ -793,10 +792,10 @@ footer {
     .btn-cta {
         padding: 0.715vw;
         font-size: 1.001vw;
-        border-radius:0.357vw;
+        border-radius: 0.357vw;
     }
 
-    .btn-cta:hover .btn-cta i{
+    .btn-cta:hover .btn-cta i {
         padding-right: 1.644vw;
     }
 
@@ -812,7 +811,7 @@ footer {
         width: 12.866vw;
         margin-right: 1.430vw;
         border-radius: 1.430vw;
-        border:0.071vw solid #c1c1c1;
+        border: 0.071vw solid #c1c1c1;
         font-size: 1.001vw;
         box-shadow: #c0bebe76 0px 0px 0.572vw;
     }
@@ -822,7 +821,7 @@ footer {
         border-radius: 1.430vw;
         padding: 0.500vw 0.715vw;
         font-size: 1.001vw;
-        border:0.071vw solid #c1c1c1;
+        border: 0.071vw solid #c1c1c1;
         box-shadow: #c0bebe76 0px 0px 0.572vw;
     }
 
@@ -849,11 +848,11 @@ footer {
     .pizza-list-text {
         margin-bottom: 0.715vw;
         font-size: 1.430vw;
-        letter-spacing:0.071vw;
+        letter-spacing: 0.071vw;
     }
 
     .pizza-list-smtext {
-        font-size:1.144vw;
+        font-size: 1.144vw;
     }
 
     .list-box {
@@ -880,7 +879,7 @@ footer {
 
     .list-box p {
         margin-bottom: 1.072vw;
-        font-size:1.001vw;
+        font-size: 1.001vw;
     }
 
     .list-box .pizza-img-wrap {
@@ -923,7 +922,7 @@ footer {
         font-size: 1.430vw;
     }
 
-    .c-box label{
+    .c-box label {
         font-size: 1.125vw;
     }
 
@@ -1080,7 +1079,7 @@ footer {
         margin-bottom: 0.715vw;
         font-size: 1.430vw;
         padding-bottom: 1.072vw;
-        border-bottom:0.071vw solid #e3e3e3;
+        border-bottom: 0.071vw solid #e3e3e3;
     }
 
     .left-cart-header {
@@ -1102,7 +1101,7 @@ footer {
 
     .cart-item {
         padding: 1.430vw 0;
-        border-bottom:0.071vw solid #e3e3e3;
+        border-bottom: 0.071vw solid #e3e3e3;
     }
 
     .left-cart-item {
@@ -1123,7 +1122,7 @@ footer {
         width: 100%;
     }
 
-    .right-cart-item{
+    .right-cart-item {
         width: 60%;
     }
 
@@ -1200,6 +1199,47 @@ footer {
         border-radius: 0.357vw;
         margin: 1.430vw 3.574vw 0 0;
     }
+
+
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+        padding: 0.715vw 1.430vw;
+    }
+
+    .dropdown-content {
+        top: 1.644vw;
+        min-width: 11.437vw;
+        box-shadow: 0px 0.572vw 11.437vw 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: #000;
+        padding: 0.715vw 1.072vw;
+        border-bottom: 0.071vw solid #898989;
+    }
+
+    .dropdown-content a:first-child {
+        border-top: 0.071vw solid #898989;
+    }
+
+    .dropdown-content i {
+        padding-right: 0.715vw;
+    }
+
+    .dropbtn i {
+        padding-left: 0.715vw;
+    }
+
+    .user-btn {
+        box-shadow: #1d553266 0px 0px 0.715vw;
+    }
+
+    .user-btn:hover {
+        box-shadow: #1d553233 0px 0px 0.572vw;
+    }
+
 
 }
 
@@ -1353,7 +1393,7 @@ footer {
         margin-right: 0px;
     }
 
-    .list-box:not(:nth-child(2n)) {
+    .list-box:nth-child(2n){
         float: right;
     }
 
@@ -1730,6 +1770,53 @@ footer {
         float: right;
         margin: 1.465vw 5.953vw 0;
     }
+
+    .dropbtn {
+        padding: 0.977vw 1.953vw;
+    }
+
+    .dropdown-content {
+        top: 2.441vw;
+        right: -3.418vw;
+        min-width: 12.695vw;
+        box-shadow: 0px 0.781vw 1.563vw 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: #000;
+        padding: 0.977vw 0.977vw;
+        border-bottom: 0.098vw solid #898989;
+    }
+
+    .dropdown-content a:first-child {
+        border-top: 0.098vw solid #898989;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #c1c1c1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content i {
+        padding-right: 0.977vw;
+    }
+
+    .dropbtn i {
+        padding-left: 0.977vw;
+    }
+
+    .user-btn {
+        box-shadow: #1d553266 0px 0px 0.977vw;
+    }
+
+    .user-btn:hover {
+        box-shadow: #1d553233 0px 0px 0.781vw;
+    }
+
 }
 
 @media screen and (max-width:767.9px) {
@@ -1737,7 +1824,7 @@ footer {
         max-width: 100%;
     }
 
-    .sp-block{
+    .sp-block {
         display: block;
         margin: 1.563vw auto;
     }
@@ -1760,7 +1847,7 @@ footer {
         padding: 1.406vw 0 0.938vw 0;
     }
 
-    .nav-list a{
+    .nav-list a {
         font-size: 2.188vw;
     }
 
@@ -1972,7 +2059,7 @@ footer {
         margin-right: 0px;
     }
 
-    .list-box:not(:nth-child(2n)) {
+    .list-box:nth-child(2n){
         float: right;
     }
 
@@ -2364,4 +2451,43 @@ footer {
         margin-top: 0;
         border-radius: 0.581vw;
     }
+
+    .dropbtn {
+        padding: 1.043vw 1.956vw;
+    }
+
+    .dropdown-content {
+        position: relative;
+        top: 3.3vw;
+        min-width: 100vw;
+        box-shadow: 0px 1.250vw 2.500vw 0px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+    }
+
+    .dropdown-content a {
+        color: #000;
+        padding: 2.344vw;
+        border-bottom: 0.156vw solid #898989;
+    }
+
+    .dropdown-content a:first-child {
+        border-top: 0.156vw solid #898989;
+    }
+
+    .dropdown-content i {
+        padding-right: 1.250vw;
+    }
+
+    .dropbtn i {
+        padding-left: 1.250vw;
+    }
+
+    .user-btn {
+        box-shadow: #1d553266 0px 0px 1.250vw;
+    }
+
+    .user-btn:hover {
+        box-shadow: #1d553233 0px 0px 0.781vw;
+    }
+
 }
