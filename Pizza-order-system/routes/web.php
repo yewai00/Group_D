@@ -154,6 +154,10 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
     Route::get('/categories/upload', [CategoryController::class, 'showUploadForm'])->name('category.upload.get');
 
     Route::post('/categories/upload', [CategoryController::class, 'upload'])->name('category.upload');
+
+    Route::get('/new',[UserController::class,'newAdminForm'])->name('admin.new');
+
+    Route::post('/new',[UserController::class,'submitNewAdminForm'])->name('admin.new.post');
 });
 
 Route::get('/', [CustController::class, 'index'])->name('cust');

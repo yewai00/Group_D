@@ -1,5 +1,13 @@
 @extends('Admin.layouts.app')
 @section('content')
+@if(Session::has('message'))
+<div class="alert clearfix">
+  <span>
+    {{ Session::get('message') }}
+  </span>
+  <i class="fas fa-times close-btn"></i>
+</div>
+@endif
 <div class="card-title">
   Register
 </div>

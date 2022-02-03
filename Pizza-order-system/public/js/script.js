@@ -58,6 +58,9 @@ $(function () {
     } else if (id == "graph") {
         $(".menu > a").removeClass("nav-active");
         $("#graph").addClass("nav-active");
+    } else if (id == "new") {
+        $(".menu > a").removeClass("nav-active");
+        $("#new").addClass("nav-active");
     }
 });
 
