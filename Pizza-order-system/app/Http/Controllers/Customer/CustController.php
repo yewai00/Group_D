@@ -12,6 +12,7 @@ use App\Models\OrderPizza;
 use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
 use App\Mail\OrderMail;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class CustController extends Controller
@@ -189,6 +190,28 @@ class CustController extends Controller
         return $orderLists;
     }
 
+    /**
+     * show order history 
+     * @param $id
+     * 
+     */
+    public function orderHistory($id) {
+        $history = $this->custInterface->orderHistory($id);
+        return view('customer.order-history')->with(['history' => $history]);
+    }
+
+    /**
+     * show order history detail
+     * @param $id
+     */
+    public function orderHistoryDetail($id) {
+        $historyDetail = $this->custInterface->orderHistoryDetail($id);
+        $totalPrice = $this->custInterface->getTotalPrice($id);
+        return view('customer.order-history-detail')
+            ->with(['historyDetail' => $historyDetail,
+            'id' => $id,
+            'totalPrice' => $totalPrice[0]->totalPrice ]);
+    }
     /**
      * session destroy
      */

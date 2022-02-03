@@ -101,4 +101,28 @@ class CustService implements CustServiceInterface
     {
         return $this->custDao->orderPizzaAdd($order_id, $pizza_id, $qty, $price);
     }
+
+    /**
+     * show order history 
+     * @param $id
+     * 
+     */
+    public function orderHistory($id) {
+        return $this->custDao->orderHistory($id);
+    }
+
+    /**
+     * show order history detail
+     * @param $id
+     */
+    public function orderHistoryDetail($id) {
+        return $this->custDao->orderHistoryDetail($id);
+    }
+
+     /**
+     * get total price of an order
+     */
+    public function getTotalPrice($id) {
+        return $this->custDao->getTotalPrice($id);
+    }
 }
