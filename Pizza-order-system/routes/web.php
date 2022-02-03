@@ -174,6 +174,7 @@ Route::group(['middleware' => [UserCheckMiddleware::class]], function () {
     Route::post('/contact/mail', [CustController::class, 'contactMail'])->name('contact.mail');
 });
 
+// customer route
 Route::get('pizza-detail/{id}', [CustController::class, 'pizzaDetail'])->name('pizzaDeatail');
 Route::get('/cart', [CustController::class, 'getCart'])->name('cart');
 Route::get('/add-item/{id}', [CustController::class, 'getAddToCart']);
@@ -181,3 +182,5 @@ Route::get('/minus-item/{id}', [CustController::class, 'minusItem']);
 Route::get('/delete-item/{id}', [CustController::class, 'deleteItem']);
 Route::get('/session-destroy', [CustController::class, 'sessionDestroy']);
 Route::get('order', [CustController::class, 'makeorder']);
+Route::get('/order-history/detail/{id}', [CustController::class, 'orderHistoryDetail']);
+Route::get('/order-history/{id}', [CustController::class, 'orderHistory']);

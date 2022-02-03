@@ -53,4 +53,22 @@ interface CustServiceInterface {
      */
     public function sendMail($email, $orderLists);
 
+    /**
+     * show order history 
+     * @param $id
+     * 
+     */
+    public function orderHistory($id);
+
+    /**
+     * show order history detail
+     * @param $id
+     */
+    public function orderHistoryDetail($id);
+
+     /**
+     * get total price of an order
+     */
+    public function getTotalPrice($id);
+
 }

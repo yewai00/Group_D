@@ -739,6 +739,49 @@ footer {
     box-shadow: #1d553233 0px 0px 8px;
 }
 
+/* order histroy */
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+  font-size: 18px;
+}
+
+th {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #fff7e6;
+}
+
+.order-history {
+    padding: 40px;
+}
+
+.pcenter {
+    padding: 90px 100px;
+}
+
+.pcenter p {
+    margin: unset;
+}
+
+.fl {
+    float: left;
+}
+
+.hdetail {
+    color: rgb(24, 64, 149);
+}
+
 @media screen and (min-width:1025px) and (max-width:1399px) {
 
     .nav {
@@ -1239,9 +1282,8 @@ footer {
     .user-btn:hover {
         box-shadow: #1d553233 0px 0px 0.572vw;
     }
-
-
 }
+
 
 @media screen and (min-width:768px) and (max-width:1024px) {
 
