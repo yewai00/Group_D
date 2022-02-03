@@ -52,7 +52,6 @@
       </div>
       <div class="card-footer">
         <button type="submit" class="btn add-btn">Register</button>
-        <button type="reset" class="btn clear-btn">Clear</button>
       </div>
     </form>
   </div>

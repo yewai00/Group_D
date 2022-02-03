@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use App\Contracts\Services\UserServicesInterface;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Mail;
 use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\UserFormRequest;
+use App\Http\Requests\LoginFormRequest;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\PasswordResetRequest;
+use App\Http\Requests\ChangePasswordRequest;
+use App\Contracts\Services\UserServicesInterface;
 
 
 
@@ -46,17 +51,11 @@ class UserController extends Controller
      * @param Request $request
      * @return message success or not
      */
-    public function submitRegisterForm(Request $request)
+    public function submitRegisterForm(UserFormRequest $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|max:11',
-            'address' => 'required|max:1000',
-            'password' => 'required|min:8|same:confirmation',
-            'confirmation' => 'required'
+            'email' => 'unique:users,email',
         ]);
-
         $this->userInterface->saveUser($request);
         return redirect()->route('login.get');
     }
@@ -76,13 +75,8 @@ class UserController extends Controller
      * @param Request $request
      * @return message success or not
      */
-    public function submitLoginForm(Request $request)
+    public function submitLoginForm(LoginFormRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
         $this->userInterface->login($request);
         $status = $this->userInterface->login($request);
         if ($status) {
@@ -162,6 +156,7 @@ class UserController extends Controller
      * @param App\Http\Requests\PasswordResetRequest $request
      * @return response()
      */
+
     public function submitResetPasswordForm(Request $request)
     {
         $request->validate([
@@ -207,8 +202,11 @@ class UserController extends Controller
      * @param Request $request ,$id
      * @return view
      */
-    public function submitAdminProfile(Request $request, $id)
+    public function submitAdminProfile(UserFormRequest $request, $id)
     {
+        $request->validate([
+            'email' => [Rule::unique('users')->ignore(Auth::user()->id)],
+        ]);
         $this->userInterface->updateUserInfo($request, $id);
         return back()->with(['message' => 'Your profile is successfully updated!']);
     }
@@ -250,14 +248,8 @@ class UserController extends Controller
      * @param Request $request
      * @return message success or not
      */
-    public function submitChangePasswordForm(Request $request, $id)
+    public function submitChangePasswordForm(ChangePasswordRequest $request, $id)
     {
-        $request->validate([
-            'old_password' => 'required',
-            'new_password' => 'required|min:8|same:confirm_password',
-            'confirm_password' => 'required',
-        ]);
-
         $status = $this->userInterface->updateUserPassword($request);
         if ($status) {
             return redirect()->route('admin.profile')->with(['message' => "The password is successfully updated!"]);
@@ -270,14 +262,8 @@ class UserController extends Controller
      * @param Request $request
      * @return message success or not
      */
-    public function submitUserChangePasswordForm(Request $request, $id)
+    public function submitUserChangePasswordForm(ChangePasswordRequest $request, $id)
     {
-        $request->validate([
-            'old_password' => 'required',
-            'new_password' => 'required|min:8|same:confirm_password',
-            'confirm_password' => 'required',
-        ]);
-
         $status = $this->userInterface->updateUserPassword($request);
 
         if ($status) {

@@ -8,6 +8,7 @@ use App\Exports\PizzasExport;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\PizzaFormRequest;
 use App\Contracts\Services\PizzaServicesInterface;
 use App\Contracts\Services\CategoryServicesInterface;
 
@@ -52,15 +53,10 @@ class PizzaController extends Controller
      * @param Request $request
      * @return message success or not
      */
-    public function submitNewPizzaForm(Request $request)
+    public function submitNewPizzaForm(PizzaFormRequest $request)
     {
         $request->validate([
-            'name' => 'required',
-            'image' => 'required|image|mimes:png,jpeg|max:2048',
-            'category_id' => 'required',
-            'price' => 'required',
-            'buy_one_get_one' => 'required',
-            'description' => 'required|max:1000'
+            'image' => 'required',
         ]);
 
         $this->pizzaInterface->savePizza($request);
@@ -95,16 +91,8 @@ class PizzaController extends Controller
      * @param Request $request, $id
      * @return message success or not
      */
-    public function submitEditPizzaForm(Request $request, $id)
+    public function submitEditPizzaForm(PizzaFormRequest $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'image' => 'image|mimes:png,jpeg|max:2048',
-            'category_id' => 'required',
-            'price' => 'required',
-            'buy_one_get_one' => 'required',
-            'description' => 'required|max:1000'
-        ]);
         $this->pizzaInterface->editPizza($request, $id);
         return redirect()->route('admin.pizza.list')->with(['message' => 'The pizza is successfully updated!']);
     }
