@@ -35,7 +35,7 @@
         <div class="total">
           <p>Total Price: <span class="price"> <b>{{ $totalPrice }}</b> MMK </span></p>
         </div>
-        <div class="order clearfix"><a href="{{ url('/order-history/'.Auth::user()->id) }}" class="login">Back</a></div>
+        <div class="order clearfix"><a href="{{ url('/order-history/') }}" class="login">Back</a></div>
     </div>
   </div>
 @endsection
