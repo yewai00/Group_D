@@ -5,9 +5,11 @@
     <div class="cart-inner">
       <div class="cart-header clearfix">
         <h4 class="left-cart-header">Cart</h4>
+        @if(Session::get('cart') != null)
         <div class="right-cart-header"><a href="session-destroy" class="remove-item"> Remove All Pizza</a></div>
+        @endif
       </div>
-      @if(Session::has('cart'))
+      @if(Session::get('cart') != null)
         <div class="cart-list">
           @foreach($pizzas as $pizza)
           <div class="cart-item clearfix">
@@ -43,6 +45,8 @@
           <p>Total Price: <span class="price"> <b>{{ $totalPrice }}</b> MMK </span></p>
         </div>
         <div class="order clearfix"><a href="/order" class="login">ORDER</a></div>
+      @else 
+        <p class="no-data">There is no item in cart.</p>
       @endif
     </div>
   </div>
