@@ -16,6 +16,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\UserFormRequest;
 use App\Http\Requests\LoginFormRequest;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\PasswordResetRequest;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Contracts\Services\UserServicesInterface;
@@ -198,11 +199,8 @@ class UserController extends Controller
      * @param Request $request ,$id
      * @return view
      */
-    public function submitAdminProfile(UserFormRequest $request, $id)
+    public function submitAdminProfile(UpdateUserRequest $request, $id)
     {
-        $request->validate([
-            'email' => [Rule::unique('users')->ignore(Auth::user()->id)],
-        ]);
         $this->userInterface->updateUserInfo($request, $id);
         return back()->with(['message' => 'Your profile is successfully updated!']);
     }

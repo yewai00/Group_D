@@ -99,7 +99,7 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
     Route::get('/profile', [UserController::class, 'showAdminProfile'])->name('admin.profile');
 
-    Route::post('/profile/{id}', [UserController::class, 'submitAdminProfile'])->name('admin.profile.post');
+    Route::post('/profile/{id}', [UserController::class,'submitAdminProfile'])->name('admin.profile.post');
 
     Route::get('/profile/password', [UserController::class, 'showChangePasswordForm'])->name('admin.password.get');
 
