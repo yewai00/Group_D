@@ -44,7 +44,7 @@
       <td>{{ \Carbon\Carbon::parse($rider->created_at)->format('Y-m-d') }}</td>
       <td>
         <a href="{{ url('admin/riders/'.$rider->id.'/edit') }}" class="btn edit-btn"><i class="fas fa-edit"></i></a>
-        <form action="{{ url('admin/riders/'.$rider->id) }}" onsubmit="return confirm('Are you sure to delete?');" method="POST" style="display: inline;">
+        <form action="{{ url('admin/riders/'.$rider->id.'/delete') }}" onsubmit="return confirm('Are you sure to delete?');" method="POST" style="display: inline;">
           @csrf
           @method('DELETE')
           <button class="btn delete-btn" type="submit"><i class="fas fa-trash-alt"></i></button>

@@ -86,9 +86,9 @@ Route::group(['prefix' => 'admin/pizzas', 'middleware' => [AdminCheckMiddleware:
 
     Route::post('/{id}/edit', [PizzaController::class, 'submitEditPizzaForm'])->name('edit.post');
 
-    Route::get('/{id}/delete', [PizzaController::class, 'showDeletePizzaConfirm'])->name('delete.get');
+    Route::get('/{id}/delete-confirm', [PizzaController::class, 'showDeletePizzaConfirm'])->name('delete.get');
 
-    Route::post('/{id}/delete', [PizzaController::class, 'deletePizza'])->name('delete.post');
+    Route::get('/{id}/delete', [PizzaController::class, 'deletePizza'])->name('delete.post');
 
     Route::get('/export', [PizzaController::class, 'export'])->name('export');
 });

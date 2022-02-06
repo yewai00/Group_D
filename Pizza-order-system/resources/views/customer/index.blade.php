@@ -26,7 +26,6 @@
       <p class="pizza-list-text">We offer recipes that are hand-crafted by our chef</p>
       <p class="pizza-list-smtext">We make it fresh. You bake it to perfection.</p>
       <form action="{{ route('user.pizza.search') }}" method="get">
-        @csrf
         <div class="filter clearfix">
           <div class="filter-left">
             <label for="select-box">Category:</label>

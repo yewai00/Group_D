@@ -43,7 +43,7 @@
     </table>
     <div class="card-footer">
       <a href="{{ route('pizza.delete.post',$pizza->id) }}" class="btn delete-btn">Delete</a>
-      <a href="{{ route('admin.pizza.list') }}" class="btn add-btn">Cancel</a>
+      <a href="{{ route('pizza.list') }}" class="btn add-btn">Cancel</a>
     </div>
   </div>
 </div>
