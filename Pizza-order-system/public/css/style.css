@@ -8,6 +8,7 @@
     src: url("../font/Roboto-Bold.ttf");
 }
 
+
 body {
     line-height: 1;
     font-family: Roboto-regular;
@@ -19,7 +20,7 @@ label {
 }
 
 .nav {
-
+    width: 100%;
     display: block;
     line-height: 1;
     padding: 20px 30px;
@@ -50,6 +51,8 @@ a {
 .aside {
     float: left;
     width: 20%;
+    position: sticky;
+    top: 0;
 }
 
 .content {
@@ -109,12 +112,24 @@ a.nav-active {
     background-color: #52B8F2;
 }
 
+.add-btn:hover {
+    background-color: #199ce7;
+}
+
 .edit-btn {
     background-color: #006400;
 }
 
+.edit-btn:hover {
+    background-color: #0aa00a;
+}
+
 .delete-btn {
     background-color: #8B0000;
+}
+
+.delete-btn:hover {
+    background-color: #b30606;
 }
 
 .right {
@@ -326,8 +341,16 @@ th {
     background-color: #595959;
 }
 
+.user-btn:hover {
+    background-color: #808080;
+}
+
 .search-btn {
     background-color: #045e5e;
+}
+
+.search-btn:hover {
+    background-color: #048a8a;
 }
 
 .pagination {
@@ -465,6 +488,24 @@ input[type=file]::file-selector-button:hover {
     width: 50%;
     padding-right: 20px;
     text-align: right;
+}
+
+@media screen and (min-width: 1400px) {
+    body {
+        font-size: 16px;
+    }
+
+    .nav {
+        padding: 30px 50px;
+    }
+
+    .nav h1 {
+        font-size: 26px;
+    }
+
+    .menu li {
+        padding: 25px 50px;
+    }
 }
 
 /*ipad*/

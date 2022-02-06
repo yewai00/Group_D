@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UploadFormRequest;
 use App\Contracts\Services\CategoryServiceInterface;
 
 class CategoryController extends Controller
@@ -133,11 +134,8 @@ class CategoryController extends Controller
      * @param csv file
      * @return message success or not
      */
-    public function upload(Request $request)
+    public function upload(UploadFormRequest $request)
     {
-        $request->validate([
-            'file' => 'required|mimes:csv'
-        ]);
         $this->categoryInterface->upload($request);
         return redirect()->route('category.index')->with(['message' => 'The choose file is successfully uploaded!']);
     }

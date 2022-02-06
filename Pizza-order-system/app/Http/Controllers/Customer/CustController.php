@@ -184,7 +184,8 @@ class CustController extends Controller
      * @param $id
      *
      */
-    public function orderHistory() {
+    public function orderHistory()
+    {
         $id = Auth::user()->id;
         $history = $this->custInterface->orderHistory($id);
         return view('customer.order-history')->with(['history' => $history]);
@@ -194,13 +195,16 @@ class CustController extends Controller
      * show order history detail
      * @param $id
      */
-    public function orderHistoryDetail($id) {
+    public function orderHistoryDetail($id)
+    {
         $historyDetail = $this->custInterface->orderHistoryDetail($id);
         $totalPrice = $this->custInterface->getTotalPrice($id);
         return view('customer.order-history-detail')
-            ->with(['historyDetail' => $historyDetail,
-            'id' => $id,
-            'totalPrice' => $totalPrice[0]->totalPrice ]);
+            ->with([
+                'historyDetail' => $historyDetail,
+                'id' => $id,
+                'totalPrice' => $totalPrice[0]->totalPrice
+            ]);
     }
     /**
      * session destroy

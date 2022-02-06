@@ -18,7 +18,7 @@
 
   <div class="nav clearfix">
     <h1>
-      <a href="#"> Pizza Order System </a>
+      <a href="#"><i class="fas fa-pizza-slice"></i> Pizza Order System </a>
     </h1>
     <div class="menu-btn right">
       <div class="menu-burger"></div>

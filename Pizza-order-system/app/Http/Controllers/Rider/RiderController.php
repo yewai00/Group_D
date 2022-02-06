@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Rider;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Contracts\Services\Rider\RiderServiceInterface;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRiderRequest;
+use App\Http\Requests\UploadFormRequest;
 use App\Http\Requests\UpdateRiderRequest;
+use App\Contracts\Services\Rider\RiderServiceInterface;
 
 class RiderController extends Controller
 {
@@ -135,11 +136,8 @@ class RiderController extends Controller
      * @param csv file
      * @return message success or not
      */
-    public function upload(Request $request)
+    public function upload(UploadFormRequest $request)
     {
-        $request->validate([
-            'file' => 'required|mimes:csv'
-        ]);
         $this->riderInterface->upload($request);
         return redirect()->route('riders.index')->with(['success' => 'The choose file is successfully uploaded!']);
     }
