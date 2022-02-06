@@ -230,9 +230,9 @@ table {
 .list th,
 th {
     padding: 10px;
+    border: 1px solid #a6a6a6;
     text-align: center;
     vertical-align: middle;
-    border: 1px solid #a6a6a6;
 }
 
 .list th {
@@ -372,18 +372,18 @@ input[type=file]::file-selector-button:hover {
 
 .graph-title h2 {
     display: inline-block;
-    font-size: 24px;
     margin-bottom: 20px;
+    font-size: 24px;
     border-bottom: 2px solid #52B8F2;
 }
 
 /*------------------end graph---------------*/
 /* Modal Header */
 .modal-header {
+    line-height: 20px;
     padding: 10px 16px;
     background-color: #045e5e;
     color: #fff;
-    line-height: 20px;
 }
 
 /* Modal Body */
@@ -401,21 +401,21 @@ input[type=file]::file-selector-button:hover {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
-    left: 0;
     top: 20%;
+    left: 0;
+    z-index: 1;
     width: 40%;
-    margin: auto 30%;
     overflow: auto;
+    margin: auto 30%;
     background-color: #9c9a9a;
     border-radius: 10px;
 }
 
 /* Modal Content/Box */
 .modal-content {
+    width: 80%;
     margin: 30px auto;
     padding: 20px;
-    width: 80%;
     /* Could be more or less, depending on screen size */
 }
 
@@ -463,8 +463,8 @@ input[type=file]::file-selector-button:hover {
 .order-detail label {
     display: inline-block;
     width: 50%;
-    text-align: right;
     padding-right: 20px;
+    text-align: right;
 }
 
 /*ipad*/
@@ -521,10 +521,10 @@ input[type=file]::file-selector-button:hover {
     }
 
     .search-form input {
+        width: 14.648vw;
         padding: 0.488vw 0.977vw;
         border: 0.098vw solid #696969;
         border-radius: 0.977vw;
-        width: 14.648vw;
     }
 
     .header {
@@ -687,16 +687,16 @@ input[type=file]::file-selector-button:hover {
 
     .graph-title h2 {
         display: inline-block;
-        font-size: 1.953vw;
         margin-bottom: 1.953vw;
+        font-size: 1.953vw;
         border-bottom: 0.195vw solid #52B8F2;
     }
 
     /*------------------end graph---------------*/
     /* Modal Header */
     .modal-header {
-        padding: 0.977vw;
         line-height: 1.953vw;
+        padding: 0.977vw;
     }
 
     /* Modal Body */
@@ -979,9 +979,9 @@ input[type=file]::file-selector-button:hover {
     .list td,
     .list th {
         padding: 1.563vw;
+        border: 0.156vw solid #a6a6a6;
         text-align: center;
         vertical-align: middle;
-        border: 0.156vw solid #a6a6a6;
     }
 
     .list th {
@@ -1054,16 +1054,16 @@ input[type=file]::file-selector-button:hover {
     /*------------------start graph---------------*/
 
     .graph-title h2 {
-        font-size: 3.125vw;
         margin-bottom: 2.344vw;
+        font-size: 3.125vw;
         border-bottom: 0.313vw solid #52B8F2;
     }
 
     /*------------------end graph---------------*/
     /* Modal Header */
     .modal-header {
-        padding: 1.250vw 0px;
         line-height: 2.344vw;
+        padding: 1.250vw 0px;
     }
 
     /* Modal Body */
@@ -1082,9 +1082,9 @@ input[type=file]::file-selector-button:hover {
 
     /* Modal Content/Box */
     .modal-content {
+        width: 80%;
         margin: 2.344vw auto;
         padding: 1.563vw;
-        width: 80%;
         /* Could be more or less, depending on screen size */
     }
 
@@ -1095,8 +1095,8 @@ input[type=file]::file-selector-button:hover {
 
     /* The Close Button */
     .close {
-        font-size: 2.344vw;
         padding-right: 1.563vw;
+        font-size: 2.344vw;
     }
 
     .card-body p {

@@ -46,11 +46,12 @@ class CategoryDao implements CategoryDaoInterface
      */
     public function update(Request $request, $id)
     {
-        DB::transaction(function () use ($request, $id) {
+        $category=DB::transaction(function () use ($request, $id) {
             Category::find($id)->update([
                 'name' => $request->name,
             ]);
         }, 5);
+        return $category;
     }
 
     /**
@@ -74,6 +75,7 @@ class CategoryDao implements CategoryDaoInterface
         DB::transaction(function () use ($id) {
             Category::find($id)->delete();
         }, 5);
+        return true;
     }
 
     /**

@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use \Illuminate\Validation\Rule;
 
-class UpdateRiderRequest extends FormRequest
+class ContactMailRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +23,9 @@ class UpdateRiderRequest extends FormRequest
      */
     public function rules()
     {
-        $id = explode("/", $this->getRequestUri())[3];
         return [
-            'name' => ['required', 'max:50'],
-            'phone' => ['required', 'digits:11'],
-            'email' => ['required', 'email', Rule::unique('riders')->ignore($id)],
-            'address' => ['required', 'max:300'],
+            'subject' => ['required', 'max:100'],
+            'message' => ['required', 'max:1000'],
         ];
     }
 }

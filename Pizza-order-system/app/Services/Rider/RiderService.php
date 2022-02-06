@@ -9,7 +9,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Contracts\Dao\Rider\RiderDaoInterface;
 use App\Contracts\Services\Rider\RiderServiceInterface;
 
-class RiderService implements RiderServiceInterface {
+class RiderService implements RiderServiceInterface
+{
 
     /**
      * rider dao
@@ -29,23 +30,26 @@ class RiderService implements RiderServiceInterface {
      * get rider list
      * @return object riders
      */
-    public function getRidersList(){
-       return $this->riderDao->getRidersList();
+    public function getRidersList()
+    {
+        return $this->riderDao->getRidersList();
     }
 
     /**
      * store rider
      * @param Request $request
      */
-    public function store(Request $request) {
-       return $this->riderDao->store($request);
+    public function store(Request $request)
+    {
+        return $this->riderDao->store($request);
     }
 
     /**
      * update rider
      * @param Request $request
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         return $this->riderDao->update($request, $id);
     }
 
@@ -53,15 +57,17 @@ class RiderService implements RiderServiceInterface {
      * find edit id
      * @param $id
      */
-    public function edit($id) {
-       return $this->riderDao->edit($id);
+    public function edit($id)
+    {
+        return $this->riderDao->edit($id);
     }
 
     /**
      * delete rider
      * @param $id
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         return $this->riderDao->destroy($id);
     }
 
@@ -70,7 +76,8 @@ class RiderService implements RiderServiceInterface {
      * @param Request $request
      *
      */
-    public function search(Request $request) {
+    public function search(Request $request)
+    {
         return $this->riderDao->search($request);
     }
 
@@ -79,7 +86,8 @@ class RiderService implements RiderServiceInterface {
      * @param
      * @return
      */
-    public function export(){
+    public function export()
+    {
         return Excel::download(new RidersExport($this->riderDao), 'riders.csv');
     }
 
@@ -88,7 +96,8 @@ class RiderService implements RiderServiceInterface {
      * @param Request $request
      * @return message success or not
      */
-    public function upload(Request $request){
+    public function upload(Request $request)
+    {
         return Excel::import(new RidersImport, $request->file('file'));
     }
 }

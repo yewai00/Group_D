@@ -31,7 +31,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = $this->categoryInterface->getCategoriesList();
-        return view('Admin.Category.index')
+        return view('admin.category.index')
             ->with('categories', $categories);
     }
 
@@ -53,7 +53,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('Admin.Category.create');
+        return view('admin.category.create');
     }
 
     /**
@@ -78,7 +78,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = $this->categoryInterface->edit($id);
-        return view('Admin.Category.edit')
+        return view('admin.category.edit')
             ->with('category', $category);
     }
 
@@ -104,7 +104,7 @@ class CategoryController extends Controller
     public function search(Request $request)
     {
         $categories = $this->categoryInterface->search($request);
-        return view('Admin.Category.index')
+        return view('admin.category.index')
             ->with('categories', $categories);
     }
 
@@ -125,7 +125,7 @@ class CategoryController extends Controller
      */
     public function showUploadForm()
     {
-        return view('Admin.Category.upload');
+        return view('admin.category.upload');
     }
 
     /**

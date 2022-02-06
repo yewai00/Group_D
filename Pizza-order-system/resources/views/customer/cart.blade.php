@@ -15,7 +15,7 @@
           <div class="cart-item clearfix">
             <div class="left-cart-item">
               <div class="img-wrap">
-                @if($pizza['item']['buy_one_get_one'] == 'yes')
+                @if($pizza['item']['buy_one_get_one'] === 'yes')
                   <img src="{{ asset('img/buy1.png') }}" alt="buy-one-get-one" class="promo">
                 @endif
                 <img src="img/{{$pizza['item']['image']}}" alt="pizza" class="cart-pizza">
@@ -45,7 +45,7 @@
           <p>Total Price: <span class="price"> <b>{{ $totalPrice }}</b> MMK </span></p>
         </div>
         <div class="order clearfix"><a href="/order" class="login">ORDER</a></div>
-      @else 
+      @else
         <p class="no-data">There is no item in cart.</p>
       @endif
     </div>

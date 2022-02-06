@@ -33,7 +33,7 @@ class RiderController extends Controller
     public function index()
     {
         $riders = $this->riderInterface->getRidersList();
-        return view('Admin.riders.index')
+        return view('admin.riders.index')
             ->with('riders', $riders);
     }
 
@@ -55,14 +55,14 @@ class RiderController extends Controller
      */
     public function create()
     {
-        return view('Admin.riders.create');
+        return view('admin.riders.create');
     }
 
     /**
      * update rider
      * @param UpdateRiderRequest $request
      * @param $id
-     * @returb redirect to index with message
+     * @return redirect to index with message
      */
     public function update(UpdateRiderRequest $request, $id)
     {
@@ -80,7 +80,7 @@ class RiderController extends Controller
     public function edit($id)
     {
         $rider = $this->riderInterface->edit($id);
-        return view('Admin.riders.edit')
+        return view('admin.riders.edit')
             ->with('rider', $rider);
     }
 
@@ -106,7 +106,7 @@ class RiderController extends Controller
     public function search(Request $request)
     {
         $riders = $this->riderInterface->search($request);
-        return view('Admin.riders.index')
+        return view('admin.riders.index')
             ->with('riders', $riders);
     }
 
@@ -127,7 +127,7 @@ class RiderController extends Controller
      */
     public function showUploadForm()
     {
-        return view('Admin.riders.upload');
+        return view('admin.riders.upload');
     }
 
     /**

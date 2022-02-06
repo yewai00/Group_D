@@ -18,16 +18,18 @@ class UserDao  implements UserDaoInterface
      */
     public function saveUser(Request $request)
     {
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->address = $request->address;
-        $user->password = Hash::make($request->password);
-        if ($request->role != '') {
-            $user->role = $request->role;
-        }
-        $user->save();
+        DB::transaction(function () use ($request) {
+            $user = new User;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->address = $request->address;
+            $user->password = Hash::make($request->password);
+            if ($request->role != '') {
+                $user->role = $request->role;
+            }
+            $user->save();
+        });
         return true;
     }
 
@@ -39,11 +41,13 @@ class UserDao  implements UserDaoInterface
     public function updateUserInfo(Request $request, $id)
     {
         $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->address = $request->address;
-        $user->save();
+        DB::transaction(function () use ($request, $user) {
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone = $request->phone;
+            $user->address = $request->address;
+            $user->save();
+        });
         return true;
     }
 
@@ -55,8 +59,10 @@ class UserDao  implements UserDaoInterface
     public function updateUserPassword(Request $request)
     {
         $user = User::find(Auth::user()->id);
-        $user->password = Hash::make($request->new_password);
-        $user->save();
+        DB::transaction(function () use ($request, $user) {
+            $user->password = Hash::make($request->new_password);
+            $user->save();
+        });
         return true;
     }
 
@@ -102,7 +108,10 @@ class UserDao  implements UserDaoInterface
      */
     public function deletePasswordTableData($email)
     {
-        return DB::table('password_resets')->where(['email' => $email])->delete();
+        DB::transaction(function () use ($email) {
+            DB::table('password_resets')->where(['email' => $email])->delete();
+        });
+        return true;
     }
 
     /**

@@ -17,28 +17,28 @@
       @csrf
       <div class="input-group">
         <label>Name</label>
-        <input type="text" name="name" value="{{ Auth::user()->name }}">
+        <input type="text" name="name" value="{{ old('name', Auth::user()->name)}}">
         @if ($errors->has('name'))
         <small class="error">{{ $errors->first('name') }}</small>
         @endif
       </div>
       <div class="input-group">
         <label>Email Address</label>
-        <input type="text" name="email" value="{{ Auth::user()->email }}">
+        <input type="text" name="email" value="{{ old('email', Auth::user()->email) }}">
         @if ($errors->has('email'))
         <small class="error">{{ $errors->first('email') }}</small>
         @endif
       </div>
       <div class="input-group">
         <label>Phone Number</label>
-        <input type="text" name="phone" value="{{ Auth::user()->phone }}">
+        <input type="text" name="phone" value="{{ old('phone', Auth::user()->phone) }}">
         @if ($errors->has('phone'))
         <small class="error">{{ $errors->first('phone') }}</small>
         @endif
       </div>
       <div class="input-group">
         <label>Address</label>
-        <input type="text" name="address" value="{{ Auth::user()->address }}">
+        <input type="text" name="address" value="{{ old('address', Auth::user()->address) }}">
         @if ($errors->has('address'))
         <small class="error">{{ $errors->first('address') }}</small>
         @endif

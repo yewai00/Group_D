@@ -1,4 +1,4 @@
-@extends('Admin.layouts.app')
+@extends('admin.layouts.app')
 @section('content')
 <div class="header clearfix">
   <a href="{{ route('users.list','0') }}" class="btn add-btn">Users List</a>
@@ -47,7 +47,7 @@
     @endforeach
     @else
     <tr>
-      <td class="error" colspan="5">
+      <td class="error" colspan="6">
         *No data yet!
       </td>
     </tr>

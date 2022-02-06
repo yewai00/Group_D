@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Support\Str;
 use App\Exports\UsersExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -46,7 +44,7 @@ class UserController extends Controller
      */
     public function showRegisterForm()
     {
-        return view('Auth.register');
+        return view('auth.register');
     }
 
     /**
@@ -70,7 +68,16 @@ class UserController extends Controller
      */
     public function showLoginForm()
     {
-        return view('Auth.login');
+        if(!Auth::check()){
+            return view('auth.login');
+        } else {
+            if (Auth::user()->role === 'admin') {
+                return redirect()->route('admin.profile');
+            } elseif (Auth::user()->role === 'user') {
+                return redirect()->route('cust');
+            }
+        }
+
     }
 
     /**
@@ -150,7 +157,7 @@ class UserController extends Controller
      */
     public function showResetPasswordForm($token)
     {
-        return view('Auth.forgetPasswordLink', ['token' => $token]);
+        return view('auth.forgetPasswordLink', ['token' => $token]);
     }
 
     /**
@@ -223,7 +230,7 @@ class UserController extends Controller
      */
     public function showChangePasswordForm()
     {
-        return view('Admin.Profile.changePassword');
+        return view('admin.profile.changePassword');
     }
 
 
@@ -276,10 +283,10 @@ class UserController extends Controller
         $role = $role_id == 1 ? 'admin' : 'user';
         $users = $this->userInterface->getAllUsers($role);
         if ($role == 'user') {
-            return view('Admin.Users.userList')->with(['users' => $users]);
+            return view('admin.users.userList')->with(['users' => $users]);
         }
         if ($role == 'admin') {
-            return view('Admin.Users.adminList')->with(['users' => $users]);
+            return view('admin.users.adminList')->with(['users' => $users]);
         }
     }
 
@@ -293,10 +300,10 @@ class UserController extends Controller
         $role = $role_id == 1 ? 'admin' : 'user';
         $users = $this->userInterface->search($request, $role);
         if ($role == 'user') {
-            return view('Admin.Users.userList')->with(['users' => $users]);
+            return view('admin.users.userList')->with(['users' => $users]);
         }
         if ($role == 'admin') {
-            return view('Admin.Users.adminList')->with(['users' => $users]);
+            return view('admin.users.adminList')->with(['users' => $users]);
         }
     }
 
@@ -326,7 +333,7 @@ class UserController extends Controller
      */
     public function newAdminForm()
     {
-        return view('Admin.Profile.newAdmin');
+        return view('admin.profile.newAdmin');
     }
 
     /**

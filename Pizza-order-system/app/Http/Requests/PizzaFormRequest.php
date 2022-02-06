@@ -24,12 +24,12 @@ class PizzaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'image' => 'image|mimes:png,jpeg|max:2048',
-            'category_id' => 'required',
-            'price' => 'required',
-            'buy_one_get_one' => 'required',
-            'description' => 'required|max:1000'
+            'name' => ['required', 'max:50'],
+            'image' => ['image', 'mimes:png,jpeg', 'max:2048'],
+            'category_id' => ['required'],
+            'price' => ['required'],
+            'buy_one_get_one' => ['required'],
+            'description' => ['required', 'max:1000']
         ];
     }
 }

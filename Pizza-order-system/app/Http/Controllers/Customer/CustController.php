@@ -3,17 +3,13 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Cart\Cart;
+use App\Mail\OrderMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Contracts\Services\CustServiceInterface;
-use App\Models\Order;
-use App\Models\OrderPizza;
 use Illuminate\Support\Facades\Session;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
-use App\Mail\OrderMail;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ContactMailRequest;
+use App\Contracts\Services\CustServiceInterface;
 
 class CustController extends Controller
 {
@@ -39,10 +35,8 @@ class CustController extends Controller
      */
     public function index()
     {
-        if (Auth::check()) {
-            if (Auth::user()->role == 'admin') {
-                return redirect()->route('admin.profile');
-            }
+        if (Auth::check() && Auth::user()->role === 'admin') {
+            return redirect()->route('admin.profile');
         }
         $pizzas = $this->custInterface->getPizzasList();
         $categories = $this->custInterface->getCategoriesList();
@@ -153,7 +147,7 @@ class CustController extends Controller
      */
     public function searchPizza(Request $request)
     {
-        if ($request->category_id == null && $request->name == null && $request->min_price == null && $request->max_price == null) {
+        if ($request->category_id === null && $request->name === null && $request->min_price === null && $request->max_price === null) {
             return redirect('/#pizza-list');
         }
         $pizzas = $this->custInterface->searchPizza($request);
@@ -167,13 +161,8 @@ class CustController extends Controller
      * @param Request $request
      * @return message success or not
      */
-    public function contactMail(Request $request)
+    public function contactMail(ContactMailRequest $request)
     {
-        $request->validate([
-            'subject' => 'required|max:100',
-            'message' => 'required',
-        ]);
-
         $this->custInterface->contactMail($request);
         return redirect('/#contact-us')->with(['message' => 'The message has been sent to admin!']);
     }
@@ -191,9 +180,9 @@ class CustController extends Controller
     }
 
     /**
-     * show order history 
+     * show order history
      * @param $id
-     * 
+     *
      */
     public function orderHistory() {
         $id = Auth::user()->id;

@@ -1,4 +1,4 @@
-@extends('Admin.layouts.app')
+@extends('admin.layouts.app')
 @section('content')
 @if(Session::has('message'))
 <div class="alert clearfix">

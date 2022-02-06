@@ -29,12 +29,6 @@ use App\Http\Controllers\Customer\CustController;
 */
 
 
-
-Route::get('/admin', function () {
-    return view('Admin.layouts.app');
-});
-
-
 Route::get('/register', [UserController::class, 'showRegisterForm'])->name('register.get');
 
 Route::post('/register', [UserController::class, 'submitRegisterForm'])->name('register.post');
@@ -57,13 +51,13 @@ Route::post('reset-password', [UserController::class, 'submitResetPasswordForm']
 Route::group(['prefix' => 'admin/riders', 'middleware' => [AdminCheckMiddleware::class], 'as' => 'riders.'], function () {
     Route::get('/', [RiderController::class, 'index'])->name('index');
 
-    Route::post('/', [RiderController::class, 'store'])->name('store');
+    Route::post('/create', [RiderController::class, 'store'])->name('store');
 
     Route::get('/create', [RiderController::class, 'create'])->name('create');
 
     Route::put('/{id}', [RiderController::class, 'update'])->name('update');
 
-    Route::delete('/{id}', [RiderController::class, 'destroy'])->name('destroy');
+    Route::delete('/{id}/delete', [RiderController::class, 'destroy'])->name('destroy');
 
     Route::get('/{id}/edit', [RiderController::class, 'edit'])->name('edit');
 
@@ -76,30 +70,35 @@ Route::group(['prefix' => 'admin/riders', 'middleware' => [AdminCheckMiddleware:
     Route::post('/upload', [RiderController::class, 'upload'])->name('upload');
 });
 
+//pizza crud route
+Route::group(['prefix' => 'admin/pizzas', 'middleware' => [AdminCheckMiddleware::class], 'as' => 'pizza.'], function () {
+    Route::get('/', [PizzaController::class, 'pizzaList'])->name('list');
+
+    Route::get('/create', [PizzaController::class, 'showNewPizzaForm'])->name('create.get');
+
+    Route::post('/create', [PizzaController::class, 'submitNewPizzaForm'])->name('create.post');
+
+    Route::get('/search', [PizzaController::class,'searchPizza'])->name('search.get');
+
+    Route::get('/{id}', [PizzaController::class, 'pizzaDetails'])->name('detail')->where('id','[0-9]+');
+
+    Route::get('/{id}/edit', [PizzaController::class, 'showEditPizzaForm'])->name('edit.get');
+
+    Route::post('/{id}/edit', [PizzaController::class, 'submitEditPizzaForm'])->name('edit.post');
+
+    Route::get('/{id}/delete', [PizzaController::class, 'showDeletePizzaConfirm'])->name('delete.get');
+
+    Route::post('/{id}/delete', [PizzaController::class, 'deletePizza'])->name('delete.post');
+
+    Route::get('/export', [PizzaController::class, 'export'])->name('export');
+});
+
+
 Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]], function () {
-    Route::get('/pizzas/list', [PizzaController::class, 'pizzaList'])->name('admin.pizza.list');
-
-    Route::get('/pizzas/create', [PizzaController::class, 'showNewPizzaForm'])->name('pizza.create.get');
-
-    Route::post('/pizzas/create', [PizzaController::class, 'submitNewPizzaForm'])->name('pizza.create.post');
-
-    Route::get('/pizzas/detail/{id}', [PizzaController::class, 'pizzaDetails'])->name('pizza.detail');
-
-    Route::get('/pizzas/edit/{id}', [PizzaController::class, 'showEditPizzaForm'])->name('pizza.edit.get');
-
-    Route::post('/pizzas/edit/{id}', [PizzaController::class, 'submitEditPizzaForm'])->name('pizza.edit.post');
-
-    Route::get('/pizzas/delete/confirm/{id}', [PizzaController::class, 'showDeletePizzaConfirm'])->name('pizza.delete.get');
-
-    Route::get('/pizzas/delete/{id}', [PizzaController::class, 'deletePizza'])->name('pizza.delete.post');
-
-    Route::get('/pizzas/search', [PizzaController::class, 'searchPizza'])->name('pizza.search');
-
-    Route::get('/pizzas/export', [PizzaController::class, 'export'])->name('pizza.export');
 
     Route::get('/profile', [UserController::class, 'showAdminProfile'])->name('admin.profile');
 
-    Route::post('/profile/{id}', [UserController::class,'submitAdminProfile'])->name('admin.profile.post');
+    Route::post('/profile/{id}', [UserController::class, 'submitAdminProfile'])->name('admin.profile.post');
 
     Route::get('/profile/password', [UserController::class, 'showChangePasswordForm'])->name('admin.password.get');
 
@@ -107,58 +106,49 @@ Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]
 
     Route::get('/graph', [GraphController::class, 'graph'])->name('graph');
 
-    Route::get('/users/list/{role_id}', [UserController::class, 'getAllUsersList'])->name('users.list');
+    Route::get('/users/{role_id}', [UserController::class, 'getAllUsersList'])->name('users.list');
 
     Route::get('/users/search/{role}', [UserController::class, 'search'])->name('user.search');
 
     Route::get('/users/download/{role}', [UserController::class, 'export'])->name('user.download');
 
-    Route::get('/orders/list', [OrderController::class, 'orderList'])->name('order.list');
+    Route::get('/new', [UserController::class, 'newAdminForm'])->name('admin.new');
 
-    Route::post('/orders/define/rider', [OrderController::class, 'defineRider'])->name('order.rider');
-
-    Route::get('/orders/detail/{id}', [OrderController::class, 'orderDetail'])->name('order.detail');
-
-    Route::get('/orders/search',[OrderController::class,'search'])->name('order.search');
-
-    Route::get('/orders/download/{id}',[OrderController::class,'download'])->name('order.download');
+    Route::post('/new', [UserController::class, 'submitNewAdminForm'])->name('admin.new.post');
 });
 
-// User/ user detail and change password
-Route::get('/user/detail', [UserController::class, 'showUserProfile'])->name('user.profile');
+Route::group(['prefix' => 'admin/orders', 'middleware' => [AdminCheckMiddleware::class], 'as' => 'order.'], function () {
+    Route::get('/', [OrderController::class, 'orderList'])->name('list');
 
-Route::post('/user/detail/{id}', [UserController::class, 'submitAdminProfile'])->name('user.profile.post');
+    Route::post('/define/rider', [OrderController::class, 'defineRider'])->name('rider');
 
-Route::get('/user/password', [UserController::class, 'showUserChangePasswordForm'])->name('customer.password.get');
+    Route::get('/{id}', [OrderController::class, 'orderDetail'])->name('detail')->where('id','[0-9]+');
 
-Route::post('/user/password/{id}', [UserController::class, 'submitUserChangePasswordForm'])->name('customer.password.post');
-
-
-Route::group(['prefix' => 'admin', 'middleware' => [AdminCheckMiddleware::class]], function () {
-    Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
-
-    Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
-
-    Route::get('/categories/create', [CategoryController::class, 'create'])->name('category.create');
-
-    Route::post('/categories/update/{id}', [CategoryController::class, 'update'])->name('category.update');
-
-    Route::delete('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
-
-    Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
-
-    Route::get('/categories/search', [CategoryController::class, 'search'])->name('category.search');
-
-    Route::get('/categories/export', [CategoryController::class, 'export'])->name('category.export');
-
-    Route::get('/categories/upload', [CategoryController::class, 'showUploadForm'])->name('category.upload.get');
-
-    Route::post('/categories/upload', [CategoryController::class, 'upload'])->name('category.upload');
-
-    Route::get('/new',[UserController::class,'newAdminForm'])->name('admin.new');
-
-    Route::post('/new',[UserController::class,'submitNewAdminForm'])->name('admin.new.post');
+    Route::get('/search', [OrderController::class, 'search'])->name('search');
 });
+
+Route::group(['prefix' => 'admin/categories', 'middleware' => [AdminCheckMiddleware::class], 'as' => 'category.'], function () {
+    Route::get('/', [CategoryController::class, 'index'])->name('index');
+
+    Route::post('/create', [CategoryController::class, 'store'])->name('store');
+
+    Route::get('/create', [CategoryController::class, 'create'])->name('create');
+
+    Route::post('/{id}/edit', [CategoryController::class, 'update'])->name('update');
+
+    Route::delete('/{id}/delete', [CategoryController::class, 'destroy'])->name('delete');
+
+    Route::get('/{id}/edit', [CategoryController::class, 'edit'])->name('edit');
+
+    Route::get('/search', [CategoryController::class, 'search'])->name('search');
+
+    Route::get('/export', [CategoryController::class, 'export'])->name('export');
+
+    Route::get('/upload', [CategoryController::class, 'showUploadForm'])->name('upload.get');
+
+    Route::post('/upload', [CategoryController::class, 'upload'])->name('upload');
+});
+
 
 Route::get('/', [CustController::class, 'index'])->name('cust');
 
@@ -172,6 +162,15 @@ Route::group(['middleware' => [UserCheckMiddleware::class]], function () {
     Route::get('/cart', [CustController::class, 'cart'])->name('cart');
 
     Route::post('/contact/mail', [CustController::class, 'contactMail'])->name('contact.mail');
+
+    // User/ user detail and change password
+    Route::get('/user', [UserController::class, 'showUserProfile'])->name('user.profile');
+
+    Route::post('/user/{id}', [UserController::class, 'submitAdminProfile'])->name('user.profile.post');
+
+    Route::get('/user/password', [UserController::class, 'showUserChangePasswordForm'])->name('customer.password.get');
+
+    Route::post('/user/password/{id}', [UserController::class, 'submitUserChangePasswordForm'])->name('customer.password.post');
 });
 
 // customer route

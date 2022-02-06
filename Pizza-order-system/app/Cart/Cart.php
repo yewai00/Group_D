@@ -23,7 +23,7 @@ class Cart {
                 $storedItem = $this->items[$id];
             }
         }
-        if($item['buy_one_get_one'] == 'yes') {
+        if($item['buy_one_get_one'] === 'yes') {
             $storedItem['qty'] = $storedItem['qty'] + 2;
             $storedItem['price'] = $item->price * ($storedItem['qty'] / 2);
             $this->items[$id] = $storedItem;

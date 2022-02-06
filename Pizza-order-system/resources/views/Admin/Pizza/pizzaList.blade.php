@@ -1,4 +1,4 @@
-@extends('Admin.layouts.app')
+@extends('admin.layouts.app')
 @section('content')
 @if(Session::has('message'))
 <div class="alert clearfix">
@@ -13,7 +13,7 @@
     Add Pizza
   </a>
   <div class="right">
-    <form action="{{ route('pizza.search') }}" method="get" class="search-form">
+    <form action="{{ route('pizza.search.get') }}" method="get" class="search-form">
       <input type="text" name="search" value="{{ old('search') }}" placeholder="pizza name or description">
       <button type="submit" class="btn search-btn">Search</button>
     </form>

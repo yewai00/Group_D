@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pizza;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Contracts\Services\PizzaServicesInterface;
 
 class GraphController extends Controller
@@ -29,6 +26,6 @@ class GraphController extends Controller
     public function graph()
     {
         $data = $this->pizzaInterface->graph();
-        return view('Admin.graph', $data);
+        return view('admin.graph', $data);
     }
 }

@@ -1,6 +1,6 @@
-@extends('Admin.layouts.app')
+@extends('admin.layouts.app')
 @section('content')
-<a href="{{ route('admin.pizza.list') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+<a href="{{ route('pizza.list') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
 <div class="card-title">
   Pizza Detail Information
 </div>

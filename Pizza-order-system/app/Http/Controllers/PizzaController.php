@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pizza;
 use Illuminate\Http\Request;
 use App\Exports\PizzasExport;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\PizzaFormRequest;
 use App\Contracts\Services\PizzaServicesInterface;
-use App\Contracts\Services\CategoryServicesInterface;
 
 class PizzaController extends Controller
 {
@@ -34,7 +31,7 @@ class PizzaController extends Controller
     public function pizzaList()
     {
         $pizzas = $this->pizzaInterface->getAllPizzasInfo();
-        return view('Admin.Pizza.pizzaList')->with(['pizzas' => $pizzas]);
+        return view('admin.pizza.pizzaList')->with(['pizzas' => $pizzas]);
     }
 
     /**
@@ -45,7 +42,7 @@ class PizzaController extends Controller
     public function showNewPizzaForm()
     {
         $categories = $this->pizzaInterface->getAllCategories();
-        return view('Admin.Pizza.newPizza')->with(['categories' => $categories]);
+        return view('admin.pizza.newPizza')->with(['categories' => $categories]);
     }
 
     /**
@@ -60,7 +57,7 @@ class PizzaController extends Controller
         ]);
 
         $this->pizzaInterface->savePizza($request);
-        return redirect()->route('admin.pizza.list')->with(['message' => 'The new pizza is successfully added!']);
+        return redirect()->route('pizza.list')->with(['message' => 'The new pizza is successfully added!']);
     }
 
     /**
@@ -71,7 +68,7 @@ class PizzaController extends Controller
     public function pizzaDetails($id)
     {
         $pizza = $this->pizzaInterface->getPizzaById($id);
-        return view('Admin.Pizza.pizzaDetail')->with(['pizza' => $pizza]);
+        return view('admin.pizza.pizzaDetail')->with(['pizza' => $pizza]);
     }
 
     /**
@@ -83,7 +80,7 @@ class PizzaController extends Controller
     {
         $pizza = $this->pizzaInterface->getPizzaById($id);
         $categories = $this->pizzaInterface->getAllCategories();
-        return view('Admin.Pizza.editPizza')->with(['pizza' => $pizza, 'categories' => $categories]);
+        return view('admin.pizza.editPizza')->with(['pizza' => $pizza, 'categories' => $categories]);
     }
 
     /**
@@ -94,7 +91,7 @@ class PizzaController extends Controller
     public function submitEditPizzaForm(PizzaFormRequest $request, $id)
     {
         $this->pizzaInterface->editPizza($request, $id);
-        return redirect()->route('admin.pizza.list')->with(['message' => 'The pizza is successfully updated!']);
+        return redirect()->route('pizza.list')->with(['message' => 'The pizza is successfully updated!']);
     }
 
     /**
@@ -105,7 +102,7 @@ class PizzaController extends Controller
     public function showDeletePizzaConfirm($id)
     {
         $pizza = $this->pizzaInterface->getPizzaById($id);
-        return view('Admin.Pizza.deletePizza')->with(['pizza' => $pizza]);
+        return view('admin.pizza.deletePizza')->with(['pizza' => $pizza]);
     }
 
     /**
@@ -116,7 +113,7 @@ class PizzaController extends Controller
     public function deletePizza($id)
     {
         $this->pizzaInterface->deletePizzaById($id);
-        return redirect()->route('admin.pizza.list')->with(['message' => 'The pizza is deleted successfully!']);
+        return redirect()->route('pizza.list')->with(['message' => 'The pizza is deleted successfully!']);
     }
 
     /**
@@ -127,7 +124,7 @@ class PizzaController extends Controller
     public function searchPizza(Request $request)
     {
         $pizzas = $this->pizzaInterface->searchPizza($request);
-        return view('Admin.Pizza.pizzaList')->with(['pizzas' => $pizzas]);
+        return view('admin.pizza.pizzaList')->with(['pizzas' => $pizzas]);
     }
 
     /**

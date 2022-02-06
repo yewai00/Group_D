@@ -1,4 +1,4 @@
-@extends('Auth.layouts.app')
+@extends('auth.layouts.app')
 @section('content')
 <div class="card-title">
   Reset Password

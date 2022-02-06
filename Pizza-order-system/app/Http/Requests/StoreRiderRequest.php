@@ -24,10 +24,10 @@ class StoreRiderRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'phone' => 'required|min:11',
-            'email' => 'required|email|unique:riders',
-            'address' => 'required',
+            'name' => ['required', 'max:50'],
+            'phone' => ['required', 'digits:11'],
+            'email' => ['required', 'email', 'unique:riders'],
+            'address' => ['required', 'max:300'],
         ];
     }
 }

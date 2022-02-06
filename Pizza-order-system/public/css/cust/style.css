@@ -45,6 +45,10 @@ h1 {
     margin-right: 45px;
 }
 
+.capitalize {
+    text-transform: capitalize;
+}
+
 header {
     position: sticky;
     top: 0;
@@ -128,28 +132,28 @@ header {
 }
 
 .select-style {
-    padding: 5px 10px;
     width: 200px;
     margin-right: 20px;
-    border-radius: 20px;
-    text-align: center;
+    padding: 5px 10px;
     border: 1px solid #c1c1c1;
+    box-shadow: #c0bebe76 0px 0px 8px;
     background: url(../../img/arrow.png)no-repeat center right;
     color: #1d5532;
     font-size: 18px;
+    text-align: center;
     text-transform: uppercase;
+    border-radius: 20px;
     appearance: none;
-    box-shadow: #c0bebe76 0px 0px 8px;
 }
 
 .text-box {
     width: 200px;
-    border-radius: 20px;
     padding: 7px 10px;
     border: 1px solid #c1c1c1;
-    outline: none;
-    resize: none;
     box-shadow: #c0bebe76 0px 0px 8px;
+    outline: none;
+    border-radius: 20px;
+    resize: none;
 }
 
 .text-box:not(:last-child) {
@@ -526,8 +530,8 @@ footer {
 
 .cart-header {
     margin-bottom: 10px;
-    font-size: 24px;
     padding-bottom: 20px;
+    font-size: 24px;
     border-bottom: 1px solid #e3e3e3;
 }
 
@@ -551,8 +555,8 @@ footer {
 }
 
 .clear-cart {
-    background-color: #f56363;
     padding: 10px;
+    background-color: #f56363;
     border-radius: 5px;
 }
 
@@ -595,9 +599,9 @@ footer {
 }
 
 .l-blk h5 {
+    margin: 2.859vw auto;
     font-size: 20px;
     font-weight: bold;
-    margin: 2.859vw auto;
 }
 
 .pizza-qty {
@@ -609,26 +613,26 @@ footer {
 }
 
 .r-blk p {
-    font-size: 20px;
-    text-align: center;
     display: inline;
     margin-right: 100px;
+    font-size: 20px;
+    text-align: center;
 }
 
 .remove-item {
-    background-color: #f25212;
-    padding: 10px;
     display: inline;
-    border-radius: 5px;
+    padding: 10px;
+    background-color: #f25212;
     font-size: 14px;
+    border-radius: 5px;
 }
 
 .remove-item::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 16px;
-    color: #fff;
     margin-right: 5px;
+    color: #fff;
+    font-family: "Font Awesome 5 Free";
+    font-size: 16px;
+    font-weight: 900;
     vertical-align: middle;
     content: "\f1f8";
 }
@@ -644,19 +648,19 @@ footer {
 }
 
 .minus::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 20px;
     color: tomato;
+    font-family: "Font Awesome 5 Free";
+    font-size: 20px;
+    font-weight: 900;
     vertical-align: middle;
     content: "\f146";
 }
 
 .plus::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 20px;
     color: tomato;
+    font-family: "Font Awesome 5 Free";
+    font-size: 20px;
+    font-weight: 900;
     vertical-align: middle;
     content: "\f0fe";
 }
@@ -667,9 +671,9 @@ footer {
 }
 
 .total p {
-    text-align: right;
     margin-right: 30px;
     font-size: 20px;
+    text-align: right;
 }
 
 .total .price {
@@ -677,37 +681,37 @@ footer {
 }
 
 .order .login {
-    font-size: 18px;
     float: right;
     margin: 20px 60px 0 0;
+    font-size: 18px;
 }
 
 .dropbtn {
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
-    padding: 10px 20px;
 }
 
 .dropdown {
-    position: relative;
     display: inline-block;
+    position: relative;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     top: 27px;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
 }
 
 .dropdown-content a {
-    color: #000;
-    background-color: #f1f1f1;
-    padding: 12px 16px;
-    text-decoration: none;
     display: block;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    color: #000;
+    text-decoration: none;
     border-bottom: 1px solid #898989;
 }
 
@@ -742,16 +746,16 @@ footer {
 /* order histroy */
 
 table {
-    border-collapse: collapse;
     width: 90%;
     margin: 0 auto;
+    border-collapse: collapse;
 }
 
 td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
   padding: 20px;
+  border: 1px solid #dddddd;
   font-size: 18px;
+  text-align: left;
 }
 
 th {
@@ -783,9 +787,9 @@ tr:nth-child(even) {
 }
 
 .no-data {
+    padding: 20px;
     font-size: 20px;
     text-align: center;
-    padding: 20px;
 }
 
 @media screen and (min-width:1025px) and (max-width:1399px) {
@@ -856,22 +860,22 @@ tr:nth-child(even) {
     }
 
     .select-style {
-        padding: 0.500vw 0.715vw;
         width: 12.866vw;
         margin-right: 1.430vw;
-        border-radius: 1.430vw;
+        padding: 0.500vw 0.715vw;
         border: 0.071vw solid #c1c1c1;
-        font-size: 1.001vw;
         box-shadow: #c0bebe76 0px 0px 0.572vw;
+        font-size: 1.001vw;
+        border-radius: 1.430vw;
     }
 
     .text-box {
         width: 12.866vw;
-        border-radius: 1.430vw;
         padding: 0.500vw 0.715vw;
-        font-size: 1.001vw;
         border: 0.071vw solid #c1c1c1;
         box-shadow: #c0bebe76 0px 0px 0.572vw;
+        font-size: 1.001vw;
+        border-radius: 1.430vw;
     }
 
     .text-box:not(:last-child) {
@@ -1015,8 +1019,8 @@ tr:nth-child(even) {
     }
 
     .c-box-inner iframe {
-        border-radius: 0.572vw;
         width: 100%;
+        border-radius: 0.572vw;
     }
 
     .c-box-inner label {
@@ -1126,8 +1130,8 @@ tr:nth-child(even) {
 
     .cart-header {
         margin-bottom: 0.715vw;
-        font-size: 1.430vw;
         padding-bottom: 1.072vw;
+        font-size: 1.430vw;
         border-bottom: 0.071vw solid #e3e3e3;
     }
 
@@ -1178,14 +1182,14 @@ tr:nth-child(even) {
 
     .r-blk {
         float: right;
-        padding-top: 5.718vw;
         width: 55%;
+        padding-top: 5.718vw;
     }
 
     .l-blk h5 {
+        margin: 2.144vw auto;
         font-size: 1.430vw;
         font-weight: bold;
-        margin: 2.144vw auto;
     }
 
     .pizza-qty {
@@ -1195,20 +1199,20 @@ tr:nth-child(even) {
     }
 
     .r-blk p {
-        font-size: 1.287vw;
         margin-right: 3.574vw;
+        font-size: 1.287vw;
     }
 
     .remove-item {
         float: right;
         padding: 0.715vw;
-        border-radius: 0.357vw;
         font-size: 1.001vw;
+        border-radius: 0.357vw;
     }
 
     .remove-item::before {
-        font-size: 1.001vw;
         margin-right: 0.357vw;
+        font-size: 1.001vw;
     }
 
     .minus {
@@ -1233,9 +1237,9 @@ tr:nth-child(even) {
     }
 
     .total p {
-        text-align: right;
         margin-right: 2.144vw;
         font-size: 1.287vw;
+        text-align: right;
     }
 
     .total .price {
@@ -1243,29 +1247,29 @@ tr:nth-child(even) {
     }
 
     .order .login {
-        font-size: 1.001vw;
         float: right;
-        border-radius: 0.357vw;
         margin: 1.430vw 3.574vw 0 0;
+        font-size: 1.001vw;
+        border-radius: 0.357vw;
     }
 
 
     .dropbtn {
+        padding: 0.715vw 1.430vw;
         border: none;
         cursor: pointer;
-        padding: 0.715vw 1.430vw;
     }
 
     .dropdown-content {
         top: 1.644vw;
-        min-width: 11.437vw;
-        box-shadow: 0px 0.572vw 11.437vw 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
+        box-shadow: 0px 0.572vw 11.437vw 0px rgba(0, 0, 0, 0.2);
+        min-width: 11.437vw;
     }
 
     .dropdown-content a {
-        color: #000;
         padding: 0.715vw 1.072vw;
+        color: #000;
         border-bottom: 0.071vw solid #898989;
     }
 
@@ -1287,6 +1291,20 @@ tr:nth-child(even) {
 
     .user-btn:hover {
         box-shadow: #1d553233 0px 0px 0.572vw;
+    }
+
+    .alert {
+        margin-bottom: 1.430vw;
+        padding: 1.072vw 1.430vw;
+        border-radius: 0.357vw;
+    }
+
+    .alert span {
+        padding: 0.357vw;
+    }
+
+    .alert i {
+        font-size: 1.430vw;
     }
 }
 
@@ -1329,8 +1347,8 @@ tr:nth-child(even) {
     }
 
     .bnr-left-inner {
-        padding-left: 9.766vw;
         padding-right: 3vw;
+        padding-left: 9.766vw;
     }
 
     .bnr-left h2 {
@@ -1377,21 +1395,21 @@ tr:nth-child(even) {
     }
 
     .select-style {
-        padding: 0.684vw 0.977vw;
         width: 14.648vw;
         margin-right: 1.465vw;
-        border-radius: 1.465vw;
+        padding: 0.684vw 0.977vw;
         border: 0.098vw solid #c1c1c1;
-        font-size: 1.367vw;
         box-shadow: #c0bebe76 0px 0px 0.781vw;
+        font-size: 1.367vw;
+        border-radius: 1.465vw;
     }
 
     .text-box {
         width: 14.648vw;
-        border-radius: 1.465vw;
         padding: 0.684vw 0.977vw;
         border: 0.098vw solid #c1c1c1;
         box-shadow: #c0bebe76 0px 0px 0.781vw;
+        border-radius: 1.465vw;
     }
 
     .text-box:not(:last-child) {
@@ -1555,8 +1573,8 @@ tr:nth-child(even) {
     }
 
     .c-box-inner iframe {
-        border-radius: 0.488vw;
         height: 19.531vw;
+        border-radius: 0.488vw;
     }
 
     .c-box-inner label {
@@ -1575,10 +1593,10 @@ tr:nth-child(even) {
     }
 
     .btn-submit {
-        padding: 0.777vw;
         margin-top: 1.465vw;
-        border-radius: 0.488vw;
+        padding: 0.777vw;
         font-size: 1.367vw;
+        border-radius: 0.488vw;
     }
 
 
@@ -1665,24 +1683,24 @@ tr:nth-child(even) {
 
     /* User Detail */
     .alert {
+        line-height: 1;
         margin-bottom: 2.930vw;
         padding: 1vw;
         border-radius: 0.488vw;
-        line-height: 1;
     }
 
     .alert span {
-        padding: 0.488vw;
-        width: 90%;
         float: left;
+        width: 90%;
+        padding: 0.488vw;
     }
 
     .alert i {
-        width: 10%;
         float: right;
-        font-size: 1.5vw;
+        width: 10%;
         padding-top: 0.8vw;
         padding-right: 0.8vw;
+        font-size: 1.5vw;
     }
 
     /* cart */
@@ -1700,8 +1718,8 @@ tr:nth-child(even) {
 
     .cart-header {
         margin-bottom: 0.977vw;
-        font-size: 1.953vw;
         padding-bottom: 1.953vw;
+        font-size: 1.953vw;
         border-bottom: 0.098vw solid #e3e3e3;
     }
 
@@ -1718,8 +1736,8 @@ tr:nth-child(even) {
     }
 
     .clear-cart {
-        background-color: #f56363;
         padding: 0.977vw;
+        background-color: #f56363;
         border-radius: 0.488vw;
     }
 
@@ -1762,8 +1780,8 @@ tr:nth-child(even) {
     }
 
     .l-blk h5 {
-        font-size: 1.758vw;
         margin: 2.441vw auto;
+        font-size: 1.758vw;
     }
 
     .pizza-qty {
@@ -1773,20 +1791,20 @@ tr:nth-child(even) {
     }
 
     .r-blk p {
-        font-size: 1.367vw;
         margin-right: 4.883vw;
+        font-size: 1.367vw;
     }
 
     .remove-item {
-        background-color: #f25212;
         padding: 0.781vw;
-        border-radius: 0.488vw;
+        background-color: #f25212;
         font-size: 1.367vw;
+        border-radius: 0.488vw;
     }
 
     .remove-item::before {
-        font-size: 1.367vw;
         margin-right: 0.488vw;
+        font-size: 1.367vw;
     }
 
     .minus {
@@ -1811,9 +1829,9 @@ tr:nth-child(even) {
     }
 
     .total p {
-        text-align: right;
         margin-right: 1.953vw;
         font-size: 1.758vw;
+        text-align: right;
     }
 
     .total .price {
@@ -1821,15 +1839,15 @@ tr:nth-child(even) {
     }
 
     .order .login {
-        font-size: 1.367vw;
         float: right;
         margin: 1.465vw 5.953vw 0;
+        font-size: 1.367vw;
     }
 
     .dropdown-content {
         top: 2.441vw;
-        min-width: 15.625vw;
         box-shadow: 0px 0.781vw 1.563vw 0px rgba(0, 0, 0, 0.2);
+        min-width: 15.625vw;
     }
 
     .dropdown-content a {
@@ -1903,22 +1921,22 @@ tr:nth-child(even) {
     .humburger {
         display: block;
         position: absolute;
-        z-index: 3;
-        right: 4.219vw;
         top: 50%;
-        transform: translateY(-50%);
+        right: 4.219vw;
+        z-index: 3;
         width: 7.938vw;
         height: 6.063vw;
-        cursor: pointer;
         text-align: center;
+        cursor: pointer;
+        transform: translateY(-50%);
     }
 
     .humburger span {
         display: block;
         position: absolute;
+        left: 0.938vw;
         width: 4.375vw;
         height: 0.469vw;
-        left: 0.938vw;
         background: #ffffff;
         -webkit-transition: 0.3s ease-in-out;
         -moz-transition: 0.3s ease-in-out;
@@ -1939,21 +1957,21 @@ tr:nth-child(even) {
 
     .nav-inner {
         position: absolute;
-        z-index: 2;
         top: 9.3vw;
         right: 0;
+        z-index: 2;
+        width: 100%;
+        background-color: #f8c296ef;
         text-align: center;
         transform: translateX(100%);
         transition: all 0.6s;
-        width: 100%;
         overflow-y: scroll;
-        background-color: #f8c296ef;
     }
 
     .nav-inner ul li {
-        font-size: 2.500vw;
         width: 100%;
         padding: 3.125vw 0;
+        font-size: 2.500vw;
         border-bottom: 0.156vw solid #6b6a69;
     }
 
@@ -1967,8 +1985,8 @@ tr:nth-child(even) {
 
     .dropdown-content{
         position:relative;
-        left:0;
         top:10px;
+        left:0;
     }
 
     .dropdown-content a{
@@ -2052,22 +2070,22 @@ tr:nth-child(even) {
     }
 
     .select-style {
-        padding: 0.781vw 1.563vw;
         width: 25.438vw;
         margin-right: 3.125vw;
-        border-radius: 3.125vw;
+        padding: 0.781vw 1.563vw;
         border: 0.156vw solid #c1c1c1;
-        font-size: 1.875vw;
         box-shadow: #c0bebe76 0px 0px 1.250vw;
+        font-size: 1.875vw;
+        border-radius: 3.125vw;
     }
 
     .text-box {
         width: 25.438vw;
-        border-radius: 3.125vw;
         padding: 0.781vw 1.563vw;
         border: 0.156vw solid #c1c1c1;
-        font-size: 1.875vw;
         box-shadow: #c0bebe76 0px 0px 1.250vw;
+        font-size: 1.875vw;
+        border-radius: 3.125vw;
     }
 
     .text-box:not(:last-child) {
@@ -2203,8 +2221,8 @@ tr:nth-child(even) {
         margin: auto;
         padding: 6.125vw;
         box-shadow: #969ea633 0px 0px 3.125vw;
-        border-radius: 1.563vw;
         font-size: 1.875vw;
+        border-radius: 1.563vw;
     }
 
     .c-box:not(:nth-child(3n)) {
@@ -2239,9 +2257,9 @@ tr:nth-child(even) {
     }
 
     .c-box-inner iframe {
-        border-radius: 0.781vw;
         width: 100%;
         height: 31.250vw;
+        border-radius: 0.781vw;
     }
 
     .c-box-inner label {
@@ -2261,8 +2279,8 @@ tr:nth-child(even) {
 
     .btn-submit {
         padding: 1vw;
-        border-radius: 0.65vw;
         font-size: 1.875vw;
+        border-radius: 0.65vw;
     }
 
 
@@ -2302,8 +2320,8 @@ tr:nth-child(even) {
 
     .img-wrap {
         width: 100%;
-        margin: auto;
         height: 40.063vw;
+        margin: auto;
         border-radius: 1.563vw;
     }
 
@@ -2376,8 +2394,8 @@ tr:nth-child(even) {
 
     .cart-header {
         margin-bottom: 1.563vw;
-        font-size: 2.813vw;
         padding-bottom: 2.344vw;
+        font-size: 2.813vw;
         border-bottom: 0.156vw solid #e3e3e3;
     }
 
@@ -2390,8 +2408,8 @@ tr:nth-child(even) {
     }
 
     .clear-cart {
-        background-color: #f56363;
         padding: 1.250vw;
+        background-color: #f56363;
         border-radius: 0.781vw;
     }
 
@@ -2440,8 +2458,8 @@ tr:nth-child(even) {
     }
 
     .l-blk h5 {
-        font-size: 2.188vw;
         margin: 0px auto 10px;
+        font-size: 2.188vw;
     }
 
     .pizza-qty {
@@ -2453,20 +2471,20 @@ tr:nth-child(even) {
     }
 
     .r-blk p {
-        font-size: 1.875vw;
         margin-right: 7.813vw;
+        font-size: 1.875vw;
     }
 
     .remove-item {
-        background-color: #f25212;
         padding: 1.250vw;
-        border-radius: 0.781vw;
+        background-color: #f25212;
         font-size: 1.875vw;
+        border-radius: 0.781vw;
     }
 
     .remove-item::before {
-        font-size: 1.875vw;
         margin-right: 0.781vw;
+        font-size: 1.875vw;
     }
 
     .minus {
@@ -2491,9 +2509,9 @@ tr:nth-child(even) {
     }
 
     .total p {
-        text-align: center;
         margin-right: 10.938vw;
         font-size: 2vw;
+        text-align: center;
     }
 
     .total .price {
@@ -2501,9 +2519,9 @@ tr:nth-child(even) {
     }
 
     .order .login {
-        font-size: 1.575vw;
-        margin-right: 48%;
         margin-top: 0;
+        margin-right: 48%;
+        font-size: 1.575vw;
         border-radius: 0.581vw;
     }
 
@@ -2514,14 +2532,14 @@ tr:nth-child(even) {
     .dropdown-content {
         position: relative;
         top: 3.3vw;
-        min-width: 100vw;
-        box-shadow: 0px 1.250vw 2.500vw 0px rgba(0, 0, 0, 0.2);
         z-index: 2;
+        box-shadow: 0px 1.250vw 2.500vw 0px rgba(0, 0, 0, 0.2);
+        min-width: 100vw;
     }
 
     .dropdown-content a {
-        color: #000;
         padding: 2.344vw;
+        color: #000;
         border-bottom: 0.156vw solid #898989;
     }
 

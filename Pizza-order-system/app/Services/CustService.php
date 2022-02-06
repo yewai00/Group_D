@@ -103,11 +103,12 @@ class CustService implements CustServiceInterface
     }
 
     /**
-     * show order history 
+     * show order history
      * @param $id
-     * 
+     *
      */
-    public function orderHistory($id) {
+    public function orderHistory($id)
+    {
         return $this->custDao->orderHistory($id);
     }
 
@@ -115,14 +116,16 @@ class CustService implements CustServiceInterface
      * show order history detail
      * @param $id
      */
-    public function orderHistoryDetail($id) {
+    public function orderHistoryDetail($id)
+    {
         return $this->custDao->orderHistoryDetail($id);
     }
 
-     /**
+    /**
      * get total price of an order
      */
-    public function getTotalPrice($id) {
+    public function getTotalPrice($id)
+    {
         return $this->custDao->getTotalPrice($id);
     }
 }

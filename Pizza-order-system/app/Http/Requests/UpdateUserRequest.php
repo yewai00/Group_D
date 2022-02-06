@@ -26,10 +26,10 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => ['required', 'max:50'],
             'email' => ['required', 'email', Rule::unique('users')->ignore(Auth::user()->id)],
-            'phone' => 'required|max:11',
-            'address' => 'required|max:1000',
+            'phone' => ['required', 'digits:11'],
+            'address' => ['required', 'max:300'],
         ];
     }
 }

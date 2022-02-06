@@ -28,7 +28,7 @@ class OrderController extends Controller
     {
         $orders = $this->orderInterface->getAllOrders();
         $riders = $this->orderInterface->getRidersList();
-        return view('Admin.Orders.index')->with(['orders' => $orders, 'riders' => $riders]);
+        return view('admin.orders.index')->with(['orders' => $orders, 'riders' => $riders]);
     }
 
     /**
@@ -54,7 +54,7 @@ class OrderController extends Controller
     {
         $order = $this->orderInterface->orderDetail($id);
         $net_price = $this->orderInterface->getNetPriceByOrderId($id);
-        return view('Admin.Orders.detail')->with(['order' => $order, 'net_price' => $net_price]);
+        return view('admin.orders.detail')->with(['order' => $order, 'net_price' => $net_price]);
     }
 
     /**
@@ -66,7 +66,7 @@ class OrderController extends Controller
     {
         $orders = $this->orderInterface->search($request);
         $riders = $this->orderInterface->getRidersList();
-        return view('Admin.Orders.index')->with(['orders' => $orders, 'riders' => $riders]);
+        return view('admin.orders.index')->with(['orders' => $orders, 'riders' => $riders]);
     }
 
     /**

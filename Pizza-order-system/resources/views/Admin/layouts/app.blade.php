@@ -35,7 +35,7 @@
         </a>
         <a href="{{ route('admin.new') }}" id="new">
           <li>
-          <i class="far fa-plus-square"></i>
+            <i class="far fa-plus-square"></i>
             <span>New Admin</span>
           </li>
         </a>
@@ -45,7 +45,7 @@
             <span>Categories</span>
           </li>
         </a>
-        <a href="{{ route('admin.pizza.list') }}" id="pizza">
+        <a href="{{ route('pizza.list') }}" id="pizza">
           <li>
             <i class="fas fa-pizza-slice"></i>
             <span>Pizzas</span>

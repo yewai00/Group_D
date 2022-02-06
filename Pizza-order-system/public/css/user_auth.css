@@ -25,6 +25,7 @@ button {
 .card {
     width: 50%;
     margin: auto;
+    margin-bottom: 50px;
     padding: 20px 50px;
     background-color: #EAF4F4;
     border-bottom-left-radius: 10px;
@@ -32,7 +33,6 @@ button {
     border-left: 1px solid #989898;
     border-right: 1px solid #989898;
     border-bottom: 1px solid #989898;
-    margin-bottom: 50px;
 }
 
 .card-title {
@@ -96,10 +96,10 @@ button {
 
 
 .error-alert {
+    margin-bottom: 30px;
     padding: 15px 50px;
     background-color: #f3c590;
     border-radius: 5px;
-    margin-bottom: 30px;
 }
 
 .error-alert span {
@@ -109,21 +109,21 @@ button {
 
 .error-alert i {
     float: right;
-    font-size: 24px;
     line-height: 1;
+    font-size: 24px;
 }
 
 
 .clearfix::before,
 .clearfix::after {
-    content: '';
     display: table;
     clear: both;
+    content: '';
 }
 
 .link {
-    text-decoration: underline;
     color: #0000ff;
+    text-decoration: underline;
 }
 
 /*ipad*/
@@ -138,15 +138,15 @@ button {
 
     .btn {
         padding: 0.977vw;
-        border-radius: 0.488vw;
         font-size: 1.172vw;
+        border-radius: 0.488vw;
     }
 
     .search-form input {
+        width: 14.648vw;
         padding: 0.488vw 0.977vw;
         border: 0.098vw solid #696969;
         border-radius: 0.977vw;
-        width: 14.648vw;
     }
 
     .header {
@@ -234,8 +234,8 @@ button {
 
     .btn {
         padding: 1.250vw;
-        border-radius: 0.469vw;
         font-size: 1.563vw;
+        border-radius: 0.469vw;
     }
 
     .card {
@@ -281,7 +281,7 @@ button {
         margin-right: 0.781vw;
     }
 
-    .card input[type=checkbox]{
+    .card input[type=checkbox] {
         width: 1.406vw;
         height: 1.406vw;
     }
