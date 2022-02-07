@@ -269,6 +269,11 @@ p .price {
     display: inline;
 }
 
+.pagination .active a,
+.pagination .active span {
+    background-color: #9ed46e;
+}
+
 .page-item span,
 .page-item a {
     margin-right: 10px;
