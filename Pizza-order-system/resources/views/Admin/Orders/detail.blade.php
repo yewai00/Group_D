@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-<a href="{{ route('order.list') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+<a href="{{ route('order-list') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
 <div class="card-title">
   Order Detail Information
 </div>

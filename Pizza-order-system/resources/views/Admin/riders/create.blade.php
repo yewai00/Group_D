@@ -2,13 +2,13 @@
 
 @section('content')
 
-<a href="{{ route('riders.index') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+<a href="{{ route('riders-index') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
 <div class="card-title">
   New Rider Information
 </div>
 <div class="card">
   <div class="card-body">
-    <form action="{{ route('riders.store') }}" method="POST" class="rider-form">
+    <form action="{{ route('riders-store') }}" method="POST" class="rider-form">
       @csrf
       <div class="input-group">
         <label for="name">Name</label>

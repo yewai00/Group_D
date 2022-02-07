@@ -1,12 +1,12 @@
 @extends('admin.layouts.app')
 @section('content')
-<a href="{{ route('pizza.list') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+<a href="{{ route('pizza-list') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
 <div class="card-title">
   New Pizza Information
 </div>
 <div class="card">
   <div class="card-body">
-    <form action="{{ route('pizza.create.get') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('pizza-create-get') }}" method="post" enctype="multipart/form-data">
       @csrf
       <div class="input-group">
         <label>Name</label>

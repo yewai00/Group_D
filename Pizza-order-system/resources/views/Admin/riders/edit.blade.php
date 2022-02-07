@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="{{ route('riders.index') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+<a href="{{ route('riders-index') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
     <div class="card-title">
         Update Rider Information
     </div>

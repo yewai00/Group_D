@@ -13,7 +13,7 @@
   </div>
   @endif
   <div class="card-body">
-    <form action="{{ route('forget.password.post') }}" method="post">
+    <form action="{{ route('forget-password-post') }}" method="post">
       @csrf
       <div class="input-group">
         <label>Email</label><br>

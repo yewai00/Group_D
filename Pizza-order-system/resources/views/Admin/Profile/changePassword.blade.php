@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-<a href="{{ route('admin.profile') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+<a href="{{ route('admin-profile') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
 <div class="card-title">
   Change Password
 </div>
@@ -14,7 +14,7 @@
       <i class="fas fa-times close-btn"></i>
     </div>
     @endif
-    <form action="{{ route('admin.password.post',Auth::user()->id) }}" method="post">
+    <form action="{{ route('admin-password-post',Auth::user()->id) }}" method="post">
       @csrf
       <div class="input-group">
         <label>Old Password</label>

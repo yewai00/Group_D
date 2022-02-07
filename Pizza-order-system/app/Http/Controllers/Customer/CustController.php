@@ -36,7 +36,7 @@ class CustController extends Controller
     public function index()
     {
         if (Auth::check() && Auth::user()->role === 'admin') {
-            return redirect()->route('admin.profile');
+            return redirect()->route('admin-profile');
         }
         $pizzas = $this->custInterface->getPizzasList();
         $categories = $this->custInterface->getCategoriesList();

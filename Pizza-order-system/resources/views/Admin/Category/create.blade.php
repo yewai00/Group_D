@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<a href="{{ route('category.index') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+<a href="{{ route('category-index') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
 <div class="card-title">
     New Category Information
 </div>
@@ -9,7 +9,7 @@
 
     <div class="card">
       <div class="card-body">
-       <form action="{{ route('category.store') }}" method="POST" class="category-form">
+       <form action="{{ route('category-store') }}" method="POST" class="category-form">
          @csrf
          <div class="input-group">
            <label for="name">Name</label>

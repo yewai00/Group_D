@@ -25,7 +25,7 @@
       <h3 class="h3-header">Our Pizza List</h3>
       <p class="pizza-list-text">We offer recipes that are hand-crafted by our chef</p>
       <p class="pizza-list-smtext">We make it fresh. You bake it to perfection.</p>
-      <form action="{{ route('user.pizza.search') }}" method="get">
+      <form action="{{ route('user-pizza-search') }}" method="get">
         <div class="filter clearfix">
           <div class="filter-left">
             <label for="select-box">Category:</label>
@@ -88,7 +88,7 @@
             <i class="fas fa-times close-btn"></i>
           </div>
           @endif
-          <form action="{{ route('contact.mail') }}" method="post">
+          <form action="{{ route('contact-mail') }}" method="post">
             @csrf
             <label for="subject" class="mt-20">Subject</label>
             <input type="text" name="subject" id="subject">

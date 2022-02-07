@@ -389,6 +389,10 @@ input[type=file]::file-selector-button:hover {
 }
 
 /*------------------start graph---------------*/
+canvas{
+    width: 85%;
+    margin: auto;
+}
 .graph-title {
     text-align: center;
 }

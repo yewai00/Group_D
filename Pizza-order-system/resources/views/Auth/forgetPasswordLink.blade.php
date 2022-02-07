@@ -13,7 +13,7 @@
   </div>
   @endif
   <div class="card-body">
-    <form action="{{ route('reset.password.post') }}" method="post">
+    <form action="{{ route('reset-password-post') }}" method="post">
       @csrf
       <input type="hidden" name="token" value="{{ $token }}">
 

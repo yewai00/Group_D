@@ -57,7 +57,7 @@ class PizzaController extends Controller
         ]);
 
         $this->pizzaInterface->savePizza($request);
-        return redirect()->route('pizza.list')->with(['message' => 'The new pizza is successfully added!']);
+        return redirect()->route('pizza-list')->with(['message' => 'The new pizza is successfully added!']);
     }
 
     /**
@@ -91,7 +91,7 @@ class PizzaController extends Controller
     public function submitEditPizzaForm(PizzaFormRequest $request, $id)
     {
         $this->pizzaInterface->editPizza($request, $id);
-        return redirect()->route('pizza.list')->with(['message' => 'The pizza is successfully updated!']);
+        return redirect()->route('pizza-list')->with(['message' => 'The pizza is successfully updated!']);
     }
 
     /**
@@ -113,7 +113,7 @@ class PizzaController extends Controller
     public function deletePizza($id)
     {
         $this->pizzaInterface->deletePizzaById($id);
-        return redirect()->route('pizza.list')->with(['message' => 'The pizza is deleted successfully!']);
+        return redirect()->route('pizza-list')->with(['message' => 'The pizza is deleted successfully!']);
     }
 
     /**

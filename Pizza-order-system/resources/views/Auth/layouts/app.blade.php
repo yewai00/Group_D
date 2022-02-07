@@ -28,7 +28,7 @@
           <div class="nav-inner">
           <ul class="clearfix">
             <li class="nav-list"><a href="{{ route('cust') }}">Home</a></li>
-            <li class="nav-list"><a href="{{ route('register.get') }}">Register</a></li>
+            <li class="nav-list"><a href="{{ route('register-get') }}">Register</a></li>
             <li class="nav-list"><a href="{{ url('login') }}" class="login">Login</a></li>
           </ul>
           </div>

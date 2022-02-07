@@ -17,7 +17,7 @@
 <body>
   <div class="nav clearfix">
     <h1>
-      <a href="#"> Pizza Order System </a>
+      <a href="#"><i class="fas fa-pizza-slice"></i> Pizza Order System </a>
     </h1>
     <div class="menu-btn right">
       <div class="menu-burger"></div>
@@ -26,37 +26,37 @@
   <div class="container clearfix">
     <div class="aside">
       <ul class="menu">
-        <a href="{{ route('admin.profile') }}" id="profile" class="nav-active">
+        <a href="{{ route('admin-profile') }}" id="profile" class="nav-active">
           <li>
             <i class="far fa-user-circle"></i>
             <span> My Profile</span>
           </li>
         </a>
-        <a href="{{ route('admin.new') }}" id="new">
+        <a href="{{ route('admin-new') }}" id="new">
           <li>
           <i class="far fa-plus-square"></i>
             <span>New Admin</span>
           </li>
         </a>
-        <a href="{{ route('category.index') }}" id="category">
+        <a href="{{ route('category-index') }}" id="category">
           <li>
             <i class="far fa-list-alt"></i>
             <span>Categories</span>
           </li>
         </a>
-        <a href="{{ route('pizza.list') }}" id="pizza">
+        <a href="{{ route('pizza-list') }}" id="pizza">
           <li>
             <i class="fas fa-pizza-slice"></i>
             <span>Pizzas</span>
           </li>
         </a>
-        <a href="{{ route('order.list') }}" id="order">
+        <a href="{{ route('order-list') }}" id="order">
           <li>
             <i class="fas fa-receipt"></i>
             <span>Orders</span>
           </li>
         </a>
-        <a href="{{ route('riders.index') }}" id="rider">
+        <a href="{{ route('riders-index') }}" id="rider">
           <li>
             <i class="fas fa-bicycle"></i>
             <span>Riders</span>

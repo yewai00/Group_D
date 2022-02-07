@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
 @section('content')
 
-<a href="{{ route('category.index') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+<a href="{{ route('category-index') }}" class="btn add-btn"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
 <div class="card-title">
   Upload Category
 </div>
 
 <div class="card">
   <div class="card-body">
-    <form action="{{ route('category.upload') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('category-upload') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="input-group center">
         <label for="name">Choose csv file:</label><br>

@@ -6,7 +6,7 @@
 </div>
 <div class="card">
   <div class="card-body">
-    <form action="{{ route('register.post') }}" method="post">
+    <form action="{{ route('register-post') }}" method="post">
       @csrf
       <div class="input-group">
         <label>Name</label>

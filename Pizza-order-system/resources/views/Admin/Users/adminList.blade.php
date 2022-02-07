@@ -1,16 +1,16 @@
 @extends('admin.layouts.app')
 @section('content')
 <div class="header clearfix">
-  <a href="{{ route('users.list','1') }}" class="btn add-btn">Admin List</a>
-  <a href="{{ route('users.list','0') }}" class="btn user-btn">
+  <a href="{{ route('users-list','1') }}" class="btn add-btn">Admin List</a>
+  <a href="{{ route('users-list','0') }}" class="btn user-btn">
     User List
   </a>
   <div class="right">
-    <form action="{{ route('user.search', '1') }}" method="get" class="search-form">
+    <form action="{{ route('user-search', '1') }}" method="get" class="search-form">
       <input type="text" name="search" placeholder="name or email or address">
       <button type="submit" class="btn search-btn">Search</button>
     </form>
-    <a href="{{ route('user.download','admin') }}" class="btn edit-btn">
+    <a href="{{ route('user-download','admin') }}" class="btn edit-btn">
       Download
     </a>
   </div>

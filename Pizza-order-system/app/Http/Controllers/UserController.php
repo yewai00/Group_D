@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\UserFormRequest;
@@ -72,7 +71,7 @@ class UserController extends Controller
             return view('auth.login');
         } else {
             if (Auth::user()->role === 'admin') {
-                return redirect()->route('admin.profile');
+                return redirect()->route('admin-profile');
             } elseif (Auth::user()->role === 'user') {
                 return redirect()->route('cust');
             }
@@ -91,7 +90,7 @@ class UserController extends Controller
         $status = $this->userInterface->login($request);
         if ($status) {
             if (Auth::user()->role == 'admin') {
-                return redirect()->route('admin.profile');
+                return redirect()->route('admin-profile');
             } elseif (Auth::user()->role == 'user') {
                 return redirect()->route('cust');
             }
@@ -253,7 +252,7 @@ class UserController extends Controller
     {
         $status = $this->userInterface->updateUserPassword($request);
         if ($status) {
-            return redirect()->route('admin.profile')->with(['message' => "The password is successfully updated!"]);
+            return redirect()->route('admin-profile')->with(['message' => "The password is successfully updated!"]);
         }
         return back()->with(['error' => 'The old password is invalid!']);
     }
@@ -268,7 +267,7 @@ class UserController extends Controller
         $status = $this->userInterface->updateUserPassword($request);
 
         if ($status) {
-            return redirect()->route('user.profile')->with(['message' => "The password is successfully updated!"]);
+            return redirect()->route('user-profile')->with(['message' => "The password is successfully updated!"]);
         }
         return back()->with(['error' => 'The old password is invalid!']);
     }

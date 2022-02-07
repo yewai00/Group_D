@@ -13,7 +13,7 @@
       <i class="fas fa-times close-btn"></i>
     </div>
     @endif
-    <form action="{{ route('user.profile.post', Auth::user()->id) }}" method="post">
+    <form action="{{ route('user-profile-post', Auth::user()->id) }}" method="post">
       @csrf
       <div class="input-group">
         <label>Name</label>
@@ -45,7 +45,7 @@
       </div>
       <div class="card-footer">
         <button type="submit" class="btn add-btn">Update</button>
-        <a href="{{ route('customer.password.get') }}" class="link">change password?</a>
+        <a href="{{ route('customer-password-get') }}" class="link">change password?</a>
       </div>
     </form>
   </div>

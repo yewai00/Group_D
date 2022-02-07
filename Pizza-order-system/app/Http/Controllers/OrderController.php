@@ -42,7 +42,7 @@ class OrderController extends Controller
             'rider_id' => 'required'
         ]);
         $this->orderInterface->defineRider($request);
-        return redirect()->route('order.list');
+        return redirect()->route('order-list');
     }
 
     /**

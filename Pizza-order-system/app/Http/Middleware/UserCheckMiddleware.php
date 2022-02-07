@@ -24,7 +24,7 @@ class UserCheckMiddleware
                 return back();
             }
         } else {
-            return redirect()->route('login.get');
+            return redirect()->route('login-get');
         }
     }
 }

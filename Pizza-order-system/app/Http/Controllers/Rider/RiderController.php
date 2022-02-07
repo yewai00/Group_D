@@ -46,7 +46,7 @@ class RiderController extends Controller
     public function store(StoreRiderRequest $request)
     {
         $this->riderInterface->store($request);
-        return redirect()->route('riders.index')
+        return redirect()->route('riders-index')
             ->with('success', 'rider created successfully.');
     }
 
@@ -68,7 +68,7 @@ class RiderController extends Controller
     public function update(UpdateRiderRequest $request, $id)
     {
         $this->riderInterface->update($request, $id);
-        return redirect()->route('riders.index')
+        return redirect()->route('riders-index')
             ->with('success', 'rider updated successfully.');
     }
 
@@ -94,7 +94,7 @@ class RiderController extends Controller
     public function destroy($id)
     {
         $delete = $this->riderInterface->destroy($id);
-        return redirect()->route('riders.index')
+        return redirect()->route('riders-index')
             ->with('success', 'rider deleted successfully.');
     }
 
@@ -139,6 +139,6 @@ class RiderController extends Controller
     public function upload(UploadFormRequest $request)
     {
         $this->riderInterface->upload($request);
-        return redirect()->route('riders.index')->with(['success' => 'The choose file is successfully uploaded!']);
+        return redirect()->route('riders-index')->with(['success' => 'The choose file is successfully uploaded!']);
     }
 }

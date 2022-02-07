@@ -9,15 +9,15 @@
 </div>
 @endif
 <div class="header clearfix">
-  <a href="{{ route('pizza.create.get') }}" class="btn add-btn">
+  <a href="{{ route('pizza-create-get') }}" class="btn add-btn">
     Add Pizza
   </a>
   <div class="right">
-    <form action="{{ route('pizza.search.get') }}" method="get" class="search-form">
+    <form action="{{ route('pizza-search-get') }}" method="get" class="search-form">
       <input type="text" name="search" value="{{ old('search') }}" placeholder="pizza name or description">
       <button type="submit" class="btn search-btn">Search</button>
     </form>
-    <a href="{{ route('pizza.export') }}" class="btn edit-btn">
+    <a href="{{ route('pizza-export') }}" class="btn edit-btn">
       Download
     </a>
   </div>
@@ -51,9 +51,9 @@
       </td>
       <td>{{ $item->price }}</td>
       <td class="td-action">
-        <a href="{{ route('pizza.detail',$item->id) }}" class="btn add-btn"><i class="fas fa-eye"></i></a>
-        <a href="{{ route('pizza.edit.get',$item->id) }}" class="btn edit-btn"><i class="fas fa-edit"></i></a>
-        <a href="{{ route('pizza.delete.get',$item->id) }}" class="btn delete-btn"><i class="fas fa-trash-alt"></i></a>
+        <a href="{{ route('pizza-detail',$item->id) }}" class="btn add-btn"><i class="fas fa-eye"></i></a>
+        <a href="{{ route('pizza-edit-get',$item->id) }}" class="btn edit-btn"><i class="fas fa-edit"></i></a>
+        <a href="{{ route('pizza-delete-get',$item->id) }}" class="btn delete-btn"><i class="fas fa-trash-alt"></i></a>
       </td>
     </tr>
     @endforeach

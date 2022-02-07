@@ -13,7 +13,7 @@
 </div>
 <div class="card">
   <div class="card-body">
-    <form action="{{ route('admin.new.post') }}" method="post">
+    <form action="{{ route('admin-new-post') }}" method="post">
       @csrf
       <input type="hidden" name="role" value="admin">
       <div class="input-group">

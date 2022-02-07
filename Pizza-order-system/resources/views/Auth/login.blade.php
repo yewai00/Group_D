@@ -13,7 +13,7 @@
   </div>
   @endif
   <div class="card-body">
-    <form action="{{ route('login.post') }}" method="post">
+    <form action="{{ route('login-post') }}" method="post">
       @csrf
       <div class="input-group">
         <label>Email</label><br>
@@ -39,7 +39,7 @@
       <div class="card-footer">
         <button type="submit" class="btn add-btn">Login</button>
         <button type="reset" class="btn clear-btn">Clear</button>
-        <a href="{{ route('forget.password.get')}}" class="link">
+        <a href="{{ route('forget-password-get')}}" class="link">
           forget password?
         </a>
       </div>

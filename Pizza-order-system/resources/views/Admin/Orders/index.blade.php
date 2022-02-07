@@ -10,7 +10,7 @@
 @endif
 <div class="header clearfix">
   <div class="right">
-    <form action="{{ route('order.search') }}" method="get" class="search-form">
+    <form action="{{ route('order-search') }}" method="get" class="search-form">
       <input type="text" name="key" value="{{ old('search') }}" placeholder="user name or rider name">
       <button type="submit" class="btn search-btn">Search</button>
     </form>
@@ -46,7 +46,7 @@
           </div>
           <!-- Modal content -->
           <div class="modal-content">
-            <form action="{{ route('order.rider') }}" method="post">
+            <form action="{{ route('order-rider') }}" method="post">
               @csrf
               <input type="hidden" name="order_id" value="{{ $item->id }}">
               <select name="rider_id">
@@ -65,7 +65,7 @@
       </td>
       <td>{{ \Carbon\Carbon::parse($item->created_at)->format('Y-m-d H:i:s') }}</td>
       <td class="td-action">
-        <a href="{{ route('order.detail',$item->id) }}" class="btn add-btn"><i class="fas fa-eye"></i></a>
+        <a href="{{ route('order-detail',$item->id) }}" class="btn add-btn"><i class="fas fa-eye"></i></a>
       </td>
     </tr>
     @endforeach

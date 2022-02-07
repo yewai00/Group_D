@@ -13,7 +13,7 @@
       <i class="fas fa-times close-btn"></i>
     </div>
     @endif
-    <form action="{{ route('customer.password.post',Auth::user()->id) }}" method="post">
+    <form action="{{ route('customer-password-post',Auth::user()->id) }}" method="post">
       @csrf
       <div class="input-group">
         <label>Old Password</label>
