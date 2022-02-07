@@ -57,7 +57,7 @@ class UserController extends Controller
             'email' => 'unique:users,email',
         ]);
         $this->userInterface->saveUser($request);
-        return redirect()->route('login.get');
+        return redirect()->route('login-get');
     }
 
     /**
