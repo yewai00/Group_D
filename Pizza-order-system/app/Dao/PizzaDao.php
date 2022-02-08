@@ -2,6 +2,7 @@
 
 namespace App\Dao;
 
+use Carbon\Carbon;
 use App\Models\Pizza;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -140,14 +141,12 @@ class PizzaDao  implements PizzaDaoInterface
      */
     public function graph()
     {
-        $previous_week = strtotime("-1 week +1 day");
-        $start_week = strtotime("last sunday midnight", $previous_week);
-        $end_week = strtotime("next saturday", $start_week);
-        $start_week = date("Y-m-d", $start_week);
-        $end_week = date("Y-m-d", $end_week);
         return  Pizza::join('order_pizzas', 'pizzas.id', 'order_pizzas.pizza_id')
             ->select(DB::raw('sum(quantity) as count, pizzas.name'))
-            ->whereBetween('order_pizzas.created_at', [$start_week, $end_week])
+            ->whereBetween(
+                'order_pizzas.created_at',
+                [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->subWeek()->endOfWeek()]
+            )
             ->groupBy('pizzas.id')
             ->get();
     }

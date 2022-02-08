@@ -188,7 +188,7 @@ class UserController extends Controller
      */
     public function showAdminProfile()
     {
-        return view('Admin.Profile.profile');
+        return view('admin.profile.profile');
     }
     /**
      * to redirect user profile
