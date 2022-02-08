@@ -91,7 +91,7 @@ class PizzaController extends Controller
     public function submitEditPizzaForm(PizzaFormRequest $request, $id)
     {
         $this->pizzaInterface->editPizza($request, $id);
-        return redirect()->route('pizza-list')->with(['message' => 'The pizza is successfully updated!']);
+        return redirect()->to($request->last_url)->with(['message' => 'The pizza is successfully updated!']);
     }
 
     /**

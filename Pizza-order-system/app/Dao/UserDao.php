@@ -122,7 +122,7 @@ class UserDao  implements UserDaoInterface
     public function getAllUsers($role)
     {
         return User::select('id', 'name', 'email', 'phone', 'address', 'role', 'created_at', 'updated_at')
-            ->where('role', $role)->paginate(8);
+            ->where('role', $role)->paginate(10);
     }
 
     /**

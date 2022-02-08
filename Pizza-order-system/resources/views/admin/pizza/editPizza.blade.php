@@ -8,6 +8,7 @@
   <div class="card-body">
     <form action="{{ route('pizza-edit-post',$pizza->id) }}" method="post" enctype="multipart/form-data">
       @csrf
+      <input type="hidden" name="last_url" value="{{  URL::previous() }}">
       <div class="input-group">
         <label>Name</label>
         <input type="text" name="name" value="{{ old('name', $pizza->name) }}">
