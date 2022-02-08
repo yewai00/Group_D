@@ -632,7 +632,7 @@ canvas{
     }
 
     .list img {
-        width: 9.766vw;
+        width: 13.766vw;
         height: 9.766vw;
     }
 
@@ -901,6 +901,10 @@ canvas{
         font-size: 3.125vw;
     }
 
+    .nav h1 a{
+        color:#000;
+    }
+
 
     .content {
         width: 100%;
@@ -1007,7 +1011,7 @@ canvas{
     }
 
     .list img {
-        width: 15.625vw;
+        width: 20.625vw;
         height: 15.625vw;
     }
 
