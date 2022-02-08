@@ -80,7 +80,7 @@
       <div class="graph-title">
         <h2>Pizza Sales Graph For Last Week</h2>
       </div>
-      <canvas id="graphCanvas"></canvas>
+      <div class="chart-container"><canvas id="graphCanvas"></canvas></div>
     </div>
   </div>
   <script>
