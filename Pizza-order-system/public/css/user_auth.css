@@ -1,0 +1,316 @@
+@font-face {
+    font-family: Roboto-regular;
+    src: url("../font/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: Roboto-bold;
+    src: url("../font/Roboto-Bold.ttf");
+}
+
+body {
+    line-height: 1;
+    font-family: Roboto-regular;
+    font-size: 14px;
+}
+
+label {
+    font-family: Roboto-bold;
+}
+
+button {
+    border: 0;
+}
+
+.card {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 50px;
+    padding: 20px 50px;
+    background-color: #EAF4F4;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 1px solid #989898;
+    border-right: 1px solid #989898;
+    border-bottom: 1px solid #989898;
+}
+
+.card-title {
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #989898;
+    background-color: #EAF4F4;
+    font-size: 24px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+.card input[type=text],
+.card input[type=email],
+.card input[type=password] {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #686868;
+    border-radius: 5px;
+}
+
+.card .btn {
+    margin-top: 20px;
+}
+
+.card-footer {
+    text-align: center;
+}
+
+.card-footer .btn {
+    margin: 20px 30px;
+}
+
+.input-group {
+    margin-top: 20px;
+}
+
+.error {
+    color: #ff0000;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.add-btn {
+    background-color: #52B8F2;
+}
+
+.clear-btn {
+    background-color: #787878;
+}
+
+
+.error-alert {
+    margin-bottom: 30px;
+    padding: 15px 50px;
+    background-color: #f3c590;
+    border-radius: 5px;
+}
+
+.error-alert span {
+    display: inline-block;
+    padding: 5px;
+}
+
+.error-alert i {
+    float: right;
+    line-height: 1;
+    font-size: 24px;
+}
+
+
+.clearfix::before,
+.clearfix::after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+.link {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+/*ipad*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: 1.172vw;
+    }
+
+    .card-title {
+        font-size: 1.563vw;
+    }
+
+    .btn {
+        padding: 0.977vw;
+        font-size: 1.172vw;
+        border-radius: 0.488vw;
+    }
+
+    .search-form input {
+        width: 14.648vw;
+        padding: 0.488vw 0.977vw;
+        border: 0.098vw solid #696969;
+        border-radius: 0.977vw;
+    }
+
+    .header {
+        margin-bottom: 2.441vw;
+    }
+
+    .card {
+        width: 70%;
+        margin: auto;
+        padding: 1.953vw 4.883vw;
+        border-bottom-left-radius: 0.977vw;
+        border-bottom-right-radius: 0.977vw;
+        border-left: 0.098vw solid #989898;
+        border-right: 0.098vw solid #989898;
+        border-bottom: 0.098vw solid #989898;
+    }
+
+    .card-title {
+        width: 70%;
+        margin-top: 5vw;
+        padding: 1.953vw;
+        border: 0.098vw solid #989898;
+        font-size: 2.148vw;
+        border-top-left-radius: 0.977vw;
+        border-top-right-radius: 0.977vw;
+    }
+
+
+    .card input[type=text],
+    .card input[type=email],
+    .card input[type=password],
+    .card select,
+    .card textarea {
+        width: 100%;
+        margin-top: 0.488vw;
+        padding: 0.781vw;
+        border: 0.098vw solid #686868;
+        border-radius: 0.488vw;
+    }
+
+    .card input[type=radio],
+    .card input[type=file] {
+        margin-top: 0.488vw;
+    }
+
+    .card input[type=radio] {
+        margin-right: 0.488vw;
+    }
+
+    .card .btn {
+        margin-top: 1.953vw;
+    }
+
+    .card-footer .btn {
+        margin: 1.953vw 2.930vw;
+    }
+
+    .error-alert {
+        margin-bottom: 1.953vw;
+        padding: 1.465vw 2.930vw;
+        border-radius: 0.488vw;
+    }
+
+    .error-alert span {
+        padding: 0.488vw;
+    }
+
+    .error-alert i {
+        font-size: 1.953vw;
+    }
+}
+
+/*sp*/
+@media screen and (max-width: 767.9px) {
+
+    body {
+        position: relative;
+        font-size: 1.563vw;
+    }
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .btn {
+        padding: 1.250vw;
+        font-size: 1.563vw;
+        border-radius: 0.469vw;
+    }
+
+    .card {
+        width: 80%;
+        padding: 1.563vw 4.688vw;
+        border-bottom-left-radius: 1.563vw;
+        border-bottom-right-radius: 1.563vw;
+        border-left: 0.156vw solid #989898;
+        border-right: 0.156vw solid #989898;
+        border-bottom: 0.156vw solid #989898;
+    }
+
+    .card-title {
+        width: 80%;
+        margin-top: 7.5vw;
+        padding: 2.344vw;
+        border: 0.156vw solid #989898;
+        background-color: #EAF4F4;
+        font-size: 2.344vw;
+        border-top-left-radius: 1.563vw;
+        border-top-right-radius: 1.563vw;
+    }
+
+
+    .card input[type=text],
+    .card input[type=email],
+    .card input[type=password],
+    .card select,
+    .card textarea {
+        width: 100%;
+        margin-top: 0.781vw;
+        padding: 1.094vw;
+        border: 0.156vw solid #686868;
+        border-radius: 0.781vw;
+    }
+
+    .card input[type=radio],
+    .card input[type=file] {
+        margin-top: 0.781vw;
+    }
+
+    .card input[type=radio] {
+        margin-right: 0.781vw;
+    }
+
+    .card input[type=checkbox] {
+        width: 1.406vw;
+        height: 1.406vw;
+    }
+
+    .card .btn {
+        margin-top: 2.344vw;
+    }
+
+    .card-footer .btn {
+        margin: 2.344vw 3.906vw;
+    }
+
+    .input-group {
+        margin-top: 2.344vw;
+    }
+
+
+    .error-alert {
+        margin-bottom: 3.125vw;
+        padding: 1.563vw 2.344vw;
+        border-radius: 0.5vw;
+    }
+
+    .error-alert span {
+        padding: 0.781vw;
+    }
+
+    .error-alert i {
+        font-size: 3.125vw;
+    }
+
+}
